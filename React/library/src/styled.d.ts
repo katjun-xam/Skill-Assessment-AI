@@ -7,6 +7,7 @@ declare module "styled-components" {
     secondary: string;
     secondaryAccent: string;
     bgWhite: string;
+    disabled: string;
     borderRadiusMd: string;
     borderRadiusSm: string;
     btPadding: string;

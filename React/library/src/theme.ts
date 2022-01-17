@@ -6,18 +6,19 @@ const lightTheme: DefaultTheme = {
   primaryAccent: "#A698DD",
   // SECONDARY
   secondary: "#B81237",
-  secondaryAccent: "#B04090",
+  secondaryAccent: "#DA557A",
   // COMMON
   bgWhite: "#FFF",
+  disabled: "#EDEDED",
   // UI
   borderRadiusMd: "8px",
   borderRadiusSm: "4px",
-  btPadding: "12px 62px",
+  btPadding: "12px 42px",
   // TEXT
   textWhite: "white",
   textExtraLight: "snow",
   textLight: "#C7C0E3",
-  textMedium: "#CCC",
+  textMedium: "#BBB",
   textDark: "#AAA",
   textExtraDark: "#555",
   textBlack: "black",
