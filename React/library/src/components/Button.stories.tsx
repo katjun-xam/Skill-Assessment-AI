@@ -26,6 +26,7 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   variant: "disabled",
   label: "disabled",
+  tabIndex: -1,
 };
 export const OutlinePrimary = Template.bind({});
 OutlinePrimary.args = {
@@ -41,6 +42,7 @@ export const outlineDisabled = Template.bind({});
 outlineDisabled.args = {
   variant: "outlineDisabled",
   label: "outlineDisabled",
+  tabIndex: -1,
 };
 export const startIcon = Template.bind({});
 startIcon.args = {

@@ -104,14 +104,22 @@ interface IButtonProps {
   startIcon: ReactNode;
   endIcon: ReactNode;
   label: string;
+  tabIndex?: number;
 }
 
-const Button = ({ variant, startIcon, endIcon, label }: IButtonProps) => {
+const Button = ({
+  variant,
+  startIcon,
+  endIcon,
+  label,
+  tabIndex,
+}: IButtonProps) => {
   return (
     <ButtonContainer
       variant={variant}
       hasStartIcon={Boolean(startIcon)}
       hasEndIcon={Boolean(endIcon)}
+      tabIndex={tabIndex}
     >
       {startIcon && <StartIconContainer>{startIcon}</StartIconContainer>}
       <span>{label}</span>
