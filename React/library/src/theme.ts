@@ -10,6 +10,7 @@ const lightTheme: DefaultTheme = {
   // COMMON
   bgWhite: "#FFF",
   disabled: "#EDEDED",
+  bgGrey: "rgba(30,30,30,0.5)",
   // UI
   borderRadiusMd: "8px",
   borderRadiusSm: "4px",

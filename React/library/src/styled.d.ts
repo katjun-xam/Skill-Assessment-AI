@@ -18,5 +18,6 @@ declare module "styled-components" {
     textDark: string;
     textExtraDark: string;
     textBlack: string;
+    bgGrey: string;
   }
 }

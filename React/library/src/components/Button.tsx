@@ -105,6 +105,7 @@ interface IButtonProps {
   endIcon: ReactNode;
   label: string;
   tabIndex?: number;
+  onClick?: () => void;
 }
 
 const Button = ({
@@ -113,6 +114,7 @@ const Button = ({
   endIcon,
   label,
   tabIndex,
+  onClick,
 }: IButtonProps) => {
   return (
     <ButtonContainer
@@ -120,6 +122,7 @@ const Button = ({
       hasStartIcon={Boolean(startIcon)}
       hasEndIcon={Boolean(endIcon)}
       tabIndex={tabIndex}
+      onClick={onClick}
     >
       {startIcon && <StartIconContainer>{startIcon}</StartIconContainer>}
       <span>{label}</span>
