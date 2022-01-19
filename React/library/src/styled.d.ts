@@ -8,9 +8,11 @@ declare module "styled-components" {
     secondaryAccent: string;
     bgWhite: string;
     disabled: string;
+    disabledDark: string;
     borderRadiusMd: string;
     borderRadiusSm: string;
     btPadding: string;
+    btHeight: string;
     textWhite: string;
     textExtraLight: string;
     textLight: string;
