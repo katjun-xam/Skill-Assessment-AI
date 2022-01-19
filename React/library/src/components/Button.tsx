@@ -2,128 +2,206 @@ import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
 
 const ButtonContainer = styled.button<{
-  variant: string;
-  hasStartIcon: boolean;
-  hasEndIcon: boolean;
+  color: string;
+  variant?: string;
+  disabled: boolean;
+  wide: boolean;
+  centered?: boolean;
 }>(
   (props) => css`
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: ${props.theme.textWhite};
-    border-radius: ${props.theme.borderRadiusMd};
-    padding: ${props.theme.btPadding};
+    border: none;
+    background-color: transparent;
     cursor: pointer;
-    ${props.variant === "primary" &&
+    min-height: ${props.theme.btHeight};
+    margin: 4px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    user-select: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+    & svg {
+      display: block;
+    }
+
+    ${props.color === "primary" &&
     css`
-      background-color: ${props.theme.primary};
-      border-color: transparent;
-      &:hover {
-        background-color: ${props.theme.primaryAccent};
-        color: ${props.theme.textLight};
+      color: ${props.theme.primary};
+      & svg {
+        fill: ${props.theme.primary};
       }
+      &:hover {
+        color: ${props.theme.primaryAccent};
+      }
+    `};
+    ${props.color === "secondary" &&
+    css`
+      color: ${props.theme.secondary};
+      & svg {
+        fill: ${props.theme.secondary};
+      }
+      &:hover {
+        color: ${props.theme.secondaryAccent};
+      }
+    `};
+
+    ${props.variant === "contained" &&
+    css`
+      border-radius: ${props.theme.borderRadiusMd};
+      padding: ${props.theme.btPadding};
       & svg {
         fill: ${props.theme.textWhite};
-        path {
-          fill: ${props.theme.textWhite};
-        }
       }
-    `};
-    ${props.variant === "secondary" &&
-    css`
-      background-color: ${props.theme.secondary};
-      border-color: transparent;
-      &:hover {
-        background-color: ${props.theme.secondaryAccent};
-        color: ${props.theme.textLight};
-      }
-    `};
-    ${props.variant === "disabled" &&
-    css`
-      border-color: transparent;
-      color: ${props.theme.textMedium};
-      background-color: ${props.theme.disabled};
-      pointer-events: none;
-      cursor: default;
-    `}
-    ${props.variant === "outlinePrimary" &&
-    css`
-      box-sizing: border-box;
-      border: ${`2px solid ${props.theme.primary}`};
-      background-color: ${props.theme.bgWhite};
-      color: ${props.theme.primary};
-      &:hover {
-        border: ${`2px solid ${props.theme.primary}`};
-        color: ${props.theme.textExtraLight};
+      ${props.color === "primary" &&
+      css`
         background-color: ${props.theme.primary};
-      }
-    `};
-    ${props.variant === "outlineSecondary" &&
-    css`
-      box-sizing: border-box;
-      border: ${`2px solid ${props.theme.secondary}`};
-      background-color: ${props.theme.bgWhite};
-      color: ${props.theme.secondary};
-      &:hover {
-        border: ${`2px solid ${props.theme.secondary}`};
-        color: ${props.theme.textExtraLight};
+        color: ${props.theme.textWhite};
+        border: ${`2px solid ${props.theme.primary}`};
+        &:hover {
+          background-color: ${props.theme.primaryAccent};
+          border: ${`2px solid ${props.theme.primaryAccent}`};
+          color: ${props.theme.textExtraLight};
+        }
+      `};
+      ${props.color === "secondary" &&
+      css`
         background-color: ${props.theme.secondary};
+        color: ${props.theme.textWhite};
+        border: ${`2px solid ${props.theme.secondary}`};
+        &:hover {
+          background-color: ${props.theme.secondaryAccent};
+          border: ${`2px solid ${props.theme.secondaryAccent}`};
+          color: ${props.theme.textExtraLight};
+        }
+      `};
+      &:hover {
+        text-decoration: none;
       }
     `};
-    ${props.variant === "outlineDisabled" &&
+
+    ${props.variant === "outlined" &&
     css`
       box-sizing: border-box;
-      border: ${`2px solid ${props.theme.disabled}`};
-      background-color: ${props.theme.bgWhite};
-      color: ${props.theme.disabled};
+      padding: ${props.theme.btPadding};
+      border-radius: ${props.theme.borderRadiusMd};
+      ${props.color === "primary" &&
+      css`
+        border: ${`2px solid ${props.theme.primary}`};
+        &:hover {
+          border-color: transparent;
+          color: ${props.theme.textExtraLight};
+          background-color: ${props.theme.primary};
+          & svg {
+            fill: ${props.theme.textWhite};
+          }
+        }
+      `};
+      ${props.color === "secondary" &&
+      css`
+        border: ${`2px solid ${props.theme.secondary}`};
+        &:hover {
+          border-color: transparent;
+          color: ${props.theme.textExtraLight};
+          background-color: ${props.theme.secondary};
+          & svg {
+            fill: ${props.theme.textWhite};
+          }
+        }
+      `};
+      &:hover {
+        text-decoration: none;
+      }
+    `};
+
+    ${props.disabled &&
+    css`
       pointer-events: none;
       cursor: default;
-    `};
-    & span {
-      transform: ${props.hasStartIcon
-        ? `translateX(20px);`
-        : props.hasEndIcon
-        ? `translateX(-20px);`
-        : ``};
-    }
+      ${props.variant === "contained" &&
+      css`
+        border-color: transparent;
+        color: ${props.theme.textMedium};
+        background-color: ${props.theme.disabled};
+      `}
+
+      ${props.variant === "outlined" &&
+      css`
+        box-sizing: border-box;
+        border: ${`2px solid ${props.theme.disabled}`};
+        background-color: ${props.theme.bgWhite};
+        color: ${props.theme.disabled};
+      `};
+      & svg {
+        fill: ${props.theme.disabledDark};
+      }
+    `}
+
+    ${props.wide &&
+    css`
+      width: 100%;
+    `}
+
+    ${props.centered &&
+    css`
+      justify-content: center;
+    `}
   `
 );
 
 const StartIconContainer = styled.div`
-  position: absolute;
-  left: 10px;
+  margin-right: 10px;
 `;
 const EndIconContainer = styled.div`
+  margin-left: 10px;
+`;
+const HeadIconContainer = styled.div`
   position: absolute;
-  right: 10px;
+  right: 30px;
 `;
 
 interface IButtonProps {
-  variant: string;
-  startIcon: ReactNode;
-  endIcon: ReactNode;
   label: string;
+  color: "primary" | "secondary";
+  variant?: "contained" | "outlined";
+  disabled?: boolean;
+  wide?: boolean;
+  centered?: boolean;
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
+  headIcon?: ReactNode;
   tabIndex?: number;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button = ({
+  label,
+  color,
   variant,
+  disabled = false,
+  tabIndex,
+  wide = false,
+  centered,
   startIcon,
   endIcon,
-  label,
-  tabIndex,
+  headIcon,
+  onClick,
 }: IButtonProps) => {
   return (
     <ButtonContainer
+      color={color}
       variant={variant}
-      hasStartIcon={Boolean(startIcon)}
-      hasEndIcon={Boolean(endIcon)}
-      tabIndex={tabIndex}
+      disabled={disabled}
+      onClick={onClick}
+      wide={wide}
+      centered={centered}
+      tabIndex={disabled ? -1 : tabIndex}
     >
       {startIcon && <StartIconContainer>{startIcon}</StartIconContainer>}
       <span>{label}</span>
       {endIcon && <EndIconContainer>{endIcon}</EndIconContainer>}
+      {headIcon && <HeadIconContainer>{headIcon}</HeadIconContainer>}
     </ButtonContainer>
   );
 };
