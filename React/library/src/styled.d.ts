@@ -7,6 +7,8 @@ declare module "styled-components" {
     secondary: string;
     secondaryAccent: string;
     bgWhite: string;
+    bgLight: string;
+    bgDark: string;
     disabled: string;
     disabledDark: string;
     borderRadiusMd: string;
@@ -20,6 +22,5 @@ declare module "styled-components" {
     textDark: string;
     textExtraDark: string;
     textBlack: string;
-    bgGrey: string;
   }
 }

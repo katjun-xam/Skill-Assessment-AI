@@ -9,7 +9,8 @@ const lightTheme: DefaultTheme = {
   secondaryAccent: "#DC6C84",
   // COMMON
   bgWhite: "#FFF",
-  bgGrey: "rgba(30,30,30,0.5)",
+  bgLight: "#EFF2F5",
+  bgDark: "rgba(30,30,30,0.5)",
   disabled: "#E0E0E0",
   disabledDark: "#CDCDCD",
   // UI

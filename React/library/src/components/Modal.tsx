@@ -15,7 +15,7 @@ const ModalContainer = styled.div(
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${props.theme.bgGrey};
+    background: ${props.theme.bgDark};
     overflow: auto;
   `
 );
@@ -115,7 +115,7 @@ const ModalBody = styled.div<{
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          border: 1px solid #000;
+          border: 1px solid ${props.theme.textBlack};
           padding: 28px 28px 0px 28px;
         }
       `}
@@ -133,7 +133,7 @@ const ModalHeader = styled.div(
       cursor: pointer;
       width: 18px;
       height: 18px;
-      fill: #8c9ba5;
+      fill: ${props.theme.textDark};
       flex-shrink: 0;
     }
   `
@@ -152,7 +152,7 @@ const ModalFooter = styled.div(
       padding: 20px 28px;
       display: inline-flex;
       justify-content: flex-end;
-      background-color: #eff2f5;
+      background-color: ${props.theme.bgLight};
       border-bottom-left-radius: ${props.theme.borderRadiusMd};
       border-bottom-right-radius: ${props.theme.borderRadiusMd};
       width: 100%;
