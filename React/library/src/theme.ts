@@ -6,23 +6,25 @@ const lightTheme: DefaultTheme = {
   primaryAccent: "#A698DD",
   // SECONDARY
   secondary: "#B81237",
-  secondaryAccent: "#DA557A",
+  secondaryAccent: "#DC6C84",
   // COMMON
   bgWhite: "#FFF",
-  disabled: "#EDEDED",
   bgGrey: "rgba(30,30,30,0.5)",
+  disabled: "#E0E0E0",
+  disabledDark: "#CDCDCD",
   // UI
   borderRadiusMd: "8px",
   borderRadiusSm: "4px",
-  btPadding: "12px 42px",
+  btPadding: "0px 42px",
+  btHeight: "52px",
   // TEXT
-  textWhite: "white",
-  textExtraLight: "snow",
+  textWhite: "#FFF",
+  textExtraLight: "#DDD",
   textLight: "#C7C0E3",
   textMedium: "#BBB",
   textDark: "#AAA",
   textExtraDark: "#555",
-  textBlack: "black",
+  textBlack: "#000",
 };
 
 export { lightTheme };

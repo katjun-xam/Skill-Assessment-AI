@@ -1,7 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import { Counter } from "./features/counter/Counter";
+import "./App.css";
+import Button from "./components/Button";
 
 function App() {
   return (
@@ -51,6 +52,14 @@ function App() {
           </a>
         </span>
       </header>
+      <main>
+        <Button
+          variant="contained"
+          color="primary"
+          label="Test Button"
+          onClick={() => alert("it works!")}
+        />
+      </main>
     </div>
   );
 }
