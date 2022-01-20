@@ -5,6 +5,12 @@ import Modal from "./Modal";
 export default {
   title: "UI/Modal",
   component: Modal,
+  argTypes: {
+    animationType: {
+      options: ["grow", "top", "bottom", "left", "right", "fadeIn"],
+      control: { type: "radio" },
+    },
+  },
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
@@ -19,6 +25,7 @@ WithAnimation.args = {
   heading: "Modal heading 1",
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   animate: true,
+  animationType: "grow",
 };
 export const LongContent = Template.bind({});
 LongContent.args = {

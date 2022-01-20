@@ -20,7 +20,11 @@ const ModalContainer = styled.div(
   `
 );
 
-const ModalBody = styled.div<{ animate?: string; nested?: boolean }>(
+const ModalBody = styled.div<{
+  animate?: string;
+  nested?: boolean;
+  animationType?: string;
+}>(
   (props) =>
     css`
       background: ${props.theme.bgWhite};
@@ -28,16 +32,66 @@ const ModalBody = styled.div<{ animate?: string; nested?: boolean }>(
       margin: auto;
       width: 500px;
       padding: 28px 28px 0px 28px;
+      border-radius: ${props.theme.borderRadiusMd};
       border-top: ${props.theme.borderRadiusSm} solid ${props.theme.primary};
+      position: relative;
       ${props.animate === "animateParent" &&
       css`
-        animation: grow 0.5s;
+        animation: ${props.animationType} 0.8s;
         @keyframes grow {
           0% {
             transform: scale(0);
           }
           100% {
             transform: scale(1);
+          }
+        }
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+        @keyframes top {
+          0% {
+            top: -300px;
+            opacity: 0;
+          }
+          100% {
+            top: 0;
+            opacity: 1;
+          }
+        }
+        @keyframes bottom {
+          0% {
+            bottom: -300px;
+            opacity: 0;
+          }
+          100% {
+            bottom: 0;
+            opacity: 1;
+          }
+        }
+        @keyframes left {
+          0% {
+            left: -300px;
+            opacity: 0;
+          }
+          100% {
+            left: 0;
+            opacity: 1;
+          }
+        }
+        @keyframes right {
+          0% {
+            right: -300px;
+            opacity: 0;
+          }
+          100% {
+            right: 0;
+            opacity: 1;
           }
         }
       `}
@@ -85,7 +139,11 @@ const ModalHeader = styled.div(
   `
 );
 
-const ModalContent = styled.p((props) => css``);
+const ModalContent = styled.p(
+  (props) => css`
+    color: ${props.theme.textExtraDark};
+  `
+);
 
 const ModalFooter = styled.div(
   (props) =>
@@ -95,6 +153,8 @@ const ModalFooter = styled.div(
       display: inline-flex;
       justify-content: flex-end;
       background-color: #eff2f5;
+      border-bottom-left-radius: ${props.theme.borderRadiusMd};
+      border-bottom-right-radius: ${props.theme.borderRadiusMd};
       width: 100%;
       button {
         margin-left: 15px;
@@ -102,13 +162,14 @@ const ModalFooter = styled.div(
     `
 );
 
-interface Props {
+interface IModalProps {
   heading: string;
   content: string;
   animate?: boolean;
   nested?: boolean;
   childHeading?: string;
   childContent?: string;
+  animationType?: string;
 }
 
 const Modal = ({
@@ -118,32 +179,34 @@ const Modal = ({
   nested,
   childHeading,
   childContent,
-}: Props) => {
-  const [modal, setModal] = useState(false);
-  const [childModal, setChildModal] = useState(false);
+  animationType,
+}: IModalProps) => {
+  const [modalVisibility, setModalVisibility] = useState(false);
+  const [childModalVisibility, setChildModalVisibility] = useState(false);
 
   const toggleModal = (nested?: boolean | undefined) => {
     if (nested) {
-      setChildModal(!childModal);
+      setChildModalVisibility(!childModalVisibility);
     } else {
-      setModal(!modal);
+      setModalVisibility(!modalVisibility);
     }
   };
 
   return (
     <>
       <Button
-        variant="outlinePrimary"
-        startIcon=""
-        endIcon=""
+        color="primary"
+        variant="outlined"
         label="Open"
         onClick={() => toggleModal()}
       />
-      {modal && (
-        <ModalContainer>
+      {modalVisibility && (
+        <ModalContainer onClick={() => toggleModal()}>
           <ModalBody
             animate={animate ? "animateParent" : ""}
-            nested={childModal && nested}
+            nested={childModalVisibility && nested}
+            onClick={(e) => e.stopPropagation()}
+            animationType={animationType}
           >
             <ModalHeader>
               <h2>{heading}</h2>
@@ -152,14 +215,13 @@ const Modal = ({
             <ModalContent>{content}</ModalContent>
             <ModalFooter>
               <Button
-                variant="primary"
-                startIcon=""
-                endIcon=""
+                color="primary"
+                variant="contained"
                 label="Primary"
                 onClick={() => toggleModal(nested)}
               />
             </ModalFooter>
-            {childModal && (
+            {childModalVisibility && (
               <ModalBody animate={animate ? "animateChild" : ""}>
                 <ModalHeader>
                   <h2>{childHeading}</h2>
@@ -168,9 +230,8 @@ const Modal = ({
                 <ModalContent>{childContent}</ModalContent>
                 <ModalFooter>
                   <Button
-                    variant="primary"
-                    startIcon=""
-                    endIcon=""
+                    color="primary"
+                    variant="contained"
                     label="Close Child"
                     onClick={() => toggleModal(nested)}
                   />
