@@ -13,7 +13,6 @@ const ButtonContainer = styled.button<{
     background-color: transparent;
     cursor: pointer;
     min-height: ${props.theme.btHeight};
-    margin: 4px 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
