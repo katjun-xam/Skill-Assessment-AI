@@ -93,11 +93,11 @@ const BreadcrumbContainer = styled.div<{ customSeparator?: boolean }>(
   `
 );
 interface IBreadCrumbProps {
-  links: IBreadCrumbLinks[];
+  links: IBreadCrumbLink[];
   separator?: string | ReactNode;
   customSeparator?: boolean;
 }
-interface IBreadCrumbLinks {
+interface IBreadCrumbLink {
   label: string;
   url: string;
   image?: ReactNode;
