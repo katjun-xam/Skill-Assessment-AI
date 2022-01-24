@@ -1,14 +1,14 @@
-import React from 'react'
-import { Story } from '@storybook/react';
+import React from "react";
+import { Story } from "@storybook/react";
 
-import Header from './Header'
-
+import Header from "./Header";
 
 export default {
-  title: 'Common/Header',
+  title: "Common/Header",
   component: Header,
-}
+};
 
-const Template: Story = args => <Header {...args} />;
+const Template: Story = (args) => <Header title={args.title} {...args} />;
 
 export const Default = Template.bind({});
+Default.args = { title: "Storybook" };
