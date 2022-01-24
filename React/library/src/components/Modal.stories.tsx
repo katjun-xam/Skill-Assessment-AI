@@ -20,11 +20,16 @@ Basic.args = {
   heading: "Modal heading 1",
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
 };
-export const WithAnimation = Template.bind({});
-WithAnimation.args = {
+export const DefaultAnimation = Template.bind({});
+DefaultAnimation.args = {
   heading: "Modal heading 1",
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   animate: true,
+};
+export const WithAnimationType = Template.bind({});
+WithAnimationType.args = {
+  heading: "Modal heading 1",
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   animationType: "grow",
 };
 export const LongContent = Template.bind({});

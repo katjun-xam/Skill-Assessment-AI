@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Button from "./Button";
 import { ReactComponent as IconClose } from "./../assets/icons/icon-close.svg";
+import ButtonGroup from "./ButtonGroup";
 
 const ModalContainer = styled.div(
   (props) => css`
@@ -30,12 +31,12 @@ const ModalBody = styled.div<{
       background: ${props.theme.bgWhite};
       height: auto;
       margin: auto;
-      width: 500px;
+      width: 41.7%;
       padding: 28px 28px 0px 28px;
       border-radius: ${props.theme.borderRadiusMd};
       border-top: ${props.theme.borderRadiusSm} solid ${props.theme.primary};
       position: relative;
-      ${props.animate === "animateParent" &&
+      ${props.animationType &&
       css`
         animation: ${props.animationType} 0.8s;
         @keyframes grow {
@@ -111,7 +112,7 @@ const ModalBody = styled.div<{
       css`
         & > div:last-child {
           position: absolute;
-          width: 300px;
+          width: 62%;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
@@ -146,20 +147,27 @@ const ModalContent = styled.p(
 );
 
 const ModalFooter = styled.div(
-  (props) =>
-    css`
-      margin: 10px -28px 0px -28px;
-      padding: 20px 28px;
-      display: inline-flex;
-      justify-content: flex-end;
-      background-color: ${props.theme.bgLight};
-      border-bottom-left-radius: ${props.theme.borderRadiusMd};
-      border-bottom-right-radius: ${props.theme.borderRadiusMd};
-      width: 100%;
+  (props) => css`
+    margin: 10px -28px 0px -28px;
+    padding: 20px 28px;
+    display: inline-flex;
+    justify-content: flex-end;
+    width: 100%;
+    background-color: ${props.theme.bgLight};
+    border-bottom-left-radius: ${props.theme.borderRadiusMd};
+    border-bottom-right-radius: ${props.theme.borderRadiusMd};
+    & > div {
       button {
-        margin-left: 15px;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        @media all and (max-width: ${props.theme.breakpoints.sm}) {
+          &:not(:first-child) {
+            margin-left: 3vw;
+          }
+        }
       }
-    `
+    }
+  `
 );
 
 interface IModalProps {
@@ -181,7 +189,7 @@ const Modal = ({
   childContent,
   animationType,
 }: IModalProps) => {
-  const [modalVisibility, setModalVisibility] = useState(false);
+  const [modalVisibility, setModalVisibility] = useState(true);
   const [childModalVisibility, setChildModalVisibility] = useState(false);
 
   const toggleModal = (nested?: boolean | undefined) => {
@@ -194,19 +202,14 @@ const Modal = ({
 
   return (
     <>
-      <Button
-        color="primary"
-        variant="outlined"
-        label="Open"
-        onClick={() => toggleModal()}
-      />
       {modalVisibility && (
         <ModalContainer onClick={() => toggleModal()}>
           <ModalBody
-            animate={animate ? "animateParent" : ""}
+            animationType={
+              animate ? "fadeIn" : animationType ? animationType : ""
+            }
             nested={childModalVisibility && nested}
             onClick={(e) => e.stopPropagation()}
-            animationType={animationType}
           >
             <ModalHeader>
               <h2>{heading}</h2>
@@ -214,27 +217,57 @@ const Modal = ({
             </ModalHeader>
             <ModalContent>{content}</ModalContent>
             <ModalFooter>
-              <Button
-                color="primary"
-                variant="contained"
-                label="Primary"
-                onClick={() => toggleModal(nested)}
-              />
+              <ButtonGroup inline gap={20}>
+                <>
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    label="Cancel"
+                    wide
+                    centered
+                    onClick={() => toggleModal()}
+                  />
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    label="Confirm"
+                    wide
+                    centered
+                    onClick={() => toggleModal(nested)}
+                  />
+                </>
+              </ButtonGroup>
             </ModalFooter>
             {childModalVisibility && (
-              <ModalBody animate={animate ? "animateChild" : ""}>
+              <ModalBody
+                animate={animate || animationType ? "animateChild" : ""}
+              >
                 <ModalHeader>
                   <h2>{childHeading}</h2>
                   <IconClose onClick={() => toggleModal(nested)} />
                 </ModalHeader>
                 <ModalContent>{childContent}</ModalContent>
                 <ModalFooter>
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    label="Close Child"
-                    onClick={() => toggleModal(nested)}
-                  />
+                  <ButtonGroup inline gap={20}>
+                    <>
+                      <Button
+                        color="primary"
+                        variant="contained"
+                        label="Cancel"
+                        wide
+                        centered
+                        onClick={() => toggleModal(nested)}
+                      />
+                      <Button
+                        color="primary"
+                        variant="contained"
+                        label="Confirm"
+                        wide
+                        centered
+                        onClick={() => toggleModal(nested)}
+                      />
+                    </>
+                  </ButtonGroup>
                 </ModalFooter>
               </ModalBody>
             )}

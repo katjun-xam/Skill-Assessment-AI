@@ -26,6 +26,8 @@ const lightTheme: DefaultTheme = {
   textDark: "#AAA",
   textExtraDark: "#555",
   textBlack: "#000",
+  //BREAKPOINTS
+  breakpoints: { sm: "480px", md: "900px", lg: "1200px" },
 };
 
 export { lightTheme };
