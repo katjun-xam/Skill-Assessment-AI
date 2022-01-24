@@ -22,5 +22,10 @@ declare module "styled-components" {
     textDark: string;
     textExtraDark: string;
     textBlack: string;
+    breakpoints: {
+      sm: string;
+      md: string;
+      lg: string;
+    };
   }
 }
