@@ -22,6 +22,15 @@ const TitleContainer = styled.div`
   align-items: center;
 `;
 
+const TitleText = styled.h1(
+  (props) => css`
+    display: none;
+    @media all and (min-width: ${props.theme.breakpoints.md}) {
+      display: block;
+    }
+  `
+);
+
 interface IHeaderProps {
   title: string;
   logo?: ReactNode;
@@ -33,7 +42,7 @@ const Header = ({ title, logo, children }: IHeaderProps) => {
     <HeaderContainer>
       <TitleContainer>
         <LogoContainer>{logo}</LogoContainer>
-        <h1>{title}</h1>
+        <TitleText>{title}</TitleText>
       </TitleContainer>
       {children}
     </HeaderContainer>

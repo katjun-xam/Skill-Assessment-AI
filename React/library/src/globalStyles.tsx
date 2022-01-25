@@ -1,22 +1,31 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, DefaultTheme } from "styled-components";
 
-const GlobalStyles = createGlobalStyle`
-    body {
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        margin: 0;
-    }
-    main {
-        padding: 64px 32px;      
-    }
+const GlobalStyles = createGlobalStyle<{ theme: DefaultTheme }>`
+body {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    margin: 0;
+}
+main {
+    padding: 64px 32px;
+}
     h1 {
+    font-size: 20px;
+    @media all and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         font-size: 26px;
     }
+}
     h2 {
+    font-size: 16px;
+    @media all and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         font-size: 22px;
     }
-    h3 {
+}
+h3 {
+    font-size: 12px;
+    @media all and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         font-size: 18px;
     }
+}
 `;
 
 export default GlobalStyles;

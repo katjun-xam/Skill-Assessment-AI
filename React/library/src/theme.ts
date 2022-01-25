@@ -1,6 +1,6 @@
 import { DefaultTheme } from "styled-components";
 
-const lightTheme: DefaultTheme = {
+const lightTheme = {
   // PRIMARY
   primary: "#6247B4",
   primaryAccent: "#A698DD",

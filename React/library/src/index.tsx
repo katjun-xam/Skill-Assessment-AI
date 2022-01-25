@@ -11,8 +11,8 @@ import { lightTheme } from "./theme";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <GlobalStyles />
       <ThemeProvider theme={lightTheme}>
+        <GlobalStyles />
         <App />
       </ThemeProvider>
     </Provider>
