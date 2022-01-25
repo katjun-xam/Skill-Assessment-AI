@@ -32,6 +32,14 @@ const ModalBody = styled.div<{
       height: auto;
       margin: auto;
       width: 41.7%;
+      @media all and (max-width: ${props.theme.breakpoints.sm}) {
+        width: 100%;
+        margin: 0px;
+        height: 100vh;
+        border-radius: 0px;
+        padding: 0px 28px 0px 28px;
+        border-top: none;
+      }
       padding: 28px 28px 0px 28px;
       border-radius: ${props.theme.borderRadiusMd};
       border-top: ${props.theme.borderRadiusSm} solid ${props.theme.primary};
@@ -137,6 +145,9 @@ const ModalHeader = styled.div(
       fill: ${props.theme.textDark};
       flex-shrink: 0;
     }
+    @media all and (max-width: ${props.theme.breakpoints.sm}) {
+      padding-top: 28px;
+    }
   `
 );
 
@@ -156,6 +167,16 @@ const ModalFooter = styled.div(
     background-color: ${props.theme.bgLight};
     border-bottom-left-radius: ${props.theme.borderRadiusMd};
     border-bottom-right-radius: ${props.theme.borderRadiusMd};
+    @media all and (max-width: ${props.theme.breakpoints.sm}) {
+      padding: 20px 0px;
+      position: absolute;
+      bottom: 0px;
+      margin: 0px -28px 0px -28px;
+      border-radius: 0px;
+      & > div {
+        margin-right: 28px;
+      }
+    }
     & > div {
       button {
         padding-left: 2vw;
@@ -178,6 +199,8 @@ interface IModalProps {
   childHeading?: string;
   childContent?: string;
   animationType?: string;
+  onSubmit: (action: string, nested?: boolean, child?: boolean) => void;
+  childModalVisibility?: boolean;
 }
 
 const Modal = ({
@@ -188,92 +211,81 @@ const Modal = ({
   childHeading,
   childContent,
   animationType,
+  onSubmit,
+  childModalVisibility,
 }: IModalProps) => {
-  const [modalVisibility, setModalVisibility] = useState(true);
-  const [childModalVisibility, setChildModalVisibility] = useState(false);
-
-  const toggleModal = (nested?: boolean | undefined) => {
-    if (nested) {
-      setChildModalVisibility(!childModalVisibility);
-    } else {
-      setModalVisibility(!modalVisibility);
-    }
-  };
-
   return (
     <>
-      {modalVisibility && (
-        <ModalContainer onClick={() => toggleModal()}>
-          <ModalBody
-            animationType={
-              animate ? "fadeIn" : animationType ? animationType : ""
-            }
-            nested={childModalVisibility && nested}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <ModalHeader>
-              <h2>{heading}</h2>
-              <IconClose onClick={() => toggleModal()} />
-            </ModalHeader>
-            <ModalContent>{content}</ModalContent>
-            <ModalFooter>
-              <ButtonGroup inline gap={20}>
-                <>
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    label="Cancel"
-                    wide
-                    centered
-                    onClick={() => toggleModal()}
-                  />
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    label="Confirm"
-                    wide
-                    centered
-                    onClick={() => toggleModal(nested)}
-                  />
-                </>
-              </ButtonGroup>
-            </ModalFooter>
-            {childModalVisibility && (
-              <ModalBody
-                animate={animate || animationType ? "animateChild" : ""}
-              >
-                <ModalHeader>
-                  <h2>{childHeading}</h2>
-                  <IconClose onClick={() => toggleModal(nested)} />
-                </ModalHeader>
-                <ModalContent>{childContent}</ModalContent>
-                <ModalFooter>
-                  <ButtonGroup inline gap={20}>
-                    <>
-                      <Button
-                        color="primary"
-                        variant="contained"
-                        label="Cancel"
-                        wide
-                        centered
-                        onClick={() => toggleModal(nested)}
-                      />
-                      <Button
-                        color="primary"
-                        variant="contained"
-                        label="Confirm"
-                        wide
-                        centered
-                        onClick={() => toggleModal(nested)}
-                      />
-                    </>
-                  </ButtonGroup>
-                </ModalFooter>
-              </ModalBody>
-            )}
-          </ModalBody>
-        </ModalContainer>
-      )}
+      <ModalContainer onClick={() => onSubmit("close")}>
+        <ModalBody
+          animationType={
+            animate ? "fadeIn" : animationType ? animationType : ""
+          }
+          nested={childModalVisibility && nested}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <ModalHeader>
+            <h2>{heading}</h2>
+            <IconClose onClick={() => onSubmit("close")} />
+          </ModalHeader>
+          <ModalContent>{content}</ModalContent>
+          <ModalFooter>
+            <ButtonGroup inline gap={20}>
+              <>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  label="Cancel"
+                  wide
+                  centered
+                  onClick={() => onSubmit("cancel")}
+                />
+                <Button
+                  color="primary"
+                  variant="contained"
+                  label="Confirm"
+                  wide
+                  centered
+                  onClick={() =>
+                    nested ? onSubmit("confirm", true) : onSubmit("confirm")
+                  }
+                />
+              </>
+            </ButtonGroup>
+          </ModalFooter>
+          {childModalVisibility && (
+            <ModalBody animate={animate || animationType ? "animateChild" : ""}>
+              <ModalHeader>
+                <h2>{childHeading}</h2>
+                <IconClose onClick={() => onSubmit("close", true, true)} />
+              </ModalHeader>
+              <ModalContent>{childContent}</ModalContent>
+              <ModalFooter>
+                <ButtonGroup inline gap={20}>
+                  <>
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      label="Cancel"
+                      wide
+                      centered
+                      onClick={() => onSubmit("cancel", true, true)}
+                    />
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      label="Confirm"
+                      wide
+                      centered
+                      onClick={() => onSubmit("confirm", true, true)}
+                    />
+                  </>
+                </ButtonGroup>
+              </ModalFooter>
+            </ModalBody>
+          )}
+        </ModalBody>
+      </ModalContainer>
     </>
   );
 };
