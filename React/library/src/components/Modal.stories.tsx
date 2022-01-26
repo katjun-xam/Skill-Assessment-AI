@@ -42,7 +42,6 @@ export const NestedModal = Template.bind({});
 NestedModal.args = {
   heading: "Modal heading",
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  nested: true,
   childModalVisibility: true,
   childHeading: "Child Modal heading",
   childContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",

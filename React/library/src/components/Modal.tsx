@@ -125,7 +125,9 @@ const ModalBody = styled.div<{
           left: 50%;
           transform: translate(-50%, -50%);
           border: 1px solid ${props.theme.textBlack};
-          padding: 28px 28px 0px 28px;
+          @media all and (max-width: ${props.theme.breakpoints.sm}) {
+            height: 50vh;
+          }
         }
       `}
     `
@@ -195,7 +197,6 @@ interface IModalProps {
   heading: string;
   content: string;
   animate?: boolean;
-  nested?: boolean;
   childHeading?: string;
   childContent?: string;
   animationType?: string;
@@ -207,7 +208,6 @@ const Modal = ({
   heading,
   content,
   animate,
-  nested,
   childHeading,
   childContent,
   animationType,
@@ -221,7 +221,7 @@ const Modal = ({
           animationType={
             animate ? "fadeIn" : animationType ? animationType : ""
           }
-          nested={childModalVisibility && nested}
+          nested={childModalVisibility}
           onClick={(e) => e.stopPropagation()}
         >
           <ModalHeader>
@@ -238,7 +238,7 @@ const Modal = ({
                   label="Cancel"
                   wide
                   centered
-                  onClick={() => onSubmit("cancel")}
+                  onClick={() => onSubmit("close")}
                 />
                 <Button
                   color="primary"
@@ -247,7 +247,9 @@ const Modal = ({
                   wide
                   centered
                   onClick={() =>
-                    nested ? onSubmit("confirm", true) : onSubmit("confirm")
+                    childHeading
+                      ? onSubmit("confirm", true)
+                      : onSubmit("confirm")
                   }
                 />
               </>
@@ -269,7 +271,7 @@ const Modal = ({
                       label="Cancel"
                       wide
                       centered
-                      onClick={() => onSubmit("cancel", true, true)}
+                      onClick={() => onSubmit("close", true, true)}
                     />
                     <Button
                       color="primary"
