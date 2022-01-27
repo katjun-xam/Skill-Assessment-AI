@@ -1,6 +1,6 @@
-import { Story } from "@storybook/react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Modal from "./Modal";
+import GlobalStyles from "./../globalStyles";
 
 export default {
   title: "UI/Modal",
@@ -13,7 +13,12 @@ export default {
   },
 } as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
+const Template: ComponentStory<typeof Modal> = (args) => (
+  <>
+    <GlobalStyles />
+    <Modal {...args} />;
+  </>
+);
 
 export const Basic = Template.bind({});
 Basic.args = {
