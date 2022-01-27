@@ -11,6 +11,7 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   background-color: #f8f8f8;
   padding: 16px 32px;
+  min-height: 52px;
   border-bottom: 1px solid lightgrey;
 `;
 

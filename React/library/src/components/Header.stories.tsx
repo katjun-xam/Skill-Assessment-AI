@@ -59,8 +59,15 @@ Default.args = {
   ),
 };
 
-export const WithoutTitle = Template.bind({});
-WithoutTitle.args = {
+export const DesktopWithoutLogin = Template.bind({});
+DesktopWithoutLogin.args = {
+  title: "Storybook showcase",
+  logo: <Logo />,
+  menu: headerMenu,
+};
+
+export const DesktopWithoutTitle = Template.bind({});
+DesktopWithoutTitle.args = {
   logo: <Logo />,
   menu: headerMenu,
   endElement: (
@@ -72,11 +79,4 @@ WithoutTitle.args = {
       startIcon={<IconProfile />}
     />
   ),
-};
-
-export const WithoutLogin = Template.bind({});
-WithoutLogin.args = {
-  title: "Storybook showcase",
-  logo: <Logo />,
-  menu: headerMenu,
 };
