@@ -6,6 +6,15 @@ import Header from "./Header";
 import { ReactComponent as Logo } from "./../assets/logo.svg";
 import { ReactComponent as IconProfile } from "./../assets/icons/icon-profile.svg";
 
+const PageContainer = styled.main(
+  (props) => css`
+    padding: 16px;
+    @media all and (min-width: ${props.theme.breakpoints.sm}) {
+      padding: 32px;
+    }
+  `
+);
+
 type ILayoutProps = {
   children: React.ReactNode;
 };
@@ -42,7 +51,7 @@ const Layout = ({ children }: ILayoutProps) => {
           />
         }
       ></Header>
-      <main>{children}</main>
+      <PageContainer>{children}</PageContainer>
     </>
   );
 };

@@ -5,15 +5,20 @@ import styled, { css } from "styled-components";
 import ButtonGroup from "./../components/ButtonGroup";
 import Button from "./../components/Button";
 
-const HeaderContainer = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #f8f8f8;
-  padding: 16px 32px;
-  min-height: 52px;
-  border-bottom: 1px solid lightgrey;
-`;
+const HeaderContainer = styled.header(
+  (props) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f8f8;
+    padding: 8px 16px;
+    @media all and (min-width: ${props.theme.breakpoints.sm}) {
+      padding: 16px 32px;
+    }
+    min-height: 52px;
+    border-bottom: 1px solid lightgrey;
+  `
+);
 
 const HeaderContent = styled.div`
   display: flex;
@@ -83,14 +88,21 @@ const HeaderNavigation = styled.nav(
     display: none;
     @media all and (min-width: ${props.theme.breakpoints.md}) {
       display: block;
+      margin-right: 36px;
     }
   `
 );
 
-const HeaderEndElement = styled.div`
-  margin-left: 36px;
-  flex: 0 1 200px;
-`;
+const HeaderEndElement = styled.div(
+  (props) => css`
+    flex: 0 1 180px;
+    display: block;
+    /* display: none;
+    @media all and (min-width: ${props.theme.breakpoints.md}) {
+      display: block;
+    } */
+  `
+);
 
 interface IHeaderProps {
   title: string;
