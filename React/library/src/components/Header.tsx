@@ -132,11 +132,13 @@ const Header = ({ title, logo, menu, endElement }: IHeaderProps) => {
         {/* NAVIGATION WIDE SCREENS */}
         <HeaderNavigation>
           <ButtonGroup gap={0} inline>
-            {menu.map((item) => (
-              <Link to={item.path} key={item.path}>
-                <Button label={item.label} color="primary"></Button>
-              </Link>
-            ))}
+            <>
+              {menu.map((item) => (
+                <Link to={item.path} key={item.path}>
+                  <Button label={item.label} color="primary"></Button>
+                </Link>
+              ))}
+            </>
           </ButtonGroup>
         </HeaderNavigation>
         {/* HEADER END ELEMENT */}

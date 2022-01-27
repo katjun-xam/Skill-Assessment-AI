@@ -23,7 +23,7 @@ const ButtonGroupContainer = styled.div<{ inline?: boolean; gap: number }>(
 );
 
 type IButtonGroupProps = {
-  children: ReactChild[];
+  children: ReactChild;
   inline?: boolean;
   gap: number;
 };
