@@ -58,12 +58,18 @@ Default.args = {
     />
   ),
 };
+Default.parameters = {
+  layout: "fullscreen",
+};
 
-export const DesktopWithoutLogin = Template.bind({});
-DesktopWithoutLogin.args = {
+export const WithoutLogin = Template.bind({});
+WithoutLogin.args = {
   title: "Storybook showcase",
   logo: <Logo />,
   menu: headerMenu,
+};
+WithoutLogin.parameters = {
+  layout: "fullscreen",
 };
 
 export const DesktopWithoutTitle = Template.bind({});
@@ -79,4 +85,7 @@ DesktopWithoutTitle.args = {
       startIcon={<IconProfile />}
     />
   ),
+};
+DesktopWithoutTitle.parameters = {
+  layout: "fullscreen",
 };
