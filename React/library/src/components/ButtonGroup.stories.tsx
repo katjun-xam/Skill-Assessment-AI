@@ -10,12 +10,14 @@ export default {
 };
 
 const Template: Story = (args) => (
-  <ButtonGroup {...args}>{args.children}</ButtonGroup>
+  <ButtonGroup gap={args.gap} {...args}>
+    {args.children}
+  </ButtonGroup>
 );
 
 export const Stacked = Template.bind({});
 Stacked.args = {
-  gap: 20,
+  gap: 10,
   children: (
     <>
       <Button
@@ -46,7 +48,7 @@ Stacked.args = {
 export const Inline = Template.bind({});
 Inline.args = {
   inline: true,
-  gap: 20,
+  gap: 40,
   children: (
     <>
       <Button

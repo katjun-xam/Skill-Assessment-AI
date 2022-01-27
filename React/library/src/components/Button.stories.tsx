@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { ReactComponent as IconProfil } from "./../assets/icons/icon-profil.svg";
+import { ReactComponent as IconProfil } from "./../assets/icons/icon-profile.svg";
 import { ReactComponent as IconChevron } from "./../assets/icons/icon-chevron.svg";
 
 import Button from "./Button";
