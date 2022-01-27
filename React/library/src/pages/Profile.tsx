@@ -7,8 +7,8 @@ type IProfilProps = {};
 
 const Profil = (props: IProfilProps) => {
   const [modalVisibility, setModalVisibility] = useState({
-    parent: false,
-    child: false,
+    parentModal: false,
+    childModal: false,
   });
 
   const onModalSubmitHandler = (
@@ -20,9 +20,16 @@ const Profil = (props: IProfilProps) => {
       (!nested && (action === "confirm" || action === "close")) ||
       (nested && !child && action === "close")
     ) {
-      setModalVisibility({ ...modalVisibility, parent: !parent, child: false });
+      setModalVisibility({
+        ...modalVisibility,
+        parentModal: !modalVisibility.parentModal,
+        childModal: false,
+      });
     } else if (nested && (child || (!child && action === "confirm"))) {
-      setModalVisibility({ ...modalVisibility, child: !child });
+      setModalVisibility({
+        ...modalVisibility,
+        childModal: !modalVisibility.childModal,
+      });
     }
   };
 
@@ -35,18 +42,19 @@ const Profil = (props: IProfilProps) => {
         variant="outlined"
         onClick={() =>
           setModalVisibility({
-            parent: true,
-            child: false,
+            ...modalVisibility,
+            parentModal: true,
+            childModal: false,
           })
         }
       />
-      {modalVisibility.parent && (
+      {modalVisibility.parentModal && (
         <Modal
           heading="modal"
           content="Modal sample"
           animationType="fadeIn"
           onSubmit={onModalSubmitHandler}
-          childModalVisibility={modalVisibility.child}
+          childModalVisibility={modalVisibility.childModal}
           childHeading="child modal"
           childContent="child Modal sample"
         />
