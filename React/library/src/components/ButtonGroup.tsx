@@ -1,6 +1,7 @@
+import { ReactChild, ReactChildren } from "react";
 import styled, { css } from "styled-components";
 
-const ButtonGroupContainer = styled.div<{ inline?: boolean; gap?: number }>(
+const ButtonGroupContainer = styled.div<{ inline?: boolean; gap: number }>(
   (props) => css`
     display: flex;
     padding: 0;
@@ -22,9 +23,9 @@ const ButtonGroupContainer = styled.div<{ inline?: boolean; gap?: number }>(
 );
 
 type IButtonGroupProps = {
-  children: React.ReactChild;
+  children: ReactChild;
   inline?: boolean;
-  gap?: number;
+  gap: number;
 };
 
 const ButtonGroup = ({ children, inline, gap }: IButtonGroupProps) => {

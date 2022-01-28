@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Button from "./Button";
 import { ReactComponent as IconClose } from "./../assets/icons/icon-close.svg";
+import ButtonGroup from "./ButtonGroup";
 
 const ModalContainer = styled.div(
   (props) => css`
@@ -30,12 +31,20 @@ const ModalBody = styled.div<{
       background: ${props.theme.bgWhite};
       height: auto;
       margin: auto;
-      width: 500px;
+      width: 41.7%;
+      @media all and (max-width: ${props.theme.breakpoints.sm}) {
+        width: 100%;
+        margin: 0px;
+        height: 100vh;
+        border-radius: 0px;
+        padding: 0px 28px 0px 28px;
+        border-top: none;
+      }
       padding: 28px 28px 0px 28px;
       border-radius: ${props.theme.borderRadiusMd};
       border-top: ${props.theme.borderRadiusSm} solid ${props.theme.primary};
       position: relative;
-      ${props.animate === "animateParent" &&
+      ${props.animationType &&
       css`
         animation: ${props.animationType} 0.8s;
         @keyframes grow {
@@ -111,12 +120,14 @@ const ModalBody = styled.div<{
       css`
         & > div:last-child {
           position: absolute;
-          width: 300px;
+          width: 62%;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
           border: 1px solid ${props.theme.textBlack};
-          padding: 28px 28px 0px 28px;
+          @media all and (max-width: ${props.theme.breakpoints.sm}) {
+            height: 50vh;
+          }
         }
       `}
     `
@@ -136,6 +147,9 @@ const ModalHeader = styled.div(
       fill: ${props.theme.textDark};
       flex-shrink: 0;
     }
+    @media all and (max-width: ${props.theme.breakpoints.sm}) {
+      padding-top: 28px;
+    }
   `
 );
 
@@ -146,101 +160,134 @@ const ModalContent = styled.p(
 );
 
 const ModalFooter = styled.div(
-  (props) =>
-    css`
-      margin: 10px -28px 0px -28px;
-      padding: 20px 28px;
-      display: inline-flex;
-      justify-content: flex-end;
-      background-color: ${props.theme.bgLight};
-      border-bottom-left-radius: ${props.theme.borderRadiusMd};
-      border-bottom-right-radius: ${props.theme.borderRadiusMd};
-      width: 100%;
-      button {
-        margin-left: 15px;
+  (props) => css`
+    margin: 10px -28px 0px -28px;
+    padding: 20px 28px;
+    display: inline-flex;
+    justify-content: flex-end;
+    width: 100%;
+    background-color: ${props.theme.bgLight};
+    border-bottom-left-radius: ${props.theme.borderRadiusMd};
+    border-bottom-right-radius: ${props.theme.borderRadiusMd};
+    @media all and (max-width: ${props.theme.breakpoints.sm}) {
+      padding: 20px 0px;
+      position: absolute;
+      bottom: 0px;
+      margin: 0px -28px 0px -28px;
+      border-radius: 0px;
+      & > div {
+        margin-right: 28px;
       }
-    `
+    }
+    & > div {
+      button {
+        padding-left: 2vw;
+        padding-right: 2vw;
+        @media all and (max-width: ${props.theme.breakpoints.sm}) {
+          &:not(:first-child) {
+            margin-left: 3vw;
+          }
+        }
+      }
+    }
+  `
 );
 
 interface IModalProps {
   heading: string;
   content: string;
   animate?: boolean;
-  nested?: boolean;
   childHeading?: string;
   childContent?: string;
   animationType?: string;
+  onSubmit: (action: string, nested?: boolean, child?: boolean) => void;
+  childModalVisibility?: boolean;
 }
 
 const Modal = ({
   heading,
   content,
   animate,
-  nested,
   childHeading,
   childContent,
   animationType,
+  onSubmit,
+  childModalVisibility,
 }: IModalProps) => {
-  const [modalVisibility, setModalVisibility] = useState(false);
-  const [childModalVisibility, setChildModalVisibility] = useState(false);
-
-  const toggleModal = (nested?: boolean | undefined) => {
-    if (nested) {
-      setChildModalVisibility(!childModalVisibility);
-    } else {
-      setModalVisibility(!modalVisibility);
-    }
-  };
-
   return (
     <>
-      <Button
-        color="primary"
-        variant="outlined"
-        label="Open"
-        onClick={() => toggleModal()}
-      />
-      {modalVisibility && (
-        <ModalContainer onClick={() => toggleModal()}>
-          <ModalBody
-            animate={animate ? "animateParent" : ""}
-            nested={childModalVisibility && nested}
-            onClick={(e) => e.stopPropagation()}
-            animationType={animationType}
-          >
-            <ModalHeader>
-              <h2>{heading}</h2>
-              <IconClose onClick={() => toggleModal()} />
-            </ModalHeader>
-            <ModalContent>{content}</ModalContent>
-            <ModalFooter>
-              <Button
-                color="primary"
-                variant="contained"
-                label="Primary"
-                onClick={() => toggleModal(nested)}
-              />
-            </ModalFooter>
-            {childModalVisibility && (
-              <ModalBody animate={animate ? "animateChild" : ""}>
-                <ModalHeader>
-                  <h2>{childHeading}</h2>
-                  <IconClose onClick={() => toggleModal(nested)} />
-                </ModalHeader>
-                <ModalContent>{childContent}</ModalContent>
-                <ModalFooter>
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    label="Close Child"
-                    onClick={() => toggleModal(nested)}
-                  />
-                </ModalFooter>
-              </ModalBody>
-            )}
-          </ModalBody>
-        </ModalContainer>
-      )}
+      <ModalContainer onClick={() => onSubmit("close")}>
+        <ModalBody
+          animationType={
+            animate ? "fadeIn" : animationType ? animationType : ""
+          }
+          nested={childModalVisibility}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <ModalHeader>
+            <h2>{heading}</h2>
+            <IconClose onClick={() => onSubmit("close")} />
+          </ModalHeader>
+          <ModalContent>{content}</ModalContent>
+          <ModalFooter>
+            <ButtonGroup inline gap={20}>
+              <>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  label="Cancel"
+                  wide
+                  centered
+                  onClick={() => onSubmit("close")}
+                />
+                <Button
+                  color="primary"
+                  variant="contained"
+                  label="Confirm"
+                  wide
+                  centered
+                  onClick={() =>
+                    childHeading
+                      ? onSubmit("confirm", true)
+                      : onSubmit("confirm")
+                  }
+                />
+              </>
+            </ButtonGroup>
+          </ModalFooter>
+          {childModalVisibility && (
+            <ModalBody animate={animate || animationType ? "animateChild" : ""}>
+              <ModalHeader>
+                <h2>{childHeading}</h2>
+                <IconClose onClick={() => onSubmit("close", true, true)} />
+              </ModalHeader>
+              <ModalContent>{childContent}</ModalContent>
+              <ModalFooter>
+                <ButtonGroup inline gap={20}>
+                  <>
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      label="Cancel"
+                      wide
+                      centered
+                      onClick={() => onSubmit("close", true, true)}
+                    />
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      label="Confirm"
+                      wide
+                      centered
+                      onClick={() => onSubmit("confirm", true, true)}
+                    />
+                  </>
+                </ButtonGroup>
+              </ModalFooter>
+            </ModalBody>
+          )}
+        </ModalBody>
+      </ModalContainer>
     </>
   );
 };

@@ -1,6 +1,6 @@
-import { Story } from "@storybook/react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Modal from "./Modal";
+import GlobalStyles from "./../globalStyles";
 
 export default {
   title: "UI/Modal",
@@ -13,19 +13,59 @@ export default {
   },
 } as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
+const Template: ComponentStory<typeof Modal> = (args) => (
+  <>
+    <GlobalStyles />
+    <Modal {...args} />;
+  </>
+);
 
 export const Basic = Template.bind({});
 Basic.args = {
   heading: "Modal heading 1",
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
 };
-export const WithAnimation = Template.bind({});
-WithAnimation.args = {
+export const DefaultAnimation = Template.bind({});
+DefaultAnimation.args = {
   heading: "Modal heading 1",
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   animate: true,
+};
+export const AnimationTypeGrow = Template.bind({});
+AnimationTypeGrow.args = {
+  heading: "Modal heading 1",
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   animationType: "grow",
+};
+export const AnimationTypeTop = Template.bind({});
+AnimationTypeTop.args = {
+  heading: "Modal heading 1",
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  animationType: "top",
+};
+export const AnimationTypeBottom = Template.bind({});
+AnimationTypeBottom.args = {
+  heading: "Modal heading 1",
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  animationType: "bottom",
+};
+export const AnimationTypeLeft = Template.bind({});
+AnimationTypeLeft.args = {
+  heading: "Modal heading 1",
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  animationType: "left",
+};
+export const AnimationTypeRight = Template.bind({});
+AnimationTypeRight.args = {
+  heading: "Modal heading 1",
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  animationType: "right",
+};
+export const AnimationTypeFadeIn = Template.bind({});
+AnimationTypeFadeIn.args = {
+  heading: "Modal heading 1",
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  animationType: "fadeIn",
 };
 export const LongContent = Template.bind({});
 LongContent.args = {
@@ -37,7 +77,7 @@ export const NestedModal = Template.bind({});
 NestedModal.args = {
   heading: "Modal heading",
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  nested: true,
+  childModalVisibility: true,
   childHeading: "Child Modal heading",
   childContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
 };

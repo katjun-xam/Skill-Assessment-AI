@@ -1,6 +1,6 @@
 import { DefaultTheme } from "styled-components";
 
-const lightTheme: DefaultTheme = {
+const lightTheme = {
   // PRIMARY
   primary: "#6247B4",
   primaryAccent: "#A698DD",
@@ -27,6 +27,12 @@ const lightTheme: DefaultTheme = {
   textDark: "#AAA",
   textExtraDark: "#555",
   textBlack: "#000",
+  // UTILS
+  breakpoints: {
+    sm: "480px",
+    md: "900px",
+    lg: "1200px",
+  },
 };
 
 export { lightTheme };
