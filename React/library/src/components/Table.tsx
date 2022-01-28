@@ -3,6 +3,12 @@ import styled, { css } from "styled-components";
 
 import { ReactComponent as IconSort } from "./../assets/icons/icon-sort.svg";
 
+const ScrollContainer = styled.div(
+  (props) => css`
+    overflow-x: auto;
+  `
+);
+
 const TableContainer = styled.table<{ width?: string; alignment?: string }>(
   (props) => css`
     border-spacing: 0;
@@ -240,7 +246,7 @@ const Table = ({
   };
 
   return (
-    <div style={{ overflowX: "auto" }}>
+    <ScrollContainer>
       <TableContainer width={width} alignment={alignment}>
         {!labels && (
           <TableHeader>
@@ -315,7 +321,7 @@ const Table = ({
           })}
         </TableBody>
       </TableContainer>
-    </div>
+    </ScrollContainer>
   );
 };
 
