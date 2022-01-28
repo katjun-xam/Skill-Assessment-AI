@@ -23,11 +23,16 @@ CustomTableWidth.args = {
 export const CustomTableColumnWidth = Template.bind({});
 CustomTableColumnWidth.args = {
   tableData: repaymentDetails,
+  width: "100%",
+  columnWidth: ["15%", "20%", "15%", "18%", "18%", "15%"],
+};
+export const TableWithTypeOfData = Template.bind({});
+TableWithTypeOfData.args = {
+  tableData: repaymentDetails,
   typeOfData: ["date", "amount", "amount", "date", "amount", "string"],
   width: "100%",
   columnWidth: ["15%", "20%", "15%", "18%", "18%", "15%"],
 };
-
 export const CustomHeaders = Template.bind({});
 CustomHeaders.args = {
   tableData: repaymentDetails,
