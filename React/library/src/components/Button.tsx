@@ -33,6 +33,9 @@ const ButtonContainer = styled.button<{
       }
       &:hover {
         color: ${props.theme.primaryAccent};
+        & svg {
+          fill: ${props.theme.primaryAccent};
+        }
       }
     `};
     ${props.color === "secondary" &&
@@ -43,6 +46,9 @@ const ButtonContainer = styled.button<{
       }
       &:hover {
         color: ${props.theme.secondaryAccent};
+        & svg {
+          fill: ${props.theme.secondaryAccent};
+        }
       }
     `};
 

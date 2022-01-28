@@ -30,6 +30,11 @@ textPrimaryEndIcon.args = {
   label: "Text primary",
   endIcon: <IconProfile />,
 };
+export const IconPrimary = Template.bind({});
+IconPrimary.args = {
+  color: "primary",
+  startIcon: <IconProfile />,
+};
 export const textSecondary = Template.bind({});
 textSecondary.args = {
   color: "secondary",
@@ -46,6 +51,11 @@ textSecondaryEndIcon.args = {
   color: "secondary",
   label: "Text secondary",
   endIcon: <IconProfile />,
+};
+export const IconSecondary = Template.bind({});
+IconSecondary.args = {
+  color: "secondary",
+  startIcon: <IconProfile />,
 };
 export const containedPrimary = Template.bind({});
 containedPrimary.args = {
