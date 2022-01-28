@@ -167,8 +167,8 @@ const HeadIconContainer = styled.div`
 `;
 
 interface IButtonProps {
-  label: string;
   color: "primary" | "secondary";
+  label?: string;
   variant?: "contained" | "outlined";
   disabled?: boolean;
   wide?: boolean;
@@ -181,8 +181,8 @@ interface IButtonProps {
 }
 
 const Button = ({
-  label,
   color,
+  label,
   variant,
   disabled = false,
   tabIndex,
