@@ -4,6 +4,9 @@ import Table from "./Table";
 import { personDetails, repaymentDetails } from "./../assets/data/tableData";
 import { ReactComponent as IconPencil } from "./../assets/icons/icon-pencil.svg";
 import GlobalStyles from "./../globalStyles";
+import Button from "./Button";
+import Icon from "./Icon";
+import { lightTheme } from "./../theme";
 
 export default {
   title: "UI/Table",
@@ -113,20 +116,60 @@ LabelsCustomTableColumnWidth.args = {
     {
       label: "First Name",
       text: "Ferrara",
+    },
+    {
+      label: "Last Name",
+      text: "Clifford",
+    },
+    {
+      label: "City",
+      text: "Caberra",
+    },
+  ],
+  labels: true,
+  columnWidth: ["10%", "40%"],
+  width: "50%",
+};
+export const TableCellWithIcon = Template.bind({});
+TableCellWithIcon.args = {
+  tableData: [
+    {
+      label: "First Name",
+      text: "Ferrara",
       icon: "",
     },
     {
       label: "Last Name",
       text: "Clifford",
-      icon: <IconPencil />,
+      icon: (
+        <Button
+          color="primary"
+          startIcon={
+            <Icon strokeColor={lightTheme.primary}>
+              <IconPencil />
+            </Icon>
+          }
+          onClick={() => alert("edit last name")}
+        />
+      ),
     },
     {
       label: "City",
-      text: "Caberra",
-      icon: <IconPencil />,
+      text: "Canberra",
+      icon: (
+        <Button
+          color="primary"
+          startIcon={
+            <Icon strokeColor={lightTheme.primary}>
+              <IconPencil />
+            </Icon>
+          }
+          onClick={() => alert("edit city")}
+        />
+      ),
     },
   ],
   labels: true,
-  columnWidth: ["10%", "20%", "10%"],
+  columnWidth: ["15%", "20%", "5%"],
   width: "40%",
 };
