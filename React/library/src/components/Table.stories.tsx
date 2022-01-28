@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Table from "./Table";
 import { personDetails, repaymentDetails } from "./../assets/data/tableData";
 import { ReactComponent as IconPencil } from "./../assets/icons/icon-pencil.svg";
+import GlobalStyles from "./../globalStyles";
 
 export default {
   title: "UI/Table",
@@ -10,7 +11,12 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Table>;
 
-const Template: ComponentStory<typeof Table> = (args) => <Table {...args} />;
+const Template: ComponentStory<typeof Table> = (args) => (
+  <>
+    <GlobalStyles />
+    <Table {...args} />
+  </>
+);
 export const Basic = Template.bind({});
 Basic.args = {
   tableData: personDetails,
