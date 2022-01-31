@@ -13,6 +13,7 @@ const lightTheme = {
   bgDark: "rgba(30,30,30,0.5)",
   disabled: "#E0E0E0",
   disabledDark: "#CDCDCD",
+  borderColorLight: "#DFE3E6",
   // UI
   borderRadiusLg: "12px",
   borderRadiusMd: "8px",
