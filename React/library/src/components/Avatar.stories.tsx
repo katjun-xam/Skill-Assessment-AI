@@ -18,7 +18,7 @@ export default {
   component: Avatar,
   argTypes: {
     variant: {
-      options: ["square", "rounded"],
+      options: ["square", "roundedCorners"],
       control: { type: "radio" },
     },
   },
@@ -44,7 +44,7 @@ ImageAvatarCustomSize.args = {
 export const ImageAvatarVariant = Template.bind({});
 ImageAvatarVariant.args = {
   avatars: [avatar3],
-  variant: "rounded",
+  variant: "roundedCorners",
 };
 export const LetterAvatarInitials = Template.bind({});
 LetterAvatarInitials.args = {

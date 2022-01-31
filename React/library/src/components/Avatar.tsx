@@ -34,7 +34,7 @@ const AvatarContainer = styled.div<{
       ? css`
           border-radius: 0%;
         `
-      : props.variant === "rounded"
+      : props.variant === "roundedCorners"
       ? css`
           border-radius: 10%;
         `
@@ -70,7 +70,7 @@ const AvatarImage = styled.img<{
       ? css`
           border-radius: 0%;
         `
-      : props.variant === "rounded"
+      : props.variant === "roundedCorners"
       ? css`
           border-radius: 10%;
         `
