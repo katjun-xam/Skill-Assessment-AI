@@ -9,6 +9,7 @@ const ButtonContainer = styled.button<{
   centered?: boolean;
 }>(
   (props) => css`
+    position: relative;
     border: none;
     background-color: transparent;
     cursor: pointer;

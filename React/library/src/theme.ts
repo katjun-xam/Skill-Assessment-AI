@@ -14,6 +14,7 @@ const lightTheme = {
   disabled: "#E0E0E0",
   disabledDark: "#CDCDCD",
   // UI
+  borderRadiusLg: "12px",
   borderRadiusMd: "8px",
   borderRadiusSm: "4px",
   btPadding: "0px 42px",

@@ -5,10 +5,10 @@ const Label = styled.label<{ floatingLabel?: boolean }>(
   (props) => css`
     display: block;
     font-size: 1rem;
+    margin-bottom: 10px;
     ${!props.floatingLabel &&
     css`
       color: ${props.theme.textExtraDark};
-      margin-bottom: 12px;
     `}
     ${props.floatingLabel &&
     css`
@@ -43,11 +43,11 @@ const FormInputTextContainer = styled.div<{ floatingLabel?: boolean }>(
   (props) => css`
     display: flex;
     position: relative;
+    width: 100%;
     ${!props.floatingLabel &&
     css`
       flex-direction: column;
     `}
-    margin-bottom: 12px;
     ${Field}:focus + ${Label} {
       top: 5px;
       font-size: 9px;
@@ -78,7 +78,7 @@ const FormInputText = ({
 }: Props) => {
   return (
     <FormInputTextContainer>
-      {!floatingLabel && <Label htmlFor={name}>{label}</Label>}
+      {label && !floatingLabel && <Label htmlFor={name}>{label}</Label>}
       <Field
         type="text"
         name={name}
