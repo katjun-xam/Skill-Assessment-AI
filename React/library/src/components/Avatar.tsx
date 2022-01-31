@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 const AvatarContainer = styled.div<{
   width?: string;
   height?: string;
-  variant?: string;
+  variant?: "square" | "roundedCorners";
   color?: string;
   fontColor?: string;
   fontSize?: string;
@@ -63,7 +63,7 @@ const AvatarGroupContainer = styled.div(
 const AvatarImage = styled.img<{
   width?: string;
   height?: string;
-  variant?: string;
+  variant?: "square" | "roundedCorners";
 }>(
   (props) => css`
     ${props.variant === "square"
@@ -97,7 +97,7 @@ type IAvatarProps = {
   initials?: string;
   name?: string;
   icon?: React.ReactNode;
-  variant?: string;
+  variant?: "square" | "roundedCorners";
   bgColor?: string;
   fontSize?: string;
   fontColor?: string;
