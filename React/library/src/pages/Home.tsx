@@ -2,12 +2,14 @@ import React, { FormEvent, useState } from "react";
 import styled, { css } from "styled-components";
 import ButtonGroup from "../components/ButtonGroup";
 
+import { lightTheme } from "../theme";
 import FormCell from "../components/FormCell";
 import FormInputText from "../components/FormInputText";
 import FormMain from "../components/FormMain";
 import FormRow from "../components/FormRow";
 import Layout from "../components/Layout";
 import Button from "./../components/Button";
+import Icon from "../components/Icon";
 
 import { ReactComponent as IconSearch } from "./../assets/icons/icon-search.svg";
 import { ReactComponent as IconSuccess } from "./../assets/icons/icon-success.svg";
@@ -104,7 +106,7 @@ const Home = (props: IHomeProps) => {
             </FormCell>
           </FormRow>
           <FormRow>
-            <FormCell cellWidth="60%">
+            <FormCell cellWidth="65%">
               <FormInputText
                 name="address"
                 onChange={addressChangeHandler}
@@ -113,7 +115,7 @@ const Home = (props: IHomeProps) => {
                 floatingLabel
               />
             </FormCell>
-            <FormCell cellWidth="35%">
+            <FormCell cellWidth="25%">
               <Button
                 label="lookup"
                 color="primary"
@@ -161,7 +163,11 @@ const Home = (props: IHomeProps) => {
                     label="Confirm"
                     color="primary"
                     wide
-                    headIcon={<IconSuccess />}
+                    headIcon={
+                      <Icon fillColor={lightTheme.textWhite}>
+                        <IconSuccess />
+                      </Icon>
+                    }
                     variant="contained"
                     onClick={() => alert("Confirmed!")}
                   ></Button>

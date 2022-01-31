@@ -35,7 +35,7 @@ const ButtonContainer = styled.button<{
       &:hover {
         color: ${props.theme.primaryAccent};
         & svg {
-          fill: ${props.theme.primaryAccent};
+          fill: ${props.theme.textLight};
         }
       }
     `};
@@ -68,7 +68,7 @@ const ButtonContainer = styled.button<{
         &:hover {
           background-color: ${props.theme.primaryAccent};
           border: ${`2px solid ${props.theme.primaryAccent}`};
-          color: ${props.theme.textExtraLight};
+          color: ${props.theme.textLight};
         }
       `};
       ${props.color === "secondary" &&
@@ -79,7 +79,7 @@ const ButtonContainer = styled.button<{
         &:hover {
           background-color: ${props.theme.secondaryAccent};
           border: ${`2px solid ${props.theme.secondaryAccent}`};
-          color: ${props.theme.textExtraLight};
+          color: ${props.theme.textLight};
         }
       `};
       &:hover {
