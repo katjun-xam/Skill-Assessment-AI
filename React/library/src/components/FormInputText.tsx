@@ -5,10 +5,10 @@ const Label = styled.label<{ floatingLabel?: boolean }>(
   (props) => css`
     display: block;
     font-size: 1rem;
-    margin-bottom: 10px;
     ${!props.floatingLabel &&
     css`
       color: ${props.theme.textExtraDark};
+      margin-bottom: 10px;
     `}
     ${props.floatingLabel &&
     css`
