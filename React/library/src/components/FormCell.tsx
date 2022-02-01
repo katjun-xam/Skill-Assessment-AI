@@ -19,7 +19,6 @@ type IFormCellProps = {
 };
 
 const FormCell = ({ children, cellWidth }: IFormCellProps) => {
-  console.log("🚀 -> FormCell -> cellWidth", cellWidth);
   return (
     <FormCellContainer cellWidth={cellWidth}>{children}</FormCellContainer>
   );

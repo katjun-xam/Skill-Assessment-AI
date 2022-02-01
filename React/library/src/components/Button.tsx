@@ -16,7 +16,7 @@ const ButtonContainer = styled.button<{
     min-height: ${props.theme.btHeight};
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     user-select: none;
 
     &:hover {
@@ -163,8 +163,7 @@ const EndIconContainer = styled.div`
   margin-left: 10px;
 `;
 const HeadIconContainer = styled.div`
-  position: absolute;
-  right: 30px;
+  position: relative;
 `;
 
 interface IButtonProps {

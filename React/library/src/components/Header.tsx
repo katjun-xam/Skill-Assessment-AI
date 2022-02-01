@@ -50,9 +50,9 @@ const TitleText = styled.h1(
 
 const HeaderNavigationSticky = styled.nav(
   (props) => css`
-    display: block;
-    position: fixed;
     display: flex;
+    position: fixed;
+    z-index: 1;
     bottom: 0;
     left: 0;
     height: 85px;

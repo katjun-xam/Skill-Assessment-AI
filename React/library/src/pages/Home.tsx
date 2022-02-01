@@ -16,7 +16,12 @@ import { ReactComponent as IconSuccess } from "./../assets/icons/icon-success.sv
 
 const RegisterForm = styled.div(
   (props) => css`
-    width: 600px;
+    width: 100%;
+    @media all and (min-width: ${props.theme.breakpoints.md}) {
+      width: 80%;
+      min-width: 830px;
+      max-width: 1000px;
+    }
   `
 );
 
@@ -62,12 +67,7 @@ const Home = (props: IHomeProps) => {
         nesciunt suscipit nobis provident accusantium animi officiis cum commodi
         tempore perferendis quam ut?
       </p>
-      <Button
-        variant="contained"
-        color="primary"
-        label="View selection"
-        onClick={() => alert("it works!")}
-      />
+
       <RegisterForm>
         <FormMain onSubmit={formSubmitHandler}>
           <FormRow>
@@ -94,6 +94,7 @@ const Home = (props: IHomeProps) => {
               />
             </FormCell>
           </FormRow>
+          {/* ----------------------------- FULL WIDTH ----------------------------- */}
           <FormRow>
             <FormCell cellWidth="100%">
               <FormInputText
@@ -105,6 +106,7 @@ const Home = (props: IHomeProps) => {
               />
             </FormCell>
           </FormRow>
+          {/* ----------------------------- MULTIPLE ----------------------------- */}
           <FormRow>
             <FormCell cellWidth="65%">
               <FormInputText
@@ -115,7 +117,7 @@ const Home = (props: IHomeProps) => {
                 floatingLabel
               />
             </FormCell>
-            <FormCell cellWidth="25%">
+            <FormCell cellWidth="33%">
               <Button
                 label="lookup"
                 color="primary"
@@ -126,6 +128,7 @@ const Home = (props: IHomeProps) => {
               />
             </FormCell>
           </FormRow>
+          {/* ---------------------------- INCLUDE LABEL ---------------------------- */}
           <FormRow>
             <FormCell cellWidth="100%">
               <FormInputText
@@ -146,6 +149,7 @@ const Home = (props: IHomeProps) => {
               ></FormInputText>
             </FormCell>
           </FormRow>
+          {/* ------------------------------ BUTTONS ------------------------------ */}
           <FormRow>
             <FormCell cellWidth="30%">
               <></>
