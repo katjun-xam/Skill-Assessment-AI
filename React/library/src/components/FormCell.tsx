@@ -14,7 +14,7 @@ const FormCellContainer = styled.div<{ cellWidth?: string }>(
 );
 
 type IFormCellProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   cellWidth?: string;
 };
 

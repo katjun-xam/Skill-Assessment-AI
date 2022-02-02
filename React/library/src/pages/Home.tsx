@@ -108,7 +108,7 @@ const Home = (props: IHomeProps) => {
           </FormRow>
           {/* ----------------------------- MULTIPLE ----------------------------- */}
           <FormRow>
-            <FormCell cellWidth="65%">
+            <FormCell cellWidth="66%">
               <FormInputText
                 name="address"
                 onChange={addressChangeHandler}
@@ -117,7 +117,7 @@ const Home = (props: IHomeProps) => {
                 floatingLabel
               />
             </FormCell>
-            <FormCell cellWidth="33%">
+            <FormCell cellWidth="32%">
               <Button
                 label="lookup"
                 color="primary"
@@ -126,6 +126,29 @@ const Home = (props: IHomeProps) => {
                 variant="contained"
                 onClick={() => alert("lookup")}
               />
+            </FormCell>
+          </FormRow>
+          <FormRow>
+            <FormCell cellWidth="32%">
+              <FormInputText
+                name="street"
+                value={""}
+                onChange={(e) => console.log(e.target.value)}
+              ></FormInputText>
+            </FormCell>
+            <FormCell cellWidth="32%">
+              <FormInputText
+                name="postcode"
+                value={""}
+                onChange={(e) => console.log(e.target.value)}
+              ></FormInputText>
+            </FormCell>
+            <FormCell cellWidth="32%">
+              <FormInputText
+                name="state"
+                value={""}
+                onChange={(e) => console.log(e.target.value)}
+              ></FormInputText>
             </FormCell>
           </FormRow>
           {/* ---------------------------- INCLUDE LABEL ---------------------------- */}
@@ -151,9 +174,7 @@ const Home = (props: IHomeProps) => {
           </FormRow>
           {/* ------------------------------ BUTTONS ------------------------------ */}
           <FormRow>
-            <FormCell cellWidth="30%">
-              <></>
-            </FormCell>
+            <FormCell cellWidth="30%" />
             <FormCell>
               <ButtonGroup gap={20} inline wide>
                 <>
