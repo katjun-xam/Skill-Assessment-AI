@@ -2,8 +2,8 @@ import { ReactChild, ReactChildren } from "react";
 import styled, { css } from "styled-components";
 
 const ButtonGroupContainer = styled.div<{
-  inline?: boolean;
   gap: number;
+  inline?: boolean;
   wide?: boolean;
 }>(
   (props) => css`
@@ -21,9 +21,16 @@ const ButtonGroupContainer = styled.div<{
           }
         `
       : css`
-          flex-direction: row;
+          flex-direction: column;
           & > *:not(:first-child) {
-            margin-left: ${props.gap}px;
+            margin-top: ${props.gap}px;
+          }
+          @media all and (min-width: ${props.theme.breakpoints.sm}) {
+            flex-direction: row;
+            & > *:not(:first-child) {
+              margin-top: 0;
+              margin-left: ${props.gap}px;
+            }
           }
         `}
   `
@@ -31,12 +38,12 @@ const ButtonGroupContainer = styled.div<{
 
 type IButtonGroupProps = {
   children: ReactChild;
-  inline?: boolean;
   gap: number;
+  inline?: boolean;
   wide?: boolean;
 };
 
-const ButtonGroup = ({ children, inline, gap, wide }: IButtonGroupProps) => {
+const ButtonGroup = ({ children, gap, inline, wide }: IButtonGroupProps) => {
   return (
     <ButtonGroupContainer inline={inline} gap={gap} wide={wide}>
       {children}
