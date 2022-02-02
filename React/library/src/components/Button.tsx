@@ -9,13 +9,13 @@ const ButtonContainer = styled.button<{
   centered?: boolean;
 }>(
   (props) => css`
+    position: relative;
     border: none;
     background-color: transparent;
     cursor: pointer;
     min-height: ${props.theme.btHeight};
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     user-select: none;
 
     &:hover {
@@ -34,7 +34,7 @@ const ButtonContainer = styled.button<{
       &:hover {
         color: ${props.theme.primaryAccent};
         & svg {
-          fill: ${props.theme.primaryAccent};
+          fill: ${props.theme.textLight};
         }
       }
     `};
@@ -67,7 +67,7 @@ const ButtonContainer = styled.button<{
         &:hover {
           background-color: ${props.theme.primaryAccent};
           border: ${`2px solid ${props.theme.primaryAccent}`};
-          color: ${props.theme.textExtraLight};
+          color: ${props.theme.textLight};
         }
       `};
       ${props.color === "secondary" &&
@@ -78,7 +78,7 @@ const ButtonContainer = styled.button<{
         &:hover {
           background-color: ${props.theme.secondaryAccent};
           border: ${`2px solid ${props.theme.secondaryAccent}`};
-          color: ${props.theme.textExtraLight};
+          color: ${props.theme.textLight};
         }
       `};
       &:hover {
@@ -162,8 +162,11 @@ const EndIconContainer = styled.div`
   margin-left: 10px;
 `;
 const HeadIconContainer = styled.div`
-  position: absolute;
-  right: 30px;
+  position: relative;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 8px;
 `;
 
 interface IButtonProps {

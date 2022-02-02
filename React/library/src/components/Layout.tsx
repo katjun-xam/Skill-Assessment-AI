@@ -8,9 +8,9 @@ import { ReactComponent as IconProfile } from "./../assets/icons/icon-profile.sv
 
 const PageContainer = styled.main(
   (props) => css`
-    padding: 16px;
+    padding: 16px 16px 98px 16px;
     @media all and (min-width: ${props.theme.breakpoints.sm}) {
-      padding: 32px;
+      padding: 32px 32px 98px 32px;
     }
   `
 );

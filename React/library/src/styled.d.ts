@@ -12,6 +12,7 @@ declare module "styled-components" {
     bgDark: string;
     disabled: string;
     disabledDark: string;
+    borderRadiusLg: string;
     borderColorLight: string;
     borderRadiusMd: string;
     borderRadiusSm: string;
