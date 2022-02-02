@@ -4,7 +4,7 @@ import FormInputText from "./FormInputText";
 import GlobalStyles from "./../globalStyles";
 
 export default {
-  title: "Form/InputText",
+  title: "Forms/InputText",
   component: FormInputText,
 } as ComponentMeta<typeof FormInputText>;
 
