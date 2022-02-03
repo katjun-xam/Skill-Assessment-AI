@@ -153,8 +153,9 @@ const ModalHeader = styled.div(
   `
 );
 
-const ModalContent = styled.p(
+const ModalContent = styled.div(
   (props) => css`
+    margin: 15px 0px;
     color: ${props.theme.textExtraDark};
   `
 );
@@ -195,7 +196,7 @@ const ModalFooter = styled.div(
 
 interface IModalProps {
   heading: string;
-  content: string;
+  content: string | React.ReactNode;
   animate?: boolean;
   childHeading?: string;
   childContent?: string;
@@ -234,7 +235,7 @@ const Modal = ({
               <>
                 <Button
                   color="primary"
-                  variant="contained"
+                  variant="outlined"
                   label="Cancel"
                   wide
                   centered
@@ -267,7 +268,7 @@ const Modal = ({
                   <>
                     <Button
                       color="primary"
-                      variant="contained"
+                      variant="outlined"
                       label="Cancel"
                       wide
                       centered
