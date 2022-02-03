@@ -1,7 +1,7 @@
 import React, { ReactChild, useState } from "react";
 import styled, { css } from "styled-components";
 
-const TooltipContainer = styled.p(
+const TooltipContainer = styled.div(
   (props) => css`
     text-align: center;
     display: inline-block;

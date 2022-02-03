@@ -5,6 +5,14 @@ import { lightTheme } from "./../theme";
 import { ReactComponent as IconProfile } from "./../assets/icons/icon-profile.svg";
 import Tooltip from "./Tooltip";
 
+const SampleComponent = ({ children }: any) => {
+  return (
+    <div style={{ position: "relative", top: "20px", left: "100px" }}>
+      {children}
+    </div>
+  );
+};
+
 export default {
   title: "UI/Tooltip",
   component: Tooltip,
@@ -19,7 +27,9 @@ export default {
 const Template: ComponentStory<typeof Tooltip> = (args) => (
   <>
     <GlobalStyles />
-    <Tooltip {...args} />
+    <SampleComponent>
+      <Tooltip {...args} />
+    </SampleComponent>
   </>
 );
 
