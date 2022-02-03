@@ -18,6 +18,7 @@ const ModalContainer = styled.div(
     justify-content: center;
     background: ${props.theme.bgDark};
     overflow: auto;
+    z-index: 1;
   `
 );
 
@@ -32,6 +33,9 @@ const ModalBody = styled.div<{
       height: auto;
       margin: auto;
       width: 41.7%;
+      @media all and (max-width: ${props.theme.breakpoints.md}) {
+        width: 70%;
+      }
       @media all and (max-width: ${props.theme.breakpoints.sm}) {
         width: 100%;
         margin: 0px;
@@ -184,11 +188,6 @@ const ModalFooter = styled.div(
       button {
         padding-left: 2vw;
         padding-right: 2vw;
-        @media all and (max-width: ${props.theme.breakpoints.sm}) {
-          &:not(:first-child) {
-            margin-left: 3vw;
-          }
-        }
       }
     }
   `
