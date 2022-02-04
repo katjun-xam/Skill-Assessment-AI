@@ -10,9 +10,12 @@ import styled, { css } from "styled-components";
 import Icon from "../components/Icon";
 import { ReactComponent as IconPencil } from "./../assets/icons/icon-pencil.svg";
 import { lightTheme } from "./../theme";
+import PageTitle from "../components/PageTitle";
+import Breadcrumb from "../components/Breadcrumb";
 
 const ProfileSettings = styled.div(
   (props) => css`
+    margin-top: 64px;
     & > div:first-child {
       display: flex;
       h2 {
@@ -64,6 +67,14 @@ const Profile = (props: IProfileProps) => {
 
   return (
     <Layout>
+      <PageTitle text="My Profile" />
+      <Breadcrumb
+        links={[
+          { label: "Register", url: "/register" },
+          { label: "Breadcrumb1", url: "#" },
+          { label: "Breadcrumb2", url: "#" },
+        ]}
+      />
       <ProfileSettings>
         <div>
           <Avatar
