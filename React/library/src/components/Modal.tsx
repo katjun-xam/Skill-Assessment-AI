@@ -202,6 +202,7 @@ interface IModalProps {
   animationType?: string;
   onSubmit: (action: string, nested?: boolean, child?: boolean) => void;
   childModalVisibility?: boolean;
+  modalFooter?: boolean;
 }
 
 const Modal = ({
@@ -213,6 +214,7 @@ const Modal = ({
   animationType,
   onSubmit,
   childModalVisibility,
+  modalFooter,
 }: IModalProps) => {
   return (
     <>
@@ -229,32 +231,34 @@ const Modal = ({
             <IconClose onClick={() => onSubmit("close")} />
           </ModalHeader>
           <ModalContent>{content}</ModalContent>
-          <ModalFooter>
-            <ButtonGroup inline gap={20}>
-              <>
-                <Button
-                  color="primary"
-                  variant="outlined"
-                  label="Cancel"
-                  wide
-                  centered
-                  onClick={() => onSubmit("close")}
-                />
-                <Button
-                  color="primary"
-                  variant="contained"
-                  label="Confirm"
-                  wide
-                  centered
-                  onClick={() =>
-                    childHeading
-                      ? onSubmit("confirm", true)
-                      : onSubmit("confirm")
-                  }
-                />
-              </>
-            </ButtonGroup>
-          </ModalFooter>
+          {modalFooter && (
+            <ModalFooter>
+              <ButtonGroup inline gap={20}>
+                <>
+                  <Button
+                    color="primary"
+                    variant="outlined"
+                    label="Cancel"
+                    wide
+                    centered
+                    onClick={() => onSubmit("close")}
+                  />
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    label="Confirm"
+                    wide
+                    centered
+                    onClick={() =>
+                      childHeading
+                        ? onSubmit("confirm", true)
+                        : onSubmit("confirm")
+                    }
+                  />
+                </>
+              </ButtonGroup>
+            </ModalFooter>
+          )}
           {childModalVisibility && (
             <ModalBody animate={animate || animationType ? "animateChild" : ""}>
               <ModalHeader>

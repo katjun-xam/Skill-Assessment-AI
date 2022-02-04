@@ -10,6 +10,8 @@ import FormCell from "./FormCell";
 import FormInputText from "./FormInputText";
 import { ReactComponent as Logo } from "./../assets/logo.svg";
 import { ReactComponent as IconProfile } from "./../assets/icons/icon-profile.svg";
+import Icon from "./Icon";
+import { lightTheme } from "./../theme";
 
 const PageContainer = styled.main(
   (props) => css`
@@ -65,7 +67,11 @@ const Layout = ({ children }: ILayoutProps) => {
             variant="outlined"
             wide
             onClick={() => setModalVisibility(true)}
-            startIcon={<IconProfile />}
+            startIcon={
+              <Icon fillColor={lightTheme.primary}>
+                <IconProfile />
+              </Icon>
+            }
           />
         }
       ></Header>
@@ -94,10 +100,23 @@ const Layout = ({ children }: ILayoutProps) => {
                   />
                 </FormCell>
               </FormRow>
+              <FormRow>
+                <FormCell cellWidth="20%">
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    label="Login"
+                    wide
+                    centered
+                    onClick={() => alert("loggedIn!")}
+                  />
+                </FormCell>
+              </FormRow>
             </FormMain>
           }
           animationType="grow"
           onSubmit={onModalSubmitHandler}
+          modalFooter={false}
         />
       )}
       <PageContainer>{children}</PageContainer>

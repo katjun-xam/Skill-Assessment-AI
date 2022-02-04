@@ -141,7 +141,7 @@ const TableCell = styled.td<{
 
 interface ITableProps {
   tableData: ITableData[];
-  typeOfData: any[];
+  typeOfData?: any[];
   width?: string;
   columnWidth?: string[];
   headers?: string[];

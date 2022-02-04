@@ -28,27 +28,15 @@ const ButtonContainer = styled.button<{
     ${props.color === "primary" &&
     css`
       color: ${props.theme.primary};
-      & svg {
-        fill: ${props.theme.primary};
-      }
       &:hover {
         color: ${props.theme.primaryAccent};
-        & svg {
-          fill: ${props.theme.textLight};
-        }
       }
     `};
     ${props.color === "secondary" &&
     css`
       color: ${props.theme.secondary};
-      & svg {
-        fill: ${props.theme.secondary};
-      }
       &:hover {
         color: ${props.theme.secondaryAccent};
-        & svg {
-          fill: ${props.theme.secondaryAccent};
-        }
       }
     `};
 
@@ -56,9 +44,6 @@ const ButtonContainer = styled.button<{
     css`
       border-radius: ${props.theme.borderRadiusMd};
       padding: ${props.theme.btPadding};
-      & svg {
-        fill: ${props.theme.textWhite};
-      }
       ${props.color === "primary" &&
       css`
         background-color: ${props.theme.primary};
@@ -97,7 +82,7 @@ const ButtonContainer = styled.button<{
         &:hover {
           border-color: transparent;
           color: ${props.theme.textExtraLight};
-          background-color: ${props.theme.primary};
+          background-color: ${props.theme.primaryAccent};
           & svg {
             fill: ${props.theme.textWhite};
           }
@@ -109,7 +94,7 @@ const ButtonContainer = styled.button<{
         &:hover {
           border-color: transparent;
           color: ${props.theme.textExtraLight};
-          background-color: ${props.theme.secondary};
+          background-color: ${props.theme.secondaryAccent};
           & svg {
             fill: ${props.theme.textWhite};
           }
@@ -138,9 +123,6 @@ const ButtonContainer = styled.button<{
         background-color: ${props.theme.bgWhite};
         color: ${props.theme.disabled};
       `};
-      & svg {
-        fill: ${props.theme.disabledDark};
-      }
     `}
 
     ${props.wide &&
