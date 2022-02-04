@@ -43,8 +43,8 @@ const Layout = ({ children }: ILayoutProps) => {
       path: "/",
     },
     {
-      label: "What’s New",
-      path: "/news",
+      label: "Register",
+      path: "/register",
     },
     {
       label: "My Profile",

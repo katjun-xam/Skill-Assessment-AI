@@ -50,10 +50,10 @@ const ModalBody = styled.div<{
       position: relative;
       ${props.animationType &&
       css`
-        animation: ${props.animationType} 0.8s;
+        animation: ${props.animationType} 0.6s;
         @keyframes grow {
           0% {
-            transform: scale(0);
+            transform: scale(0.6);
           }
           100% {
             transform: scale(1);
