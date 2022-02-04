@@ -137,7 +137,11 @@ const Register = (props: IRegisterProps) => {
               <Button
                 label="lookup"
                 color="primary"
-                startIcon={<IconSearch />}
+                startIcon={
+                  <Icon fillColor={lightTheme.textWhite}>
+                    <IconSearch />
+                  </Icon>
+                }
                 wide
                 variant="contained"
                 onClick={() => alert("lookup")}
