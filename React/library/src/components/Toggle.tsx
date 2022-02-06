@@ -1,7 +1,10 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const ToggleContainer = styled.label(
+const ToggleContainer = styled.label<{
+  color?: "primary" | "secondary";
+  disabled?: boolean;
+}>(
   (props) => css`
     position: relative;
     display: inline-block;
@@ -27,20 +30,25 @@ const ToggleContainer = styled.label(
     }
     input:checked + span:after {
       content: "ON";
-      color: ${props.theme.textMedium};
+      color: ${props.color !== "secondary"
+        ? props.theme.primaryAccent
+        : props.theme.secondaryAccent};
       left: 14px;
     }
     input:checked + span {
       background-color: ${props.theme.bgLight};
     }
-
     input:focus + span {
       box-shadow: 0 0 1px ${props.theme.bgLight};
     }
+    ${props.disabled &&
+    css`
+      pointer-events: none;
+    `}
   `
 );
 
-const ToggleSlider = styled.span(
+const ToggleSlider = styled.span<{ color?: "primary" | "secondary" }>(
   (props) => css`
     position: absolute;
     cursor: pointer;
@@ -59,7 +67,11 @@ const ToggleSlider = styled.span(
       width: 26px;
       left: 4px;
       bottom: 4px;
-      background-color: ${props.theme.primary};
+      background-color: ${props.color === "primary"
+        ? props.theme.primary
+        : props.color === "secondary"
+        ? props.theme.secondary
+        : props.theme.disabled};
       border-radius: 50%;
       transition: 0.4s;
     }
@@ -67,15 +79,17 @@ const ToggleSlider = styled.span(
 );
 
 interface ToggleProps {
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   value: boolean;
+  color?: "primary" | "secondary";
+  disabled?: boolean;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-const Toggle = ({ onChange, value }: ToggleProps) => {
+const Toggle = ({ color, value, disabled, onChange }: ToggleProps) => {
   return (
-    <ToggleContainer>
+    <ToggleContainer color={color} disabled={disabled}>
       <input type="checkbox" onChange={onChange} checked={value} />
-      <ToggleSlider />
+      <ToggleSlider color={color} />
     </ToggleContainer>
   );
 };

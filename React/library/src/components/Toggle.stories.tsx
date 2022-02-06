@@ -16,5 +16,17 @@ const Template: ComponentStory<typeof Toggle> = (args) => (
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Primary = Template.bind({});
+Primary.args = {
+  color: "primary",
+};
+
+export const Seconday = Template.bind({});
+Seconday.args = {
+  color: "secondary",
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+};
