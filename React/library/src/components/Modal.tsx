@@ -18,7 +18,7 @@ const ModalContainer = styled.div(
     justify-content: center;
     background: ${props.theme.bgDark};
     overflow: auto;
-    z-index: 1;
+    z-index: 2;
   `
 );
 
@@ -214,7 +214,7 @@ const Modal = ({
   animationType,
   onSubmit,
   childModalVisibility,
-  modalFooter,
+  modalFooter = true,
 }: IModalProps) => {
   return (
     <>
