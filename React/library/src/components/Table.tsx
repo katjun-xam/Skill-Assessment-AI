@@ -9,7 +9,10 @@ const ScrollContainer = styled.div(
   `
 );
 
-const TableContainer = styled.table<{ width?: string; alignment?: string }>(
+const TableContainer = styled.table<{
+  width?: string;
+  alignment?: string;
+}>(
   (props) => css`
     border-spacing: 0;
     border-collapse: separate;
@@ -42,8 +45,8 @@ const TableRow = styled.tr(
     }
     & th,
     td:first-child {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
     &:last-child {
       td {
@@ -103,9 +106,9 @@ const TableHeaderCell = styled.th<{
     }
   `
 );
-const TableBody = styled.tbody(
+const TableBody = styled.tbody<{ bgColor?: string }>(
   (props) => css`
-    background: ${props.theme.bgLight};
+    background: ${props.bgColor ? props.bgColor : props.theme.bgLight};
   `
 );
 const TableCell = styled.td<{
@@ -148,6 +151,7 @@ interface ITableProps {
   labels?: boolean;
   alignment?: string;
   sort?: boolean;
+  background?: string;
 }
 interface ITableData {
   [key: string]: any;
@@ -166,6 +170,7 @@ const Table = ({
   labels,
   alignment,
   sort,
+  background,
 }: ITableProps) => {
   const [sortData, setSortData] = useState({
     asc: false,
@@ -271,7 +276,7 @@ const Table = ({
             </TableRow>
           </TableHeader>
         )}
-        <TableBody>
+        <TableBody bgColor={background}>
           {(sort ? sortedData : tableData).map((item, index) => {
             return (
               <TableRow key={index}>

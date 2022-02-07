@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Avatar from "../components/Avatar";
 import Layout from "../components/Layout";
 import avatar1 from "../assets/images/avatar1.png";
 import Table from "../components/Table";
@@ -7,11 +6,13 @@ import FormInputText from "../components/FormInputText";
 import ButtonGroup from "../components/ButtonGroup";
 import Button from "../components/Button";
 import styled, { css } from "styled-components";
-import Icon from "../components/Icon";
 import { ReactComponent as IconPencil } from "./../assets/icons/icon-pencil.svg";
 import { lightTheme } from "./../theme";
 import PageTitle from "../components/PageTitle";
 import Breadcrumb from "../components/Breadcrumb";
+import Icon from "../components/Icon";
+import Avatar from "../components/Avatar";
+import Toggle from "../components/Toggle";
 
 const ProfileSettings = styled.div(
   (props) => css`
@@ -26,6 +27,14 @@ const ProfileSettings = styled.div(
     & > div:nth-child(2) {
       margin: 20px 0px;
       & > div:nth-child(2) {
+        display: flex;
+        align-items: center;
+        margin-top: 2px;
+        h6 {
+          margin: 0px 5px 0px 0px;
+        }
+      }
+      & > div:nth-child(3) {
         margin-top: 20px;
         width: 25%;
         @media all and (max-width: ${props.theme.breakpoints.sm}) {
@@ -42,6 +51,7 @@ const Profile = (props: IProfileProps) => {
   const [firstName, setFirstName] = useState("Ferrara");
   const [lastName, setLastName] = useState("Clifford");
   const [city, setCity] = useState("Canberra");
+  const [theme, setTheme] = useState(false);
   const [profile, setProfile] = useState({
     firstname: false,
     lastname: false,
@@ -164,9 +174,18 @@ const Profile = (props: IProfileProps) => {
                 ),
               },
             ]}
+            background={theme ? lightTheme.textMedium : lightTheme.bgLight}
             labels={true}
             columnWidth={["30%", "50%", "20%"]}
           />
+          <div>
+            <h6>Theme Preference</h6>
+            <Toggle
+              value={theme}
+              color="primary"
+              onChange={() => setTheme(!theme)}
+            />
+          </div>
           <ButtonGroup gap={20} inline={true}>
             <>
               <Button

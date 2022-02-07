@@ -173,3 +173,25 @@ TableCellWithIcon.args = {
   columnWidth: ["15%", "20%", "5%"],
   width: "40%",
 };
+export const CustomTableBackground = Template.bind({});
+CustomTableBackground.args = {
+  tableData: [
+    {
+      label: "First Name",
+      text: "Ferrara",
+      icon: "",
+    },
+    {
+      label: "Last Name",
+      text: "Clifford",
+      icon: "",
+    },
+    {
+      label: "City",
+      text: "Caberra",
+      icon: "",
+    },
+  ],
+  labels: true,
+  background: lightTheme.bgWhite,
+};
