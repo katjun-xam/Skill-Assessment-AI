@@ -5,26 +5,37 @@ import styled, { css } from "styled-components";
 import ButtonGroup from "./../components/ButtonGroup";
 import Button from "./../components/Button";
 
-const HeaderContainer = styled.header(
+const HeaderMainContainer = styled.header(
   (props) => css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #f8f8f8;
+    background-color: ${props.theme.bgLight};
     padding: 8px 16px;
     @media all and (min-width: ${props.theme.breakpoints.sm}) {
       padding: 16px 32px;
     }
     min-height: 52px;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid ${props.theme.borderColorLight};
   `
 );
 
-const HeaderContent = styled.div`
-  display: flex;
-  flex: 1 0 auto;
-  justify-content: flex-end;
-`;
+const HeaderContainer = styled.div(
+  (props) => css`
+    flex: 1 0 auto;
+    display: flex;
+    max-width: ${props.theme.pageWidth};
+    margin: 0 auto;
+  `
+);
+
+const HeaderContent = styled.div(
+  (props) => css`
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: flex-end;
+  `
+);
 
 const LogoContainer = styled.div(
   (props) => css`
@@ -97,10 +108,6 @@ const HeaderEndElement = styled.div(
   (props) => css`
     flex: 0 1 180px;
     display: block;
-    /* display: none;
-    @media all and (min-width: ${props.theme.breakpoints.md}) {
-      display: block;
-    } */
   `
 );
 
@@ -121,42 +128,44 @@ const Header = ({ title, logo, menu, endElement }: IHeaderProps) => {
   const { pathname } = useLocation();
 
   return (
-    <HeaderContainer>
-      <TitleContainer>
-        <LogoContainer>{logo}</LogoContainer>
-        {title && <TitleText>{title}</TitleText>}
-      </TitleContainer>
-      <HeaderContent>
-        {/* NAVIGATION */}
-        <HeaderNavigationSticky>
-          {menu.map((item) => (
-            <HeaderNavigationStickyItem
-              key={item.path}
-              selected={
-                (pathname === "/" && item.path === "/") ||
-                (item.path !== "/" && pathname.includes(item.path))
-              }
-            >
-              <Link to={item.path}>{item.label}</Link>
-            </HeaderNavigationStickyItem>
-          ))}
-        </HeaderNavigationSticky>
-        {/* NAVIGATION WIDE SCREENS */}
-        <HeaderNavigation>
-          <ButtonGroup gap={0} inline>
-            <>
-              {menu.map((item) => (
-                <Link to={item.path} key={item.path}>
-                  <Button label={item.label} color="primary"></Button>
-                </Link>
-              ))}
-            </>
-          </ButtonGroup>
-        </HeaderNavigation>
-        {/* HEADER END ELEMENT */}
-        {endElement && <HeaderEndElement>{endElement}</HeaderEndElement>}
-      </HeaderContent>
-    </HeaderContainer>
+    <HeaderMainContainer>
+      <HeaderContainer>
+        <TitleContainer>
+          <LogoContainer>{logo}</LogoContainer>
+          {title && <TitleText>{title}</TitleText>}
+        </TitleContainer>
+        <HeaderContent>
+          {/* NAVIGATION */}
+          <HeaderNavigationSticky>
+            {menu.map((item) => (
+              <HeaderNavigationStickyItem
+                key={item.path}
+                selected={
+                  (pathname === "/" && item.path === "/") ||
+                  (item.path !== "/" && pathname.includes(item.path))
+                }
+              >
+                <Link to={item.path}>{item.label}</Link>
+              </HeaderNavigationStickyItem>
+            ))}
+          </HeaderNavigationSticky>
+          {/* NAVIGATION WIDE SCREENS */}
+          <HeaderNavigation>
+            <ButtonGroup gap={0} inline>
+              <>
+                {menu.map((item) => (
+                  <Link to={item.path} key={item.path}>
+                    <Button label={item.label} color="primary"></Button>
+                  </Link>
+                ))}
+              </>
+            </ButtonGroup>
+          </HeaderNavigation>
+          {/* HEADER END ELEMENT */}
+          {endElement && <HeaderEndElement>{endElement}</HeaderEndElement>}
+        </HeaderContent>
+      </HeaderContainer>
+    </HeaderMainContainer>
   );
 };
 

@@ -31,5 +31,6 @@ declare module "styled-components" {
       md: string;
       lg: string;
     };
+    pageWidth: string;
   }
 }

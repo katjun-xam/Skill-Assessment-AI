@@ -35,6 +35,7 @@ const lightTheme = {
     md: "900px",
     lg: "1200px",
   },
+  pageWidth: "1400px",
   error: "#DD4411",
 };
 
