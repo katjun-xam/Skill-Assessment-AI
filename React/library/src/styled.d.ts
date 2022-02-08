@@ -6,9 +6,15 @@ declare module "styled-components" {
     primaryAccent: string;
     secondary: string;
     secondaryAccent: string;
+    error: string;
     bgWhite: string;
+    bgLight: string;
+    bgMedium: string;
+    bgDark: string;
     disabled: string;
     disabledDark: string;
+    borderRadiusLg: string;
+    borderColorLight: string;
     borderRadiusMd: string;
     borderRadiusSm: string;
     btPadding: string;
@@ -20,5 +26,10 @@ declare module "styled-components" {
     textDark: string;
     textExtraDark: string;
     textBlack: string;
+    breakpoints: {
+      sm: string;
+      md: string;
+      lg: string;
+    };
   }
 }
