@@ -176,7 +176,7 @@ const Profile = (props: IProfileProps) => {
             ]}
             background={theme ? lightTheme.textMedium : lightTheme.bgLight}
             labels={true}
-            columnWidth={["30%", "50%", "20%"]}
+            columnWidth={["40%", "40%", "20%"]}
           />
           <div>
             <h6>Theme Preference</h6>

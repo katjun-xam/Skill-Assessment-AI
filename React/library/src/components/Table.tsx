@@ -36,7 +36,7 @@ const TableHeader = styled.thead(
     color: ${props.theme.textWhite};
   `
 );
-const TableRow = styled.tr(
+const TableRow = styled.tr<{ withLabels?: boolean }>(
   (props) => css`
     border-bottom: 1px solid ${props.theme.borderColorLight};
     & *:not(:first-child) {
@@ -48,6 +48,13 @@ const TableRow = styled.tr(
       padding-left: 20px;
       padding-right: 20px;
     }
+    ${props.withLabels &&
+    css`
+      td:first-child {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+    `}
     &:last-child {
       td {
         border-bottom: none;
@@ -260,6 +267,7 @@ const Table = ({
                 (item, index) => {
                   return (
                     <TableHeaderCell
+                      key={index}
                       width={columnWidth && columnWidth[index]}
                       sortType={
                         sortData.asc ? "asc" : sortData.desc ? "desc" : ""
@@ -279,11 +287,12 @@ const Table = ({
         <TableBody bgColor={background}>
           {(sort ? sortedData : tableData).map((item, index) => {
             return (
-              <TableRow key={index}>
+              <TableRow key={index} withLabels={labels}>
                 {labels
                   ? Object.values(item).map((data, index) => {
                       return (
                         <TableCell
+                          key={index}
                           labelIndicator={
                             Object.keys(item).find(
                               (key) => item[key] === data
@@ -306,7 +315,7 @@ const Table = ({
                     })
                   : Object.values(item).map((data, index) => {
                       return (
-                        <TableCell>
+                        <TableCell key={index}>
                           {typeOfData
                             ? typeOfData[index] === "date"
                               ? new Date(data).getDate().toString() +
