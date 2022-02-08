@@ -1,8 +1,9 @@
 import Layout from "../components/Layout";
 
 import PageTitle from "../components/PageTitle";
-import { Counter } from "../features/counter/Counter";
+// import { Counter } from "../features/counter/Counter";
 import Breadcrumb from "../components/Breadcrumb";
+import Transactions from "../features/transactions/Transactions";
 
 type IHomeProps = {};
 
@@ -17,7 +18,8 @@ const Home = (props: IHomeProps) => {
           { label: "Breadcrumb2", url: "#" },
         ]}
       />
-      <Counter />
+      {/* <Counter /> */}
+      <Transactions />
     </Layout>
   );
 };
