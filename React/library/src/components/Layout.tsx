@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
+// Implementation
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+import {
+  getUser,
+  getUserAsync,
+  selectUser,
+} from "./../features/user/userSlice";
+
 import Button from "./../components/Button";
 import Header from "./Header";
 import Modal from "./Modal";
@@ -12,6 +20,7 @@ import { ReactComponent as Logo } from "./../assets/logo.svg";
 import { ReactComponent as IconProfile } from "./../assets/icons/icon-profile.svg";
 import Icon from "./Icon";
 import { lightTheme } from "./../theme";
+import Avatar from "./Avatar";
 
 const PageContainer = styled.main(
   (props) => css`
@@ -29,6 +38,9 @@ type ILayoutProps = {
 };
 
 const Layout = ({ children }: ILayoutProps) => {
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(selectUser);
+
   const [modalVisibility, setModalVisibility] = useState(false);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -63,25 +75,35 @@ const Layout = ({ children }: ILayoutProps) => {
         logo={<Logo />}
         menu={headerMenu}
         endElement={
-          <Button
-            label="Login"
-            color="primary"
-            variant="outlined"
-            wide
-            onClick={() => setModalVisibility(true)}
-            startIcon={
-              <Icon fillColor={lightTheme.primary}>
-                <IconProfile />
-              </Icon>
-            }
-          />
+          user.isLogged ? (
+            <Avatar
+              name={`${user.identity.firstName} ${user.identity.lastName}`}
+            />
+          ) : (
+            <Button
+              label="Login"
+              color="primary"
+              variant="outlined"
+              wide
+              onClick={() => setModalVisibility(true)}
+              startIcon={
+                <Icon fillColor={lightTheme.primary}>
+                  <IconProfile />
+                </Icon>
+              }
+            />
+          )
         }
       ></Header>
       {modalVisibility && (
         <Modal
           heading="Login"
           content={
-            <FormMain onSubmit={() => {}}>
+            <FormMain
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+            >
               <FormRow>
                 <FormCell>
                   <FormInputText
@@ -110,7 +132,10 @@ const Layout = ({ children }: ILayoutProps) => {
                     label="Login"
                     wide
                     centered
-                    onClick={() => alert("loggedIn!")}
+                    onClick={() => {
+                      dispatch(getUserAsync(userName));
+                      setModalVisibility(false);
+                    }}
                   />
                 </FormCell>
               </FormRow>

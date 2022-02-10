@@ -12,13 +12,13 @@ const Home = (props: IHomeProps) => {
     <Layout>
       <PageTitle text="Home" />
       <Breadcrumb
+        separator=">"
         links={[
           { label: "Home", url: "/" },
           { label: "Breadcrumb1", url: "#" },
           { label: "Breadcrumb2", url: "#" },
         ]}
       />
-      {/* <Counter /> */}
       <Transactions />
     </Layout>
   );
