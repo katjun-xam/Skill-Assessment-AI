@@ -122,7 +122,7 @@ const Breadcrumb = ({
   return (
     <BreadcrumbContainer
       customSeparator={customSeparator}
-      breadcrumbImg={Object.keys(links[0]).includes("image") && true}
+      breadcrumbImg={Object.keys(links[0]).includes("image")}
     >
       {links.map((item, index) => {
         return (
