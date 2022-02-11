@@ -185,7 +185,8 @@ const Table = ({
   });
 
   if (sort) {
-    sortedData = tableData.sort(function (a, b) {
+    sortedData = [...tableData];
+    sortedData.sort(function (a, b) {
       let valA = a[sortValue];
       let valB = b[sortValue];
       let index = Object.keys(tableData[0]).findIndex(

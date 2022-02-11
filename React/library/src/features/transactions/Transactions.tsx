@@ -26,6 +26,7 @@ const Transactions = (props: ITransactionsProps) => {
         <Table
           tableData={transactions.value}
           typeOfData={["date", "amount", "amount", "date", "amount", "string"]}
+          sort={true}
         />
       ) : (
         <Button
