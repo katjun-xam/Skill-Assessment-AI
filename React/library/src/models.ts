@@ -16,3 +16,14 @@ export interface IRepaymentDetails {
   directDebitAmount: number;
   Status: string;
 }
+
+// Applications
+export interface IApplications {
+  id: number;
+  applicationName: string;
+  applicationStatus: string;
+  currentRepaymentFrequency: string;
+  currentRegularPayment: string;
+  currentRegularFees: string;
+  lastPaymentDate: string;
+}

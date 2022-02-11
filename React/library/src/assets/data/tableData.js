@@ -61,3 +61,32 @@ export const repaymentDetails = [
     Status: "Scheduled",
   },
 ];
+export const applications = [
+  {
+    id: 1,
+    applicationName: "A000000000",
+    applicationStatus: "Canceled",
+    currentRepaymentFrequency: "Monthly",
+    currentRegularPayment: "$10",
+    currentRegularFees: "$0.1",
+    lastPaymentDate: "2022-05-10T06:47:47.239Z",
+  },
+  {
+    id: 2,
+    applicationName: "A000000001",
+    applicationStatus: "Approved",
+    currentRepaymentFrequency: "Monthly",
+    currentRegularPayment: "$20",
+    currentRegularFees: "$0.2",
+    lastPaymentDate: "2022-03-10T06:47:47.239Z",
+  },
+  {
+    id: 3,
+    applicationName: "A000000002",
+    applicationStatus: "Approved",
+    currentRepaymentFrequency: "Weekly",
+    currentRegularPayment: "$30",
+    currentRegularFees: "$0.3",
+    lastPaymentDate: "2022-02-10T06:47:47.239Z",
+  },
+];

@@ -4,6 +4,7 @@ import PageTitle from "../components/PageTitle";
 // import { Counter } from "../features/counter/Counter";
 import Breadcrumb from "../components/Breadcrumb";
 import Transactions from "../features/transactions/Transactions";
+import Applications from "../features/applications/Applications";
 
 type IHomeProps = {};
 
@@ -20,6 +21,7 @@ const Home = (props: IHomeProps) => {
         ]}
       />
       <Transactions />
+      <Applications />
     </Layout>
   );
 };
