@@ -25,7 +25,7 @@ const Transactions = (props: ITransactionsProps) => {
       {transactions.value.length > 0 ? (
         <Table
           tableData={transactions.value}
-          typeOfData={["date", "amount", "amount", "date", "string"]}
+          typeOfData={["date", "amount", "amount", "date", "amount", "string"]}
         />
       ) : (
         <Button
