@@ -10,16 +10,7 @@ export interface ITransactionsState {
 
 // Initial state
 const initialState: ITransactionsState = {
-  value: [
-    {
-      repaymentDate: "",
-      repaymentAmount: 0,
-      fees: 0,
-      directDebitDate: "",
-      directDebitAmount: 0,
-      Status: "",
-    },
-  ],
+  value: [],
   status: "idle",
 };
 

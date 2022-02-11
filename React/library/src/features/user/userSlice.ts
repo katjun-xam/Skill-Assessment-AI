@@ -4,13 +4,13 @@ import { RootState } from "../../app/store";
 import { IIdentity } from "../../models";
 import { fetchUser } from "./userAPI";
 
-export interface UserState {
+export interface IUserState {
   identity: IIdentity;
   isLogged: boolean;
   status: "idle" | "loading" | "failed";
 }
 
-const initialState: UserState = {
+const initialState: IUserState = {
   identity: {
     displayName: "",
     title: "",
