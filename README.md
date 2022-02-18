@@ -1,17 +1,21 @@
 # Introduction
 
-XAM Accelerators for React are a set of UI components classified by categories. It contains a growing set of reusable components aiming to help kicking off projects, and accelerate the most commun needs like Responsive Headers, Form Elements, Buttons, Data Tables, animated Modals...
-The difference compared with UI Kits like MaterialUI, is that each components are easily customisable to suits every projects needs. They intergate well on XAM's typical projects setup and don't bring any extra dependencies, helping keeping a simple and clean codebase.
+#### XAM Accelerators for React are a set of UI components classified by categories. It contains a growing set of reusable components aiming to help kicking off projects, and accelerate the most commun needs like Responsive Headers, Form Elements, Buttons, Data Tables, animated Modals...
+
+#### The difference compared with UI Kits like MaterialUI, is that each components are easily customisable to suits every projects needs. They intergate well on XAM's typical projects setup and don't bring any extra dependencies, helping keeping a simple and clean codebase.
 
 # Getting Started
 
 The components library is contained into a Storybook.
 
 To run storybook you'll need nodeJS https://nodejs.org/en/
-From inside the React/library folder run
-`yarn install or npm install`
-Then run
-`yarn storybook or npm storybook`
+From inside the React/library folder run:
+
+        yarn install or npm install
+
+Then run:
+
+        yarn storybook or npm storybook
 
 # Storybook explorer
 
