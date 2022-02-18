@@ -8,8 +8,10 @@ The difference compared with UI Kits like MaterialUI, is that each components ar
 The components library is contained into a Storybook.
 
 To run storybook you'll need nodeJS https://nodejs.org/en/
-From inside the React/library folder run `yarn install or npm install`
-Then run yarn storybook or npm storybook
+From inside the React/library folder run
+`yarn install or npm install`
+Then run
+`yarn storybook or npm storybook`
 
 # Storybook explorer
 
