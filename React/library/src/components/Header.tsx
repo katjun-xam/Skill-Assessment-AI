@@ -94,7 +94,10 @@ const HeaderEndElement = styled.div`
 interface IHeaderProps {
   title: string;
   logo?: ReactNode;
-  menu: IHeaderMenuItem[];
+  menu: Array<{
+    label: string;
+    path: string;
+  }>;
   children?: ReactNode;
   endElement?: ReactNode;
 }
