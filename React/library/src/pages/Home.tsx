@@ -1,24 +1,27 @@
 import Layout from "../components/Layout";
-import Button from "./../components/Button";
+
+import PageTitle from "../components/PageTitle";
+// import { Counter } from "../features/counter/Counter";
+import Breadcrumb from "../components/Breadcrumb";
+import Transactions from "../features/transactions/Transactions";
+import Applications from "../features/applications/Applications";
 
 type IHomeProps = {};
 
 const Home = (props: IHomeProps) => {
   return (
     <Layout>
-      <h2>Home</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
-        molestias delectus facere quaerat repudiandae totam perspiciatis rem,
-        nesciunt suscipit nobis provident accusantium animi officiis cum commodi
-        tempore perferendis quam ut?
-      </p>
-      <Button
-        variant="contained"
-        color="primary"
-        label="View selection"
-        onClick={() => alert("it works!")}
+      <PageTitle text="Home" />
+      <Breadcrumb
+        separator=">"
+        links={[
+          { label: "Home", url: "/" },
+          { label: "Breadcrumb1", url: "#" },
+          { label: "Breadcrumb2", url: "#" },
+        ]}
       />
+      <Transactions />
+      <Applications />
     </Layout>
   );
 };

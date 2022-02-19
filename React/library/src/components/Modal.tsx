@@ -18,6 +18,7 @@ const ModalContainer = styled.div(
     justify-content: center;
     background: ${props.theme.bgDark};
     overflow: auto;
+    z-index: 2;
   `
 );
 
@@ -32,6 +33,9 @@ const ModalBody = styled.div<{
       height: auto;
       margin: auto;
       width: 41.7%;
+      @media all and (max-width: ${props.theme.breakpoints.md}) {
+        width: 70%;
+      }
       @media all and (max-width: ${props.theme.breakpoints.sm}) {
         width: 100%;
         margin: 0px;
@@ -46,10 +50,10 @@ const ModalBody = styled.div<{
       position: relative;
       ${props.animationType &&
       css`
-        animation: ${props.animationType} 0.8s;
+        animation: ${props.animationType} 0.6s;
         @keyframes grow {
           0% {
-            transform: scale(0);
+            transform: scale(0.6);
           }
           100% {
             transform: scale(1);
@@ -153,8 +157,9 @@ const ModalHeader = styled.div(
   `
 );
 
-const ModalContent = styled.p(
+const ModalContent = styled.div(
   (props) => css`
+    margin: 15px 0px;
     color: ${props.theme.textExtraDark};
   `
 );
@@ -183,11 +188,6 @@ const ModalFooter = styled.div(
       button {
         padding-left: 2vw;
         padding-right: 2vw;
-        @media all and (max-width: ${props.theme.breakpoints.sm}) {
-          &:not(:first-child) {
-            margin-left: 3vw;
-          }
-        }
       }
     }
   `
@@ -195,13 +195,14 @@ const ModalFooter = styled.div(
 
 interface IModalProps {
   heading: string;
-  content: string;
+  content: string | React.ReactNode;
   animate?: boolean;
   childHeading?: string;
   childContent?: string;
   animationType?: string;
   onSubmit: (action: string, nested?: boolean, child?: boolean) => void;
   childModalVisibility?: boolean;
+  modalFooter?: boolean;
 }
 
 const Modal = ({
@@ -213,6 +214,7 @@ const Modal = ({
   animationType,
   onSubmit,
   childModalVisibility,
+  modalFooter = true,
 }: IModalProps) => {
   return (
     <>
@@ -229,32 +231,34 @@ const Modal = ({
             <IconClose onClick={() => onSubmit("close")} />
           </ModalHeader>
           <ModalContent>{content}</ModalContent>
-          <ModalFooter>
-            <ButtonGroup inline gap={20}>
-              <>
-                <Button
-                  color="primary"
-                  variant="contained"
-                  label="Cancel"
-                  wide
-                  centered
-                  onClick={() => onSubmit("close")}
-                />
-                <Button
-                  color="primary"
-                  variant="contained"
-                  label="Confirm"
-                  wide
-                  centered
-                  onClick={() =>
-                    childHeading
-                      ? onSubmit("confirm", true)
-                      : onSubmit("confirm")
-                  }
-                />
-              </>
-            </ButtonGroup>
-          </ModalFooter>
+          {modalFooter && (
+            <ModalFooter>
+              <ButtonGroup inline gap={20}>
+                <>
+                  <Button
+                    color="primary"
+                    variant="outlined"
+                    label="Cancel"
+                    wide
+                    centered
+                    onClick={() => onSubmit("close")}
+                  />
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    label="Confirm"
+                    wide
+                    centered
+                    onClick={() =>
+                      childHeading
+                        ? onSubmit("confirm", true)
+                        : onSubmit("confirm")
+                    }
+                  />
+                </>
+              </ButtonGroup>
+            </ModalFooter>
+          )}
           {childModalVisibility && (
             <ModalBody animate={animate || animationType ? "animateChild" : ""}>
               <ModalHeader>
@@ -267,7 +271,7 @@ const Modal = ({
                   <>
                     <Button
                       color="primary"
-                      variant="contained"
+                      variant="outlined"
                       label="Cancel"
                       wide
                       centered
