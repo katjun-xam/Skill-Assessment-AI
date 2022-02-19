@@ -57,9 +57,22 @@ Default.args = {
     />
   ),
 };
+Default.parameters = {
+  layout: "fullscreen",
+};
 
-export const WithoutTitle = Template.bind({});
-WithoutTitle.args = {
+export const WithoutLogin = Template.bind({});
+WithoutLogin.args = {
+  title: "Storybook showcase",
+  logo: <Logo />,
+  menu: headerMenu,
+};
+WithoutLogin.parameters = {
+  layout: "fullscreen",
+};
+
+export const DesktopWithoutTitle = Template.bind({});
+DesktopWithoutTitle.args = {
   logo: <Logo />,
   menu: headerMenu,
   endElement: (
@@ -72,10 +85,6 @@ WithoutTitle.args = {
     />
   ),
 };
-
-export const WithoutLogin = Template.bind({});
-WithoutLogin.args = {
-  title: "Storybook showcase",
-  logo: <Logo />,
-  menu: headerMenu,
+DesktopWithoutTitle.parameters = {
+  layout: "fullscreen",
 };

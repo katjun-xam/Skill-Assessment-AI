@@ -10,10 +10,13 @@ const lightTheme = {
   // COMMON
   bgWhite: "#FFF",
   bgLight: "#EFF2F5",
+  bgMedium: "#CCCCCC",
   bgDark: "rgba(30,30,30,0.5)",
   disabled: "#E0E0E0",
   disabledDark: "#CDCDCD",
+  borderColorLight: "#DFE3E6",
   // UI
+  borderRadiusLg: "12px",
   borderRadiusMd: "8px",
   borderRadiusSm: "4px",
   btPadding: "0px 42px",
@@ -21,7 +24,7 @@ const lightTheme = {
   // TEXT
   textWhite: "#FFF",
   textExtraLight: "#DDD",
-  textLight: "#C7C0E3",
+  textLight: "#C7C7C7",
   textMedium: "#BBB",
   textDark: "#AAA",
   textExtraDark: "#555",
@@ -32,6 +35,8 @@ const lightTheme = {
     md: "900px",
     lg: "1200px",
   },
+  pageWidth: "1400px",
+  error: "#DD4411",
 };
 
 export { lightTheme };

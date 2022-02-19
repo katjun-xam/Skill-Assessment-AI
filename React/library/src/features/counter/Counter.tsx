@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Layout from "./../../components/Layout";
-
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import {
   decrement,
@@ -20,7 +18,7 @@ export function Counter() {
   const incrementValue = Number(incrementAmount) || 0;
 
   return (
-    <Layout>
+    <>
       <div className={styles.row}>
         <button
           className={styles.button}
@@ -64,6 +62,6 @@ export function Counter() {
           Add If Odd
         </button>
       </div>
-    </Layout>
+    </>
   );
 }

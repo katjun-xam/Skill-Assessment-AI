@@ -1,20 +1,27 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Introduction
+
+#### XAM Accelerators for React are a set of UI components classified by categories. It contains a growing set of reusable components aiming to help kicking off projects, and accelerate the most commun needs like Responsive Headers, Form Elements, Buttons, Data Tables, animated Modals...
+
+#### The difference compared with UI Kits like MaterialUI, is that each components are easily customisable to suits every projects needs. They intergate well on XAM's typical projects setup and don't bring any extra dependencies, helping keeping a simple and clean codebase.
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+The components library is contained into a Storybook.
+
+To run storybook you'll need nodeJS https://nodejs.org/en/
+From inside the React/library folder run:
+
+        yarn install or npm install
+
+Then run:
+
+        yarn storybook or npm storybook
+
+# Storybook explorer
+
+Navigate through the Storybook sidebar (shortcut 's') and reveal the addons bar (shortcut 'a')
+Each component parameters could be tweaked for demo purpose from the addons panel while each sidebar story contains most of the combinations that a component's offers
 
 # Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+You can contribute by adding new components or extends functionnalities of existing ones. Create a branch in the format 'features/[componentsName] and push your code. Make sure to open a PR once you are done :-)

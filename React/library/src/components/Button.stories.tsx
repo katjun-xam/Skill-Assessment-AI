@@ -5,6 +5,9 @@ import { ReactComponent as IconProfile } from "./../assets/icons/icon-profile.sv
 import { ReactComponent as IconChevron } from "./../assets/icons/icon-chevron.svg";
 
 import Button from "./Button";
+import Icon from "./Icon";
+
+import { lightTheme } from "./../theme";
 
 export default {
   title: "UI/Button",
@@ -22,13 +25,30 @@ export const textPrimaryStartIcon = Template.bind({});
 textPrimaryStartIcon.args = {
   color: "primary",
   label: "Text primary",
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.primary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const textPrimaryEndIcon = Template.bind({});
 textPrimaryEndIcon.args = {
   color: "primary",
   label: "Text primary",
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.primary}>
+      <IconProfile />
+    </Icon>
+  ),
+};
+export const IconPrimary = Template.bind({});
+IconPrimary.args = {
+  color: "primary",
+  startIcon: (
+    <Icon fillColor={lightTheme.primary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const textSecondary = Template.bind({});
 textSecondary.args = {
@@ -39,13 +59,30 @@ export const textSecondaryStartIcon = Template.bind({});
 textSecondaryStartIcon.args = {
   color: "secondary",
   label: "Text secondary",
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.secondary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const textSecondaryEndIcon = Template.bind({});
 textSecondaryEndIcon.args = {
   color: "secondary",
   label: "Text secondary",
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.secondary}>
+      <IconProfile />
+    </Icon>
+  ),
+};
+export const IconSecondary = Template.bind({});
+IconSecondary.args = {
+  color: "secondary",
+  startIcon: (
+    <Icon fillColor={lightTheme.secondary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedPrimary = Template.bind({});
 containedPrimary.args = {
@@ -58,14 +95,22 @@ containedPrimaryStartIcon.args = {
   color: "primary",
   variant: "contained",
   label: "Contained primary with Start Icon",
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedPrimaryEndIcon = Template.bind({});
 containedPrimaryEndIcon.args = {
   color: "primary",
   variant: "contained",
   label: "Contained primary with End Icon",
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedPrimaryWide = Template.bind({});
 containedPrimaryWide.args = {
@@ -88,7 +133,11 @@ containedPrimaryWideHeadIcon.args = {
   variant: "contained",
   label: "Contained primary wide with head Icon",
   wide: true,
-  headIcon: <IconChevron />,
+  headIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconChevron />
+    </Icon>
+  ),
 };
 export const containedPrimaryWideStartIconHeadIcon = Template.bind({});
 containedPrimaryWideStartIconHeadIcon.args = {
@@ -96,8 +145,16 @@ containedPrimaryWideStartIconHeadIcon.args = {
   variant: "contained",
   label: "Contained primary wide with Start Icon & Head Icon",
   wide: true,
-  headIcon: <IconChevron />,
-  startIcon: <IconProfile />,
+  headIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconChevron />
+    </Icon>
+  ),
+  startIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedPrimaryWideCenteredStartIcon = Template.bind({});
 containedPrimaryWideCenteredStartIcon.args = {
@@ -106,7 +163,11 @@ containedPrimaryWideCenteredStartIcon.args = {
   label: "Contained primary wide with Start Icon",
   wide: true,
   centered: true,
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedPrimaryWideCenteredEndIcon = Template.bind({});
 containedPrimaryWideCenteredEndIcon.args = {
@@ -115,7 +176,11 @@ containedPrimaryWideCenteredEndIcon.args = {
   label: "Contained primary wide with End Icon",
   wide: true,
   centered: true,
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedSecondary = Template.bind({});
 containedSecondary.args = {
@@ -128,14 +193,22 @@ containedSecondaryStartIcon.args = {
   color: "secondary",
   variant: "contained",
   label: "Contained secondary",
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedSecondaryEndIcon = Template.bind({});
 containedSecondaryEndIcon.args = {
   color: "secondary",
   variant: "contained",
   label: "Contained secondary",
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedSecondaryWide = Template.bind({});
 containedSecondaryWide.args = {
@@ -158,7 +231,11 @@ containedSecondaryWideHeadIcon.args = {
   variant: "contained",
   label: "Contained secondary wide with head Icon",
   wide: true,
-  headIcon: <IconChevron />,
+  headIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconChevron />
+    </Icon>
+  ),
 };
 export const containedSecondaryWideStartIconHeadIcon = Template.bind({});
 containedSecondaryWideStartIconHeadIcon.args = {
@@ -166,8 +243,16 @@ containedSecondaryWideStartIconHeadIcon.args = {
   variant: "contained",
   label: "Contained secondary wide with Start Icon & head Icon",
   wide: true,
-  startIcon: <IconProfile />,
-  headIcon: <IconChevron />,
+  startIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconProfile />
+    </Icon>
+  ),
+  headIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconChevron />
+    </Icon>
+  ),
 };
 export const containedSecondaryWideCenteredStartIcon = Template.bind({});
 containedSecondaryWideCenteredStartIcon.args = {
@@ -176,7 +261,11 @@ containedSecondaryWideCenteredStartIcon.args = {
   label: "Contained secondary wide",
   centered: true,
   wide: true,
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedSecondaryWideCenteredEndIcon = Template.bind({});
 containedSecondaryWideCenteredEndIcon.args = {
@@ -185,7 +274,11 @@ containedSecondaryWideCenteredEndIcon.args = {
   label: "Contained secondary wide",
   centered: true,
   wide: true,
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.textWhite}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedDisabled = Template.bind({});
 containedDisabled.args = {
@@ -200,7 +293,11 @@ containedDisabledStartIcon.args = {
   variant: "contained",
   disabled: true,
   label: "Contained disabled",
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedDisabledEndIcon = Template.bind({});
 containedDisabledEndIcon.args = {
@@ -208,7 +305,11 @@ containedDisabledEndIcon.args = {
   variant: "contained",
   disabled: true,
   label: "Contained disabled",
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedDisabledWide = Template.bind({});
 containedDisabledWide.args = {
@@ -234,7 +335,11 @@ containedDisabledWideHeadIcon.args = {
   label: "Contained disabled wide with head Icon",
   disabled: true,
   wide: true,
-  headIcon: <IconChevron />,
+  headIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconChevron />
+    </Icon>
+  ),
 };
 export const containedDisabledWideStartIconHeadIcon = Template.bind({});
 containedDisabledWideStartIconHeadIcon.args = {
@@ -243,8 +348,16 @@ containedDisabledWideStartIconHeadIcon.args = {
   disabled: true,
   label: "Contained disabled wide with Start Icon & head Icon",
   wide: true,
-  startIcon: <IconProfile />,
-  headIcon: <IconChevron />,
+  startIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconProfile />
+    </Icon>
+  ),
+  headIcon: (
+    <Icon fillColor={lightTheme.textExtraDark}>
+      <IconChevron />
+    </Icon>
+  ),
 };
 export const containedDisabledWideCenteredStartIcon = Template.bind({});
 containedDisabledWideCenteredStartIcon.args = {
@@ -254,7 +367,11 @@ containedDisabledWideCenteredStartIcon.args = {
   label: "Contained disabled wide",
   wide: true,
   centered: true,
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const containedDisabledWideCenteredEndIcon = Template.bind({});
 containedDisabledWideCenteredEndIcon.args = {
@@ -264,7 +381,11 @@ containedDisabledWideCenteredEndIcon.args = {
   disabled: true,
   wide: true,
   centered: true,
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const OutlinePrimary = Template.bind({});
 OutlinePrimary.args = {
@@ -277,14 +398,22 @@ OutlinePrimaryStartIcon.args = {
   color: "primary",
   variant: "outlined",
   label: "Outline primary",
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.primary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const OutlinePrimaryEndIcon = Template.bind({});
 OutlinePrimaryEndIcon.args = {
   color: "primary",
   variant: "outlined",
   label: "Outline primary",
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.primary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const OutlinePrimaryWide = Template.bind({});
 OutlinePrimaryWide.args = {
@@ -307,7 +436,11 @@ OutlinePrimaryWideHeadIcon.args = {
   variant: "outlined",
   label: "Outline primary wide",
   wide: true,
-  headIcon: <IconChevron />,
+  headIcon: (
+    <Icon fillColor={lightTheme.primary}>
+      <IconChevron />
+    </Icon>
+  ),
 };
 export const OutlinePrimaryWideStartIconHeadIcon = Template.bind({});
 OutlinePrimaryWideStartIconHeadIcon.args = {
@@ -315,8 +448,16 @@ OutlinePrimaryWideStartIconHeadIcon.args = {
   variant: "outlined",
   label: "Outline primary wide",
   wide: true,
-  headIcon: <IconChevron />,
-  startIcon: <IconProfile />,
+  headIcon: (
+    <Icon fillColor={lightTheme.primary}>
+      <IconChevron />
+    </Icon>
+  ),
+  startIcon: (
+    <Icon fillColor={lightTheme.primary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const OutlinePrimaryWideCenteredStartIcon = Template.bind({});
 OutlinePrimaryWideCenteredStartIcon.args = {
@@ -324,7 +465,11 @@ OutlinePrimaryWideCenteredStartIcon.args = {
   variant: "outlined",
   label: "Outline primary wide",
   wide: true,
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.primary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const OutlinePrimaryWideCenteredEndIcon = Template.bind({});
 OutlinePrimaryWideCenteredEndIcon.args = {
@@ -332,7 +477,11 @@ OutlinePrimaryWideCenteredEndIcon.args = {
   variant: "outlined",
   label: "Outline primary wide",
   wide: true,
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.primary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const outlineSecondary = Template.bind({});
 outlineSecondary.args = {
@@ -345,14 +494,22 @@ outlineSecondaryStartIcon.args = {
   color: "secondary",
   variant: "outlined",
   label: "Outline secondary",
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.secondary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const outlineSecondaryEndIcon = Template.bind({});
 outlineSecondaryEndIcon.args = {
   color: "secondary",
   variant: "outlined",
   label: "Outline secondary",
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.secondary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const outlineSecondaryWide = Template.bind({});
 outlineSecondaryWide.args = {
@@ -375,7 +532,11 @@ outlineSecondaryWideHeadIcon.args = {
   variant: "outlined",
   label: "Outline secondary wide",
   wide: true,
-  headIcon: <IconChevron />,
+  headIcon: (
+    <Icon fillColor={lightTheme.secondary}>
+      <IconChevron />
+    </Icon>
+  ),
 };
 export const outlineSecondaryWideStartIconHeadIcon = Template.bind({});
 outlineSecondaryWideStartIconHeadIcon.args = {
@@ -383,8 +544,16 @@ outlineSecondaryWideStartIconHeadIcon.args = {
   variant: "outlined",
   label: "Outline secondary wide",
   wide: true,
-  startIcon: <IconProfile />,
-  headIcon: <IconChevron />,
+  startIcon: (
+    <Icon fillColor={lightTheme.secondary}>
+      <IconProfile />
+    </Icon>
+  ),
+  headIcon: (
+    <Icon fillColor={lightTheme.secondary}>
+      <IconChevron />
+    </Icon>
+  ),
 };
 export const outlineSecondaryWideCenteredStartIcon = Template.bind({});
 outlineSecondaryWideCenteredStartIcon.args = {
@@ -392,7 +561,11 @@ outlineSecondaryWideCenteredStartIcon.args = {
   variant: "outlined",
   label: "Outline secondary wide",
   wide: true,
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.secondary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const outlineSecondaryWideCenteredEndIcon = Template.bind({});
 outlineSecondaryWideCenteredEndIcon.args = {
@@ -400,7 +573,11 @@ outlineSecondaryWideCenteredEndIcon.args = {
   variant: "outlined",
   label: "Outline secondary wide",
   wide: true,
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.secondary}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const outlineDisabled = Template.bind({});
 outlineDisabled.args = {
@@ -415,7 +592,11 @@ outlineDisabledStartIcon.args = {
   variant: "outlined",
   label: "Outline disabled",
   disabled: true,
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const outlineDisabledEndIcon = Template.bind({});
 outlineDisabledEndIcon.args = {
@@ -423,7 +604,11 @@ outlineDisabledEndIcon.args = {
   variant: "outlined",
   label: "Outline disabled",
   disabled: true,
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const outlineDisabledWide = Template.bind({});
 outlineDisabledWide.args = {
@@ -449,7 +634,11 @@ outlineDisabledWideHeadIcon.args = {
   disabled: true,
   label: "Outline disabled wide",
   wide: true,
-  headIcon: <IconChevron />,
+  headIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconChevron />
+    </Icon>
+  ),
 };
 export const outlineDisabledWideStartIconHeadIcon = Template.bind({});
 outlineDisabledWideStartIconHeadIcon.args = {
@@ -458,8 +647,16 @@ outlineDisabledWideStartIconHeadIcon.args = {
   disabled: true,
   label: "Outline disabled wide",
   wide: true,
-  startIcon: <IconProfile />,
-  headIcon: <IconChevron />,
+  startIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconProfile />
+    </Icon>
+  ),
+  headIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconChevron />
+    </Icon>
+  ),
 };
 export const outlineDisabledWideCenteredStartIcon = Template.bind({});
 outlineDisabledWideCenteredStartIcon.args = {
@@ -469,7 +666,11 @@ outlineDisabledWideCenteredStartIcon.args = {
   label: "Outline disabled wide",
   wide: true,
   centered: true,
-  startIcon: <IconProfile />,
+  startIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconProfile />
+    </Icon>
+  ),
 };
 export const outlineDisabledWideCenteredEndIcon = Template.bind({});
 outlineDisabledWideCenteredEndIcon.args = {
@@ -479,5 +680,9 @@ outlineDisabledWideCenteredEndIcon.args = {
   label: "Outline disabled wide",
   wide: true,
   centered: true,
-  endIcon: <IconProfile />,
+  endIcon: (
+    <Icon fillColor={lightTheme.textDark}>
+      <IconProfile />
+    </Icon>
+  ),
 };

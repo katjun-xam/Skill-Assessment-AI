@@ -1,7 +1,10 @@
 import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
 
-const BreadcrumbContainer = styled.div<{ customSeparator?: boolean }>(
+const BreadcrumbContainer = styled.div<{
+  customSeparator?: boolean;
+  breadcrumbImg?: boolean;
+}>(
   (props) => css`
     display: flex;
     color: ${props.theme.primary};
@@ -42,6 +45,14 @@ const BreadcrumbContainer = styled.div<{ customSeparator?: boolean }>(
         color: ${props.theme.textExtraDark};
       }
     }
+    ${!props.breadcrumbImg &&
+    css`
+      & > li:first-child {
+        p {
+          margin-left: 0px;
+        }
+      }
+    `}
     ${props.customSeparator &&
     css`
       li {
@@ -109,7 +120,10 @@ const Breadcrumb = ({
   customSeparator,
 }: IBreadCrumbProps) => {
   return (
-    <BreadcrumbContainer customSeparator={customSeparator}>
+    <BreadcrumbContainer
+      customSeparator={customSeparator}
+      breadcrumbImg={Object.keys(links[0]).includes("image")}
+    >
       {links.map((item, index) => {
         return (
           <li key={index}>
