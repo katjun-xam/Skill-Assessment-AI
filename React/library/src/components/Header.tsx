@@ -102,11 +102,6 @@ interface IHeaderProps {
   endElement?: ReactNode;
 }
 
-export interface IHeaderMenuItem {
-  label: string;
-  path: string;
-}
-
 const Header = ({ title, logo, menu, endElement }: IHeaderProps) => {
   const { pathname } = useLocation();
 
