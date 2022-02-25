@@ -15,13 +15,15 @@ steps:
       versionSpec: "17.x"
     displayName: "Install Node.js"
 
-  - script: |
-      npm install
-      npm run build
-    displayName: "npm install and build"
-    workingDirectory: "$(Build.SourcesDirectory)/React/library"
-  - task: PublishBuildArtifacts@1
+  - task: Npm@1
     inputs:
-      PathtoPublish: '$(Build.SourcesDirectory)/React/library'
-      ArtifactName: 'drop'
-      publishLocation: 'Container'
+      command: 'install'
+      workingDir: '$(Local.WorkingDirectory)'
+
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'XAM Core Subscription (c1c61fa4-a6ee-478f-a0a8-181a619b868a)'
+      appType: 'webApp'
+      WebAppName: 'Xam_Accelerator_React'
+      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
