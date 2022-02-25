@@ -22,6 +22,6 @@ steps:
     workingDirectory: "$(Build.SourcesDirectory)/React/library"
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      PathtoPublish: '$(Build.SourcesDirectory)/React/library'
       ArtifactName: 'drop'
       publishLocation: 'Container'
