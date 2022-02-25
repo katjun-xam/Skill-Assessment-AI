@@ -18,7 +18,7 @@ steps:
   - task: Npm@1
     inputs:
       command: 'install'
-      workingDir: '/React/library/'
+      workingDir: 'React/library/'
 
   - task: AzureRmWebAppDeployment@4
     inputs:
