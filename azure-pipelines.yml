@@ -20,6 +20,11 @@ steps:
       command: 'install'
       workingDir: 'React/library/'
 
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customCommand: 'run build'
+
   - task: AzureRmWebAppDeployment@4
     inputs:
       ConnectionType: 'AzureRM'
