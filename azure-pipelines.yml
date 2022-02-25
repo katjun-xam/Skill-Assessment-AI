@@ -25,10 +25,11 @@ steps:
       command: 'custom'
       customCommand: 'run build'
       workingDir: 'React/library/'
+
   - task: AzureRmWebAppDeployment@4
     inputs:
       ConnectionType: 'AzureRM'
       azureSubscription: 'XAM Core Subscription (c1c61fa4-a6ee-478f-a0a8-181a619b868a)'
       appType: 'webApp'
       WebAppName: 'Xam_Accelerator_React'
-      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      packageForLinux: 'React/library/build/*.zip'
