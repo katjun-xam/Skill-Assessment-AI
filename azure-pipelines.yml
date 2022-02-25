@@ -20,16 +20,23 @@ steps:
       command: 'install'
       workingDir: 'React/library/'
 
-  - task: Npm@1
+  - task: AzureStaticWebApp@0
     inputs:
-      command: 'custom'
-      customCommand: 'run build'
-      workingDir: 'React/library/'
+      app_location: 'React/library/'
+      app_build_command: 'npm run build'
+      output_location: 'build'
+      azure_static_web_apps_api_token: '30288ccd79260ed9a8ed10b9d2aa301eed4eec7b0fd130616950ff38784f78a51-c74857d0-0afb-4014-b85c-a5ecccd5ba8200021925'
 
-  - task: AzureRmWebAppDeployment@4
-    inputs:
-      ConnectionType: 'AzureRM'
-      azureSubscription: 'XAM Core Subscription (c1c61fa4-a6ee-478f-a0a8-181a619b868a)'
-      appType: 'webApp'
-      WebAppName: 'Xam_Accelerator_React'
-      packageForLinux: 'React/library/build/*.zip'
+  # - task: Npm@1
+  #   inputs:
+  #     command: 'custom'
+  #     customCommand: 'run build'
+  #     workingDir: 'React/library/'
+
+  # - task: AzureRmWebAppDeployment@4
+  #   inputs:
+  #     ConnectionType: 'AzureRM'
+  #     azureSubscription: 'XAM Core Subscription (c1c61fa4-a6ee-478f-a0a8-181a619b868a)'
+  #     appType: 'webApp'
+  #     WebAppName: 'Xam_Accelerator_React'
+  #     packageForLinux: 'React/library/build/*.zip'
