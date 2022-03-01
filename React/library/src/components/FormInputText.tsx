@@ -24,9 +24,9 @@ const Field = styled.input<{ hasError?: boolean }>(
   (props) => css`
     flex: 1 0 auto;
     border: 1px solid ${props.theme.bgDark};
-    border-radius: 8px;
+    border-radius: ${props.theme.borderRadiusMd};
     padding: 15px 16px;
-    color: ${props.theme.primary};
+    color: ${props.theme.textExtraDark};
     font-size: 1rem;
     &:focus {
       outline: none;
