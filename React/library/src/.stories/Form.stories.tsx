@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import FormMain from "./FormMain";
-import FormRow from "./FormRow";
-import FormCell from "./FormCell";
-import FormInputText from "./FormInputText";
+import FormMain from "../components/FormMain";
+import FormRow from "../components/FormRow";
+import FormCell from "../components/FormCell";
+import FormInputText from "../components/FormInputText";
 import GlobalStyles from "../globalStyles";
 
 const MockedFormInputText = () => {

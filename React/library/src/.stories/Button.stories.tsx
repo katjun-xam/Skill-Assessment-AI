@@ -1,11 +1,11 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { ReactComponent as IconProfile } from "./../assets/icons/icon-profile.svg";
-import { ReactComponent as IconChevron } from "./../assets/icons/icon-chevron.svg";
+import { ReactComponent as IconProfile } from "../assets/icons/icon-profile.svg";
+import { ReactComponent as IconChevron } from "../assets/icons/icon-chevron.svg";
 
-import Button from "./Button";
-import Icon from "./Icon";
+import Button from "../components/Button";
+import Icon from "../components/Icon";
 
 import { lightTheme } from "./../theme";
 

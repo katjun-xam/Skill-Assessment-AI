@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Modal from "./Modal";
-import GlobalStyles from "./../globalStyles";
+import Modal from "../components/Modal";
+import GlobalStyles from "../globalStyles";
 
 export default {
   title: "UI/Modal",

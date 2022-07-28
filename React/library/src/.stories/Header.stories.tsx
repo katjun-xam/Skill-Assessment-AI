@@ -2,12 +2,12 @@ import React from "react";
 import { Story } from "@storybook/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 
-import Header from "./Header";
-import Button from "./../components/Button";
-import GlobalStyles from "./../globalStyles";
+import Header from "../components/Header";
+import Button from "../components/Button";
+import GlobalStyles from "../globalStyles";
 
-import { ReactComponent as Logo } from "./../assets/logo.svg";
-import { ReactComponent as IconProfile } from "./../assets/icons/icon-profile.svg";
+import { ReactComponent as Logo } from "../assets/logo.svg";
+import { ReactComponent as IconProfile } from "../assets/icons/icon-profile.svg";
 
 export default {
   title: "Common/Header",
