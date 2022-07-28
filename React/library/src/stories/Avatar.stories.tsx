@@ -3,8 +3,8 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Avatar from "../components/Avatar";
 import Icon from "../components/Icon";
 
-import GlobalStyles from "./../globalStyles";
-import { lightTheme } from "./../theme";
+import GlobalStyles from "../globalStyles";
+import { lightTheme } from "../theme";
 
 import avatar1 from "../assets/images/avatar1.png";
 import avatar2 from "../assets/images/avatar2.png";

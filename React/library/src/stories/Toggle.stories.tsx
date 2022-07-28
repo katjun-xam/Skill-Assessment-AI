@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import GlobalStyles from "./../globalStyles";
-import { lightTheme } from "./../theme";
+import GlobalStyles from "../globalStyles";
 
 import Toggle from "../components/Toggle";
 export default {

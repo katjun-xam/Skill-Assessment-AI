@@ -7,7 +7,7 @@ import { ReactComponent as IconChevron } from "../assets/icons/icon-chevron.svg"
 import Button from "../components/Button";
 import Icon from "../components/Icon";
 
-import { lightTheme } from "./../theme";
+import { lightTheme } from "../theme";
 
 export default {
   title: "UI/Button",
