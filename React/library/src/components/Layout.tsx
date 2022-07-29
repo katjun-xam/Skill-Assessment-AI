@@ -11,7 +11,7 @@ import Modal from './Modal';
 import FormMain from './FormMain';
 import FormRow from './FormRow';
 import FormCell from './FormCell/FormCell';
-import FormInputText from './FormInputText';
+import FormInputText from './FormInputText/FormInputText';
 import { ReactComponent as Logo } from './../assets/logo.svg';
 import { ReactComponent as IconProfile } from './../assets/icons/icon-profile.svg';
 import Icon from './Icon';

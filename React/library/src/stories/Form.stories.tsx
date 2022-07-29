@@ -5,7 +5,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import FormMain from '../components/FormMain';
 import FormRow from '../components/FormRow';
 import FormCell from '../components/FormCell/FormCell';
-import FormInputText from '../components/FormInputText';
+import FormInputText from '../components/FormInputText/FormInputText';
 import GlobalStyles from '../globalStyles';
 
 const MockedFormInputText = () => {

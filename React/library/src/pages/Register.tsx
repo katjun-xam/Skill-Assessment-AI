@@ -6,7 +6,7 @@ import PageTitle from '../components/PageTitle';
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import ButtonGroup from '../components/ButtonGroup/ButtonGroup';
 import FormCell from '../components/FormCell/FormCell';
-import FormInputText from '../components/FormInputText';
+import FormInputText from '../components/FormInputText/FormInputText';
 import FormMain from '../components/FormMain';
 import FormRow from '../components/FormRow';
 import Layout from '../components/Layout';
