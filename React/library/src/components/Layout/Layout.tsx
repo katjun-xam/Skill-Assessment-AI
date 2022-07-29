@@ -1,37 +1,23 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import { useState } from 'react';
 
 // Implementation
-import { useAppSelector, useAppDispatch } from '../app/hooks';
-import { getUserAsync, selectUser } from './../features/user/userSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { getUserAsync, selectUser } from '../../features/user/userSlice';
 
-import Button from './Button/Button';
-import Header from './Header/Header';
-import Modal from './Modal';
-import FormMain from './FormMain/FormMain';
-import { FormRow } from './FormMain/styles';
-import FormCell from './FormCell/FormCell';
-import FormInputText from './FormInputText/FormInputText';
-import { ReactComponent as Logo } from './../assets/logo.svg';
-import { ReactComponent as IconProfile } from './../assets/icons/icon-profile.svg';
-import Icon from './Icon/Icon';
-import { lightTheme } from './../theme';
-import Avatar from './Avatar/Avatar';
-
-const PageContainer = styled.main(
-  (props) => css`
-    padding: 16px 16px 98px 16px;
-    @media all and (min-width: ${props.theme.breakpoints.sm}) {
-      padding: 32px 32px 98px 32px;
-      max-width: ${props.theme.pageWidth};
-      margin: 0 auto;
-    }
-  `,
-);
-
-type ILayoutProps = {
-  children: React.ReactNode;
-};
+import { PageContainer } from './styles';
+import { ILayoutProps } from './types';
+import Avatar from '../Avatar/Avatar';
+import Button from '../Button/Button';
+import FormCell from '../FormCell/FormCell';
+import FormInputText from '../FormInputText/FormInputText';
+import FormMain from '../FormMain/FormMain';
+import { FormRow } from '../FormMain/styles';
+import Header from '../Header/Header';
+import Icon from '../Icon/Icon';
+import Modal from '../Modal';
+import { ReactComponent as Logo } from '../../assets/logo.svg';
+import { ReactComponent as IconProfile } from '../../assets/icons/icon-profile.svg';
+import { lightTheme } from '../../theme';
 
 const Layout = ({ children }: ILayoutProps) => {
   const dispatch = useAppDispatch();

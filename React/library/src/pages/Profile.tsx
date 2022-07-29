@@ -6,7 +6,7 @@ import { useAppSelector } from '../app/hooks';
 import { selectUser } from './../features/user/userSlice';
 
 import { lightTheme } from './../theme';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import PageTitle from '../components/PageTitle';
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import Table from '../components/Table';

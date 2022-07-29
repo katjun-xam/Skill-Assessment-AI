@@ -9,7 +9,7 @@ import FormCell from '../components/FormCell/FormCell';
 import FormInputText from '../components/FormInputText/FormInputText';
 import FormMain from '../components/FormMain/FormMain';
 import { FormRow } from '../components/FormMain/styles';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import Button from './../components/Button/Button';
 import Icon from '../components/Icon/Icon';
 

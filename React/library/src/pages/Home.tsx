@@ -1,4 +1,4 @@
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 
 import PageTitle from '../components/PageTitle';
 // import { Counter } from "../features/counter/Counter";
