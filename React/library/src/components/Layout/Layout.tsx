@@ -14,7 +14,7 @@ import FormMain from '../FormMain/FormMain';
 import { FormRow } from '../FormMain/styles';
 import Header from '../Header/Header';
 import Icon from '../Icon/Icon';
-import Modal from '../Modal';
+import Modal from '../Modal/Modal';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 import { ReactComponent as IconProfile } from '../../assets/icons/icon-profile.svg';
 import { lightTheme } from '../../theme';
