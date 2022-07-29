@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FormMain from '../components/FormMain';
-import FormRow from '../components/FormRow';
+import FormMain from '../components/FormMain/FormMain';
+import { FormRow } from '../components/FormMain/styles';
 import FormCell from '../components/FormCell/FormCell';
 import FormInputText from '../components/FormInputText/FormInputText';
 import GlobalStyles from '../globalStyles';
