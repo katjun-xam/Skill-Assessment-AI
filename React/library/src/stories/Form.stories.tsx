@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FormMain from "../components/FormMain";
-import FormRow from "../components/FormRow";
-import FormCell from "../components/FormCell";
-import FormInputText from "../components/FormInputText";
-import GlobalStyles from "../globalStyles";
+import FormMain from '../components/FormMain';
+import FormRow from '../components/FormRow';
+import FormCell from '../components/FormCell/FormCell';
+import FormInputText from '../components/FormInputText';
+import GlobalStyles from '../globalStyles';
 
 const MockedFormInputText = () => {
-  const [sampleValue, setSampleValue] = useState("");
+  const [sampleValue, setSampleValue] = useState('');
 
   return (
     <FormInputText
@@ -23,7 +23,7 @@ const MockedFormInputText = () => {
 };
 
 export default {
-  title: "Forms/Form",
+  title: 'Forms/Form',
   component: FormMain,
 } as ComponentMeta<typeof FormMain>;
 

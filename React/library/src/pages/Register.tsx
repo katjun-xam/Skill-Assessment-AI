@@ -5,7 +5,7 @@ import { lightTheme } from '../theme';
 import PageTitle from '../components/PageTitle';
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import ButtonGroup from '../components/ButtonGroup/ButtonGroup';
-import FormCell from '../components/FormCell';
+import FormCell from '../components/FormCell/FormCell';
 import FormInputText from '../components/FormInputText';
 import FormMain from '../components/FormMain';
 import FormRow from '../components/FormRow';

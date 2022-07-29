@@ -5,12 +5,12 @@ import styled, { css } from 'styled-components';
 import { useAppSelector, useAppDispatch } from '../app/hooks';
 import { getUserAsync, selectUser } from './../features/user/userSlice';
 
-import Button from './../components/Button/Button';
+import Button from './Button/Button';
 import Header from './Header';
 import Modal from './Modal';
 import FormMain from './FormMain';
 import FormRow from './FormRow';
-import FormCell from './FormCell';
+import FormCell from './FormCell/FormCell';
 import FormInputText from './FormInputText';
 import { ReactComponent as Logo } from './../assets/logo.svg';
 import { ReactComponent as IconProfile } from './../assets/icons/icon-profile.svg';
