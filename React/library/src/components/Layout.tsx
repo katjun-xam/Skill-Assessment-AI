@@ -1,26 +1,22 @@
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 
 // Implementation
-import { useAppSelector, useAppDispatch } from "../app/hooks";
-import {
-  getUser,
-  getUserAsync,
-  selectUser,
-} from "./../features/user/userSlice";
+import { useAppSelector, useAppDispatch } from '../app/hooks';
+import { getUserAsync, selectUser } from './../features/user/userSlice';
 
-import Button from "./../components/Button";
-import Header from "./Header";
-import Modal from "./Modal";
-import FormMain from "./FormMain";
-import FormRow from "./FormRow";
-import FormCell from "./FormCell";
-import FormInputText from "./FormInputText";
-import { ReactComponent as Logo } from "./../assets/logo.svg";
-import { ReactComponent as IconProfile } from "./../assets/icons/icon-profile.svg";
-import Icon from "./Icon";
-import { lightTheme } from "./../theme";
-import Avatar from "./Avatar";
+import Button from './../components/Button';
+import Header from './Header';
+import Modal from './Modal';
+import FormMain from './FormMain';
+import FormRow from './FormRow';
+import FormCell from './FormCell';
+import FormInputText from './FormInputText';
+import { ReactComponent as Logo } from './../assets/logo.svg';
+import { ReactComponent as IconProfile } from './../assets/icons/icon-profile.svg';
+import Icon from './Icon';
+import { lightTheme } from './../theme';
+import Avatar from './Avatar/Avatar';
 
 const PageContainer = styled.main(
   (props) => css`
@@ -30,7 +26,7 @@ const PageContainer = styled.main(
       max-width: ${props.theme.pageWidth};
       margin: 0 auto;
     }
-  `
+  `,
 );
 
 type ILayoutProps = {
@@ -42,29 +38,29 @@ const Layout = ({ children }: ILayoutProps) => {
   const user = useAppSelector(selectUser);
 
   const [modalVisibility, setModalVisibility] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
 
   const onModalSubmitHandler = (action: string) => {
-    if (action === "confirm" || action === "close") {
+    if (action === 'confirm' || action === 'close') {
       setModalVisibility(false);
-      setUserName("");
-      setPassword("");
+      setUserName('');
+      setPassword('');
     }
   };
 
   const headerMenu = [
     {
-      label: "Home",
-      path: "/",
+      label: 'Home',
+      path: '/',
     },
     {
-      label: "Register",
-      path: "/register",
+      label: 'Register',
+      path: '/register',
     },
     {
-      label: "My Profile",
-      path: "/profile",
+      label: 'My Profile',
+      path: '/profile',
     },
   ];
 
@@ -76,9 +72,7 @@ const Layout = ({ children }: ILayoutProps) => {
         menu={headerMenu}
         endElement={
           user.isLogged ? (
-            <Avatar
-              name={`${user.identity.firstName} ${user.identity.lastName}`}
-            />
+            <Avatar name={`${user.identity.firstName} ${user.identity.lastName}`} />
           ) : (
             <Button
               label="Login"

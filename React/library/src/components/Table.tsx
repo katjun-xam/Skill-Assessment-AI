@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 
-import { ReactComponent as IconSort } from "./../assets/icons/icon-sort.svg";
+import { ReactComponent as IconSort } from './../assets/icons/icon-sort.svg';
 
 const ScrollContainer = styled.div(
   (props) => css`
     overflow-x: auto;
-  `
+  `,
 );
 
 const TableContainer = styled.table<{
@@ -27,14 +27,14 @@ const TableContainer = styled.table<{
         text-align: ${props.alignment};
       }
     `}
-  `
+  `,
 );
 const TableHeader = styled.thead(
   (props) => css`
     font-size: 13px;
     background: ${props.theme.primary};
     color: ${props.theme.textWhite};
-  `
+  `,
 );
 const TableRow = styled.tr<{ withLabels?: boolean }>(
   (props) => css`
@@ -60,7 +60,7 @@ const TableRow = styled.tr<{ withLabels?: boolean }>(
         border-bottom: none;
       }
     }
-  `
+  `,
 );
 const TableHeaderCell = styled.th<{
   width?: string;
@@ -89,14 +89,14 @@ const TableHeaderCell = styled.th<{
       }
     }
     span {
-      ${props.sortType === "asc" &&
+      ${props.sortType === 'asc' &&
       css`
         svg {
           transition: transform 0.3s;
           transform: rotate(180deg);
         }
       `}
-      ${props.sortType === "desc" &&
+      ${props.sortType === 'desc' &&
       css`
         svg {
           transition: transform 0.5s;
@@ -111,12 +111,12 @@ const TableHeaderCell = styled.th<{
       visibility: hidden;
       margin-left: 4px;
     }
-  `
+  `,
 );
 const TableBody = styled.tbody<{ bgColor?: string }>(
   (props) => css`
     background: ${props.bgColor ? props.bgColor : props.theme.bgLight};
-  `
+  `,
 );
 const TableCell = styled.td<{
   width?: string;
@@ -146,7 +146,7 @@ const TableCell = styled.td<{
       font-size: 16px;
       color: ${props.theme.primary};
     `}
-  `
+  `,
 );
 
 interface ITableProps {
@@ -164,7 +164,7 @@ interface ITableData {
   [key: string]: any;
 }
 let sortValue: string;
-let triggerValues: string[] = [];
+const triggerValues: string[] = [];
 let date: boolean;
 let sortedData: ITableData[];
 
@@ -187,13 +187,11 @@ const Table = ({
   if (sort) {
     sortedData = [...tableData];
     sortedData.sort(function (a, b) {
-      let valA = a[sortValue];
-      let valB = b[sortValue];
-      let index = Object.keys(tableData[0]).findIndex(
-        (key) => tableData[0][key] === sortValue
-      );
+      const valA = a[sortValue];
+      const valB = b[sortValue];
+      const index = Object.keys(tableData[0]).findIndex((key) => tableData[0][key] === sortValue);
       if (typeOfData) {
-        if (typeOfData[index] === "date") {
+        if (typeOfData[index] === 'date') {
           date = true;
         }
       }
@@ -243,17 +241,9 @@ const Table = ({
 
     if (sortValue && !triggerValues[triggerValues.length - 2]) {
       setSortData({ ...sortData, asc: !sortData.asc });
-    } else if (
-      sortValue &&
-      triggerValues[triggerValues.length - 1] ===
-        triggerValues[triggerValues.length - 2]
-    ) {
+    } else if (sortValue && triggerValues[triggerValues.length - 1] === triggerValues[triggerValues.length - 2]) {
       setSortData({ ...sortData, asc: !sortData.asc, desc: !sortData.desc });
-    } else if (
-      sortValue &&
-      triggerValues[triggerValues.length - 1] !==
-        triggerValues[triggerValues.length - 2]
-    ) {
+    } else if (sortValue && triggerValues[triggerValues.length - 1] !== triggerValues[triggerValues.length - 2]) {
       setSortData({ ...sortData, asc: true, desc: false });
     }
   };
@@ -264,24 +254,18 @@ const Table = ({
         {!labels && (
           <TableHeader>
             <TableRow>
-              {(headers ? headers : Object.keys(tableData[0])).map(
-                (item, index) => {
-                  return (
-                    <TableHeaderCell
-                      key={index}
-                      width={columnWidth && columnWidth[index]}
-                      sortType={
-                        sortData.asc ? "asc" : sortData.desc ? "desc" : ""
-                      }
-                    >
-                      {item}
-                      <span onClick={() => handleSort(item)}>
-                        {sort && <IconSort />}
-                      </span>
-                    </TableHeaderCell>
-                  );
-                }
-              )}
+              {(headers ? headers : Object.keys(tableData[0])).map((item, index) => {
+                return (
+                  <TableHeaderCell
+                    key={index}
+                    width={columnWidth && columnWidth[index]}
+                    sortType={sortData.asc ? 'asc' : sortData.desc ? 'desc' : ''}
+                  >
+                    {item}
+                    <span onClick={() => handleSort(item)}>{sort && <IconSort />}</span>
+                  </TableHeaderCell>
+                );
+              })}
             </TableRow>
           </TableHeader>
         )}
@@ -295,19 +279,9 @@ const Table = ({
                         <TableCell
                           key={index}
                           labelIndicator={
-                            Object.keys(item).find(
-                              (key) => item[key] === data
-                            ) === "label"
-                              ? true
-                              : false
+                            Object.keys(item).find((key) => item[key] === data) === 'label' ? true : false
                           }
-                          icon={
-                            Object.keys(item).find(
-                              (key) => item[key] === data
-                            ) === "icon"
-                              ? true
-                              : false
-                          }
+                          icon={Object.keys(item).find((key) => item[key] === data) === 'icon' ? true : false}
                           width={columnWidth && columnWidth[index]}
                         >
                           {data}
@@ -318,14 +292,14 @@ const Table = ({
                       return (
                         <TableCell key={index}>
                           {typeOfData
-                            ? typeOfData[index] === "date"
+                            ? typeOfData[index] === 'date'
                               ? new Date(data).getDate().toString() +
-                                "/" +
+                                '/' +
                                 new Date(data).getMonth().toString() +
-                                "/" +
+                                '/' +
                                 new Date(data).getFullYear().toString()
-                              : typeOfData[index] === "amount"
-                              ? "$" + data
+                              : typeOfData[index] === 'amount'
+                              ? '$' + data
                               : data
                             : data}
                         </TableCell>
