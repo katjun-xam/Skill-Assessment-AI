@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { lightTheme } from '../theme';
 import PageTitle from '../components/PageTitle';
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
-import ButtonGroup from '../components/ButtonGroup';
+import ButtonGroup from '../components/ButtonGroup/ButtonGroup';
 import FormCell from '../components/FormCell';
 import FormInputText from '../components/FormInputText';
 import FormMain from '../components/FormMain';

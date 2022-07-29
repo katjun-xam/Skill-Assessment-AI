@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react';
 
-import ButtonGroup from '../components/ButtonGroup';
+import ButtonGroup from '../components/ButtonGroup/ButtonGroup';
 
 import Button from '../components/Button/Button';
 

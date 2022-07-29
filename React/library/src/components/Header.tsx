@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import ButtonGroup from './../components/ButtonGroup';
+import ButtonGroup from './../components/ButtonGroup/ButtonGroup';
 import Button from './../components/Button/Button';
 
 const HeaderMainContainer = styled.header(

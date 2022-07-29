@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Button from './Button/Button';
 import { ReactComponent as IconClose } from './../assets/icons/icon-close.svg';
-import ButtonGroup from './ButtonGroup';
+import ButtonGroup from './ButtonGroup/ButtonGroup';
 
 const ModalContainer = styled.div(
   (props) => css`
