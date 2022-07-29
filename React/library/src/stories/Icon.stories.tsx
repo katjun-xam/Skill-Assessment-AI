@@ -1,14 +1,14 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Icon from "../components/Icon";
-import GlobalStyles from "../globalStyles";
-import { lightTheme } from "../theme";
+import Icon from '../components/Icon/Icon';
+import GlobalStyles from '../globalStyles';
+import { lightTheme } from '../theme';
 
-import { ReactComponent as IconProfile } from "../assets/icons/icon-profile.svg";
-import { ReactComponent as IconPencil } from "../assets/icons/icon-pencil.svg";
+import { ReactComponent as IconProfile } from '../assets/icons/icon-profile.svg';
+import { ReactComponent as IconPencil } from '../assets/icons/icon-pencil.svg';
 
 export default {
-  title: "UI/Icon",
+  title: 'UI/Icon',
   component: Icon,
 } as ComponentMeta<typeof Icon>;
 

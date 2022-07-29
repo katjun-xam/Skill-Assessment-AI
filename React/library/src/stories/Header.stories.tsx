@@ -8,7 +8,7 @@ import GlobalStyles from '../globalStyles';
 
 import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as IconProfile } from '../assets/icons/icon-profile.svg';
-import Icon from '../components/Icon';
+import Icon from '../components/Icon/Icon';
 
 import { lightTheme } from './../theme';
 

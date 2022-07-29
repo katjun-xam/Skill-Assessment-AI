@@ -11,7 +11,7 @@ import FormMain from '../components/FormMain/FormMain';
 import { FormRow } from '../components/FormMain/styles';
 import Layout from '../components/Layout';
 import Button from './../components/Button/Button';
-import Icon from '../components/Icon';
+import Icon from '../components/Icon/Icon';
 
 import { ReactComponent as IconSearch } from './../assets/icons/icon-search.svg';
 import { ReactComponent as IconSuccess } from './../assets/icons/icon-success.svg';

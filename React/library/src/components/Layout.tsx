@@ -14,7 +14,7 @@ import FormCell from './FormCell/FormCell';
 import FormInputText from './FormInputText/FormInputText';
 import { ReactComponent as Logo } from './../assets/logo.svg';
 import { ReactComponent as IconProfile } from './../assets/icons/icon-profile.svg';
-import Icon from './Icon';
+import Icon from './Icon/Icon';
 import { lightTheme } from './../theme';
 import Avatar from './Avatar/Avatar';
 

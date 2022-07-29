@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Avatar from '../components/Avatar/Avatar';
-import Icon from '../components/Icon';
+import Icon from '../components/Icon/Icon';
 
 import GlobalStyles from '../globalStyles';
 import { lightTheme } from '../theme';

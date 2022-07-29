@@ -4,7 +4,7 @@ import { personDetails, repaymentDetails } from '../assets/data/tableData';
 import { ReactComponent as IconPencil } from './../assets/icons/icon-pencil.svg';
 import GlobalStyles from '../globalStyles';
 import Button from '../components/Button/Button';
-import Icon from '../components/Icon';
+import Icon from '../components/Icon/Icon';
 import { lightTheme } from '../theme';
 
 export default {
