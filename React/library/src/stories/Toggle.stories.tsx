@@ -1,10 +1,10 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import GlobalStyles from "../globalStyles";
+import GlobalStyles from '../globalStyles';
 
-import Toggle from "../components/Toggle";
+import Toggle from '../components/Toggle/Toggle';
 export default {
-  title: "Forms/Toggle",
+  title: 'Forms/Toggle',
   component: Toggle,
 } as ComponentMeta<typeof Toggle>;
 
@@ -17,12 +17,12 @@ const Template: ComponentStory<typeof Toggle> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  color: "primary",
+  color: 'primary',
 };
 
 export const Seconday = Template.bind({});
 Seconday.args = {
-  color: "secondary",
+  color: 'secondary',
 };
 
 export const Disabled = Template.bind({});

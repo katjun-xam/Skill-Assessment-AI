@@ -15,7 +15,7 @@ import ButtonGroup from '../components/ButtonGroup/ButtonGroup';
 import Button from '../components/Button/Button';
 import Icon from '../components/Icon/Icon';
 import Avatar from '../components/Avatar/Avatar';
-import Toggle from '../components/Toggle';
+import Toggle from '../components/Toggle/Toggle';
 
 import { ReactComponent as IconPencil } from './../assets/icons/icon-pencil.svg';
 import avatar1 from '../assets/images/avatar1.png';
