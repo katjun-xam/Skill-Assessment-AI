@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Table from '../components/Table';
+import Table from '../components/Table/Table';
 import { personDetails, repaymentDetails } from '../assets/data/tableData';
 import { ReactComponent as IconPencil } from './../assets/icons/icon-pencil.svg';
 import GlobalStyles from '../globalStyles';

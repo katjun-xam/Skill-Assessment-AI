@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import Button from '../../components/Button/Button';
-import Table from '../../components/Table';
+import Table from '../../components/Table/Table';
 import { getTransactionsAsync, selectTransactions } from './transactionsSlice';
 
 type ITransactionsProps = {};
