@@ -6,7 +6,7 @@ import { useAppSelector, useAppDispatch } from '../app/hooks';
 import { getUserAsync, selectUser } from './../features/user/userSlice';
 
 import Button from './Button/Button';
-import Header from './Header';
+import Header from './Header/Header';
 import Modal from './Modal';
 import FormMain from './FormMain/FormMain';
 import { FormRow } from './FormMain/styles';

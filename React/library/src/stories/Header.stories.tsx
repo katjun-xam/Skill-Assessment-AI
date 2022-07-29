@@ -2,7 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import Button from '../components/Button/Button';
 import GlobalStyles from '../globalStyles';
 
