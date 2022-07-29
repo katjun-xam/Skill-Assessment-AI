@@ -1,5 +1,3 @@
-import { DefaultTheme } from "styled-components";
-
 const lightTheme = {
   // PRIMARY
   primary: "#6247B4",
