@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
-import Button from "./Button";
-import { ReactComponent as IconClose } from "./../assets/icons/icon-close.svg";
-import ButtonGroup from "./ButtonGroup";
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
+import Button from './Button/Button';
+import { ReactComponent as IconClose } from './../assets/icons/icon-close.svg';
+import ButtonGroup from './ButtonGroup';
 
 const ModalContainer = styled.div(
   (props) => css`
@@ -19,7 +19,7 @@ const ModalContainer = styled.div(
     background: ${props.theme.bgDark};
     overflow: auto;
     z-index: 2;
-  `
+  `,
 );
 
 const ModalBody = styled.div<{
@@ -108,7 +108,7 @@ const ModalBody = styled.div<{
           }
         }
       `}
-      ${props.animate === "animateChild" &&
+      ${props.animate === 'animateChild' &&
       css`
         animation: grow 0.5s;
         @keyframes grow {
@@ -134,7 +134,7 @@ const ModalBody = styled.div<{
           }
         }
       `}
-    `
+    `,
 );
 
 const ModalHeader = styled.div(
@@ -154,14 +154,14 @@ const ModalHeader = styled.div(
     @media all and (max-width: ${props.theme.breakpoints.sm}) {
       padding-top: 28px;
     }
-  `
+  `,
 );
 
 const ModalContent = styled.div(
   (props) => css`
     margin: 15px 0px;
     color: ${props.theme.textExtraDark};
-  `
+  `,
 );
 
 const ModalFooter = styled.div(
@@ -190,7 +190,7 @@ const ModalFooter = styled.div(
         padding-right: 2vw;
       }
     }
-  `
+  `,
 );
 
 interface IModalProps {
@@ -218,17 +218,15 @@ const Modal = ({
 }: IModalProps) => {
   return (
     <>
-      <ModalContainer onClick={() => onSubmit("close")}>
+      <ModalContainer onClick={() => onSubmit('close')}>
         <ModalBody
-          animationType={
-            animate ? "fadeIn" : animationType ? animationType : ""
-          }
+          animationType={animate ? 'fadeIn' : animationType ? animationType : ''}
           nested={childModalVisibility}
           onClick={(e) => e.stopPropagation()}
         >
           <ModalHeader>
             <h2>{heading}</h2>
-            <IconClose onClick={() => onSubmit("close")} />
+            <IconClose onClick={() => onSubmit('close')} />
           </ModalHeader>
           <ModalContent>{content}</ModalContent>
           {modalFooter && (
@@ -241,7 +239,7 @@ const Modal = ({
                     label="Cancel"
                     wide
                     centered
-                    onClick={() => onSubmit("close")}
+                    onClick={() => onSubmit('close')}
                   />
                   <Button
                     color="primary"
@@ -249,21 +247,17 @@ const Modal = ({
                     label="Confirm"
                     wide
                     centered
-                    onClick={() =>
-                      childHeading
-                        ? onSubmit("confirm", true)
-                        : onSubmit("confirm")
-                    }
+                    onClick={() => (childHeading ? onSubmit('confirm', true) : onSubmit('confirm'))}
                   />
                 </>
               </ButtonGroup>
             </ModalFooter>
           )}
           {childModalVisibility && (
-            <ModalBody animate={animate || animationType ? "animateChild" : ""}>
+            <ModalBody animate={animate || animationType ? 'animateChild' : ''}>
               <ModalHeader>
                 <h2>{childHeading}</h2>
-                <IconClose onClick={() => onSubmit("close", true, true)} />
+                <IconClose onClick={() => onSubmit('close', true, true)} />
               </ModalHeader>
               <ModalContent>{childContent}</ModalContent>
               <ModalFooter>
@@ -275,7 +269,7 @@ const Modal = ({
                       label="Cancel"
                       wide
                       centered
-                      onClick={() => onSubmit("close", true, true)}
+                      onClick={() => onSubmit('close', true, true)}
                     />
                     <Button
                       color="primary"
@@ -283,7 +277,7 @@ const Modal = ({
                       label="Confirm"
                       wide
                       centered
-                      onClick={() => onSubmit("confirm", true, true)}
+                      onClick={() => onSubmit('confirm', true, true)}
                     />
                   </>
                 </ButtonGroup>

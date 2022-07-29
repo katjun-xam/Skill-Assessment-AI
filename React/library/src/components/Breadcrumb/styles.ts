@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { IBreadCrumbContainer } from './types';
+import { IBreadCrumbContainer } from "./types";
 
 export const BreadcrumbContainer = styled.div<IBreadCrumbContainer>`
   display: flex;

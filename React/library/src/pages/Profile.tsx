@@ -12,7 +12,7 @@ import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import Table from '../components/Table';
 import FormInputText from '../components/FormInputText';
 import ButtonGroup from '../components/ButtonGroup';
-import Button from '../components/Button';
+import Button from '../components/Button/Button';
 import Icon from '../components/Icon';
 import Avatar from '../components/Avatar/Avatar';
 import Toggle from '../components/Toggle';

@@ -1,9 +1,9 @@
-import React, { ReactNode } from "react";
-import { useLocation, Link } from "react-router-dom";
-import styled, { css } from "styled-components";
+import React, { ReactNode } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
-import ButtonGroup from "./../components/ButtonGroup";
-import Button from "./../components/Button";
+import ButtonGroup from './../components/ButtonGroup';
+import Button from './../components/Button/Button';
 
 const HeaderMainContainer = styled.header(
   (props) => css`
@@ -17,7 +17,7 @@ const HeaderMainContainer = styled.header(
     }
     min-height: 52px;
     border-bottom: 1px solid ${props.theme.borderColorLight};
-  `
+  `,
 );
 
 const HeaderContainer = styled.div(
@@ -26,7 +26,7 @@ const HeaderContainer = styled.div(
     display: flex;
     max-width: ${props.theme.pageWidth};
     margin: 0 auto;
-  `
+  `,
 );
 
 const HeaderContent = styled.div(
@@ -34,14 +34,14 @@ const HeaderContent = styled.div(
     flex: 1 0 auto;
     display: flex;
     justify-content: flex-end;
-  `
+  `,
 );
 
 const LogoContainer = styled.div(
   (props) => css`
     width: 120px;
     margin-right: 12px;
-  `
+  `,
 );
 
 const TitleContainer = styled.div`
@@ -56,7 +56,7 @@ const TitleText = styled.h1(
     @media all and (min-width: ${props.theme.breakpoints.md}) {
       display: block;
     }
-  `
+  `,
 );
 
 const HeaderNavigationSticky = styled.nav(
@@ -71,7 +71,7 @@ const HeaderNavigationSticky = styled.nav(
     @media all and (min-width: ${props.theme.breakpoints.md}) {
       display: none;
     }
-  `
+  `,
 );
 
 const HeaderNavigationStickyItem = styled.div<{ selected: boolean }>(
@@ -80,9 +80,7 @@ const HeaderNavigationStickyItem = styled.div<{ selected: boolean }>(
     justify-content: center;
     align-items: center;
     flex: 1 0 33%;
-    background-color: ${props.selected
-      ? props.theme.primary
-      : props.theme.primaryAccent};
+    background-color: ${props.selected ? props.theme.primary : props.theme.primaryAccent};
     &:not(:first-child):not(:last-child) {
       border-left: 2px solid ${props.theme.bgWhite};
       border-right: 2px solid ${props.theme.bgWhite};
@@ -91,7 +89,7 @@ const HeaderNavigationStickyItem = styled.div<{ selected: boolean }>(
       color: ${props.theme.textExtraLight};
       text-decoration: none;
     }
-  `
+  `,
 );
 
 const HeaderNavigation = styled.nav(
@@ -101,14 +99,14 @@ const HeaderNavigation = styled.nav(
       display: block;
       margin-right: 36px;
     }
-  `
+  `,
 );
 
 const HeaderEndElement = styled.div(
   (props) => css`
     flex: 0 1 180px;
     display: block;
-  `
+  `,
 );
 
 interface IHeaderProps {
@@ -139,8 +137,7 @@ const Header = ({ title, logo, menu, endElement }: IHeaderProps) => {
               <HeaderNavigationStickyItem
                 key={item.path}
                 selected={
-                  (pathname === "/" && item.path === "/") ||
-                  (item.path !== "/" && pathname.includes(item.path))
+                  (pathname === '/' && item.path === '/') || (item.path !== '/' && pathname.includes(item.path))
                 }
               >
                 <Link to={item.path}>{item.label}</Link>

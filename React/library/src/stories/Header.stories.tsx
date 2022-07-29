@@ -1,50 +1,47 @@
-import React from "react";
-import { Story } from "@storybook/react";
-import { MemoryRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { Story } from '@storybook/react';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
 
-import Header from "../components/Header";
-import Button from "../components/Button";
-import GlobalStyles from "../globalStyles";
+import Header from '../components/Header';
+import Button from '../components/Button/Button';
+import GlobalStyles from '../globalStyles';
 
-import { ReactComponent as Logo } from "../assets/logo.svg";
-import { ReactComponent as IconProfile } from "../assets/icons/icon-profile.svg";
+import { ReactComponent as Logo } from '../assets/logo.svg';
+import { ReactComponent as IconProfile } from '../assets/icons/icon-profile.svg';
+import Icon from '../components/Icon';
+
+import { lightTheme } from './../theme';
 
 export default {
-  title: "Common/Header",
+  title: 'Common/Header',
   component: Header,
 };
 
 const headerMenu = [
   {
-    label: "Home",
-    path: "/",
+    label: 'Home',
+    path: '/',
   },
   {
-    label: "What’s New",
-    path: "/news",
+    label: 'What’s New',
+    path: '/news',
   },
   {
-    label: "My Profile",
-    path: "/profile",
+    label: 'My Profile',
+    path: '/profile',
   },
 ];
 
 const Template: Story = (args) => (
-  <MemoryRouter initialEntries={["/"]}>
+  <MemoryRouter initialEntries={['/']}>
     <GlobalStyles />
-    <Header
-      title={args.title}
-      logo={args.logo}
-      menu={args.menu}
-      endElement={args.endElement}
-      {...args}
-    />
+    <Header title={args.title} logo={args.logo} menu={args.menu} endElement={args.endElement} {...args} />
   </MemoryRouter>
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  title: "Storybook showcase",
+  title: 'Storybook showcase',
   logo: <Logo />,
   menu: headerMenu,
   endElement: (
@@ -53,22 +50,26 @@ Default.args = {
       color="primary"
       variant="outlined"
       wide
-      startIcon={<IconProfile />}
+      startIcon={
+        <Icon fillColor={lightTheme.primary}>
+          <IconProfile />
+        </Icon>
+      }
     />
   ),
 };
 Default.parameters = {
-  layout: "fullscreen",
+  layout: 'fullscreen',
 };
 
 export const WithoutLogin = Template.bind({});
 WithoutLogin.args = {
-  title: "Storybook showcase",
+  title: 'Storybook showcase',
   logo: <Logo />,
   menu: headerMenu,
 };
 WithoutLogin.parameters = {
-  layout: "fullscreen",
+  layout: 'fullscreen',
 };
 
 export const DesktopWithoutTitle = Template.bind({});
@@ -81,10 +82,14 @@ DesktopWithoutTitle.args = {
       color="primary"
       variant="outlined"
       wide
-      startIcon={<IconProfile />}
+      startIcon={
+        <Icon fillColor={lightTheme.primary}>
+          <IconProfile />
+        </Icon>
+      }
     />
   ),
 };
 DesktopWithoutTitle.parameters = {
-  layout: "fullscreen",
+  layout: 'fullscreen',
 };

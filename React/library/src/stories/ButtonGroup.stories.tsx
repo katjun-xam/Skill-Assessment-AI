@@ -1,11 +1,11 @@
-import { Story } from "@storybook/react";
+import { Story } from '@storybook/react';
 
-import ButtonGroup from "../components/ButtonGroup";
+import ButtonGroup from '../components/ButtonGroup';
 
-import Button from "../components/Button";
+import Button from '../components/Button/Button';
 
 export default {
-  title: "UI/ButtonGroup",
+  title: 'UI/ButtonGroup',
   component: ButtonGroup,
 };
 
@@ -20,27 +20,9 @@ Stacked.args = {
   gap: 10,
   children: (
     <>
-      <Button
-        label="Button One"
-        variant="contained"
-        wide
-        centered
-        color="primary"
-      />
-      <Button
-        label="Button Two"
-        variant="contained"
-        wide
-        centered
-        color="primary"
-      />
-      <Button
-        label="Button Three"
-        variant="contained"
-        wide
-        centered
-        color="primary"
-      />
+      <Button label="Button One" variant="contained" wide centered color="primary" />
+      <Button label="Button Two" variant="contained" wide centered color="primary" />
+      <Button label="Button Three" variant="contained" wide centered color="primary" />
     </>
   ),
 };
@@ -51,27 +33,9 @@ Inline.args = {
   gap: 40,
   children: (
     <>
-      <Button
-        label="Button One"
-        variant="contained"
-        wide
-        centered
-        color="primary"
-      />
-      <Button
-        label="Button Two"
-        variant="contained"
-        wide
-        centered
-        color="primary"
-      />
-      <Button
-        label="Button Three"
-        variant="contained"
-        wide
-        centered
-        color="primary"
-      />
+      <Button label="Button One" variant="contained" wide centered color="primary" />
+      <Button label="Button Two" variant="contained" wide centered color="primary" />
+      <Button label="Button Three" variant="contained" wide centered color="primary" />
     </>
   ),
 };

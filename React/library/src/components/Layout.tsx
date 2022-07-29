@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 import { useAppSelector, useAppDispatch } from '../app/hooks';
 import { getUserAsync, selectUser } from './../features/user/userSlice';
 
-import Button from './../components/Button';
+import Button from './../components/Button/Button';
 import Header from './Header';
 import Modal from './Modal';
 import FormMain from './FormMain';

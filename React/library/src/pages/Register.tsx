@@ -10,7 +10,7 @@ import FormInputText from '../components/FormInputText';
 import FormMain from '../components/FormMain';
 import FormRow from '../components/FormRow';
 import Layout from '../components/Layout';
-import Button from './../components/Button';
+import Button from './../components/Button/Button';
 import Icon from '../components/Icon';
 
 import { ReactComponent as IconSearch } from './../assets/icons/icon-search.svg';
