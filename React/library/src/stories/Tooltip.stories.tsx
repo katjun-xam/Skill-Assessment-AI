@@ -1,25 +1,21 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import GlobalStyles from "../globalStyles";
-import { lightTheme } from "../theme";
-import { ReactComponent as IconProfile } from "../assets/icons/icon-profile.svg";
-import Tooltip from "../components/Tooltip";
+import GlobalStyles from '../globalStyles';
+import { lightTheme } from '../theme';
+import { ReactComponent as IconProfile } from '../assets/icons/icon-profile.svg';
+import Tooltip from '../components/Tooltip/Tooltip';
 
 const SampleComponent = ({ children }: any) => {
-  return (
-    <div style={{ position: "relative", top: "20px", left: "100px" }}>
-      {children}
-    </div>
-  );
+  return <div style={{ position: 'relative', top: '20px', left: '100px' }}>{children}</div>;
 };
 
 export default {
-  title: "UI/Tooltip",
+  title: 'UI/Tooltip',
   component: Tooltip,
   argTypes: {
     position: {
-      options: ["left", "right", "bottom"],
-      control: { type: "radio" },
+      options: ['left', 'right', 'bottom'],
+      control: { type: 'radio' },
     },
   },
 } as ComponentMeta<typeof Tooltip>;
@@ -35,51 +31,51 @@ const Template: ComponentStory<typeof Tooltip> = (args) => (
 
 export const BasicTooltip = Template.bind({});
 BasicTooltip.args = {
-  label: "Profile",
+  label: 'Profile',
   children: <IconProfile />,
 };
 export const ArrowTooltip = Template.bind({});
 ArrowTooltip.args = {
-  label: "Profile",
+  label: 'Profile',
   children: <IconProfile />,
   arrow: true,
 };
 export const PositionedTooltip = Template.bind({});
 PositionedTooltip.args = {
-  label: "Profile",
+  label: 'Profile',
   children: <IconProfile />,
-  position: "bottom",
+  position: 'bottom',
 };
 export const CustomTooltipBackground = Template.bind({});
 CustomTooltipBackground.args = {
-  label: "Profile",
+  label: 'Profile',
   children: <IconProfile />,
-  position: "right",
+  position: 'right',
   arrow: true,
   background: lightTheme.primary,
 };
 export const CustomTooltipWidth = Template.bind({});
 CustomTooltipWidth.args = {
-  label: "Profile",
+  label: 'Profile',
   children: <IconProfile />,
-  position: "right",
+  position: 'right',
   background: lightTheme.primary,
-  width: "200px",
+  width: '200px',
 };
 export const CustomTooltipMessageFontSize = Template.bind({});
 CustomTooltipMessageFontSize.args = {
-  label: "Profile",
+  label: 'Profile',
   children: <IconProfile />,
-  position: "right",
+  position: 'right',
   background: lightTheme.primary,
-  fontSize: "20px",
+  fontSize: '20px',
   arrow: true,
 };
 export const CustomTooltipMessageFontColor = Template.bind({});
 CustomTooltipMessageFontColor.args = {
-  label: "Profile",
+  label: 'Profile',
   children: <IconProfile />,
-  position: "right",
+  position: 'right',
   background: lightTheme.primary,
   fontColor: lightTheme.textBlack,
 };
