@@ -7,7 +7,7 @@ import { selectUser } from './../features/user/userSlice';
 
 import { lightTheme } from './../theme';
 import Layout from '../components/Layout/Layout';
-import PageTitle from '../components/PageTitle';
+import PageTitle from '../components/PageTitle/PageTitle';
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import Table from '../components/Table';
 import FormInputText from '../components/FormInputText/FormInputText';

@@ -1,6 +1,6 @@
 import Layout from '../components/Layout/Layout';
 
-import PageTitle from '../components/PageTitle';
+import PageTitle from '../components/PageTitle/PageTitle';
 // import { Counter } from "../features/counter/Counter";
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import Transactions from '../features/transactions/Transactions';
