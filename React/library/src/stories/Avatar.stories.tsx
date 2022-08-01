@@ -1,17 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import Avatar from '../components/Avatar/Avatar';
-import Icon from '../components/Icon/Icon';
-
-import GlobalStyles from '../globalStyles';
-import { lightTheme } from '../theme';
-
-import avatar1 from '../assets/images/avatar1.png';
-import avatar2 from '../assets/images/avatar2.png';
-import avatar3 from '../assets/images/avatar3.png';
-import avatar4 from '../assets/images/avatar4.png';
-import { ReactComponent as IconProfile } from '../assets/icons/icon-profile.svg';
-import { ReactComponent as IconPencil } from '../assets/icons/icon-pencil.svg';
+import { Avatar, Icon } from 'components';
+import GlobalStyles from 'globalStyles';
+import { lightTheme } from 'theme';
+import avatar1 from 'assets/images/avatar1.png';
+import avatar2 from 'assets/images/avatar2.png';
+import avatar3 from 'assets/images/avatar3.png';
+import avatar4 from 'assets/images/avatar4.png';
+import { ReactComponent as IconProfile } from 'assets/icons/icon-profile.svg';
+import { ReactComponent as IconPencil } from 'assets/icons/icon-pencil.svg';
 
 export default {
   title: 'UI/Avatar',

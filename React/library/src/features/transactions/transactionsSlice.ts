@@ -1,32 +1,38 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState, AppThunk } from "../../app/store";
-import { fetchTransactions } from "./transactionsAPI";
-import { IRepaymentDetails } from "./../../models";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { RootState } from 'app/store';
+import { fetchTransactions } from './transactionsAPI';
+import { IRepaymentDetails } from 'models';
 
 export interface ITransactionsState {
   value: IRepaymentDetails[];
-  status: "idle" | "loading" | "failed";
+  status: 'idle' | 'loading' | 'failed';
 }
 
 // Initial state
 const initialState: ITransactionsState = {
   value: [],
-  status: "idle",
+  status: 'idle',
 };
 
+// Actions
+export const getTransactionsAsync = createAsyncThunk('transactions/fetchTransactions', async (amount: number) => {
+  const response = await fetchTransactions(amount);
+  return response.data;
+});
+
 export const transactionsSlice = createSlice({
-  name: "transactions",
+  name: 'transactions',
   initialState,
   reducers: {
     getTransactions: (state) => {
       state.value = [
         {
-          repaymentDate: "",
+          repaymentDate: '',
           repaymentAmount: 1,
           fees: 1,
-          directDebitDate: "",
+          directDebitDate: '',
           directDebitAmount: 1,
-          Status: "",
+          Status: '',
         },
       ];
     },
@@ -34,23 +40,15 @@ export const transactionsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getTransactionsAsync.pending, (state) => {
-        state.status = "loading";
+        state.status = 'loading';
       })
       .addCase(getTransactionsAsync.fulfilled, (state, action) => {
-        state.status = "idle";
+        state.status = 'idle';
         state.value = action.payload;
       });
   },
 });
 
-// Actions
-export const getTransactionsAsync = createAsyncThunk(
-  "transactions/fetchTransactions",
-  async (amount: number) => {
-    const response = await fetchTransactions(amount);
-    return response.data;
-  }
-);
 export const { getTransactions } = transactionsSlice.actions;
 
 // Selectors

@@ -1,26 +1,31 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { IBreadCrumbContainer } from "./types";
+import { IBreadCrumbContainer } from './types';
 
 export const BreadcrumbContainer = styled.div<IBreadCrumbContainer>`
   display: flex;
   color: ${({ theme }) => theme.primary};
   list-style-type: none;
   text-align: center;
+
   li {
     display: flex;
     align-items: center;
     justify-content: center;
+
     p {
       cursor: pointer;
       margin: 0px 5px;
+
       &:hover {
         text-decoration: underline;
       }
     }
+
     svg {
       fill: ${({ theme }) => theme.primary};
     }
+
     span {
       position: relative;
       margin: 0 5px;
@@ -32,18 +37,22 @@ export const BreadcrumbContainer = styled.div<IBreadCrumbContainer>`
         top: -10px;
       }
     }
+
     &:last-child {
       span {
         display: none;
       }
     }
+
     &:last-of-type {
       pointer-events: none;
-      color: ${({ theme }) => theme.textExtraDark};
+      color: ${({ theme }) => theme.textDark};
     }
   }
 
-  ${({ breadcrumbImg }) => !breadcrumbImg && `
+  ${({ breadcrumbImg }) =>
+    !breadcrumbImg &&
+    `
     & > li:first-child {
       p {
         margin-left: 0px;
@@ -51,10 +60,13 @@ export const BreadcrumbContainer = styled.div<IBreadCrumbContainer>`
     }
   `}
 
-  ${({ customSeparator, theme }) => customSeparator && `
+  ${({ customSeparator, theme }) =>
+    customSeparator &&
+    `
     li {
       background: ${theme.secondaryAccent};
       position: relative;
+
       p {
         color: ${theme.textBlack};
         padding: 8px 0px 8px 20px;
@@ -63,6 +75,7 @@ export const BreadcrumbContainer = styled.div<IBreadCrumbContainer>`
           text-decoration: none;
         }
       }
+
       &:not(:first-child) {
         p::before {
           position: absolute;
@@ -79,6 +92,7 @@ export const BreadcrumbContainer = styled.div<IBreadCrumbContainer>`
           left: -1px;
         }
       }
+
       &:not(:last-child) {
         p::after {
           position: absolute;
@@ -94,6 +108,7 @@ export const BreadcrumbContainer = styled.div<IBreadCrumbContainer>`
         }
       }
     }
+    
     li:last-child {
       background: transparent;
     }

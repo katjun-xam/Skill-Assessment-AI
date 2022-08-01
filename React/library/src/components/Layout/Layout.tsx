@@ -1,23 +1,14 @@
 import { useState } from 'react';
-
-// Implementation
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { getUserAsync, selectUser } from '../../features/user/userSlice';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
+import { getUserAsync, selectUser } from 'features/user/userSlice';
 
 import { PageContainer } from './styles';
 import { ILayoutProps } from './types';
-import Avatar from '../Avatar/Avatar';
-import Button from '../Button/Button';
-import FormCell from '../FormCell/FormCell';
-import FormInputText from '../FormInputText/FormInputText';
-import FormMain from '../FormMain/FormMain';
-import { FormRow } from '../FormMain/styles';
-import Header from '../Header/Header';
-import Icon from '../Icon/Icon';
-import Modal from '../Modal/Modal';
-import { ReactComponent as Logo } from '../../assets/logo.svg';
-import { ReactComponent as IconProfile } from '../../assets/icons/icon-profile.svg';
-import { lightTheme } from '../../theme';
+import { FormRow } from 'components/FormMain/styles';
+import { ReactComponent as Logo } from 'assets/logo.svg';
+import { ReactComponent as IconProfile } from 'assets/icons/icon-profile.svg';
+import { lightTheme } from 'theme';
+import { Avatar, Button, FormCell, FormInputText, FormMain, Header, Modal, Icon } from 'components';
 
 const Layout = ({ children }: ILayoutProps) => {
   const dispatch = useAppDispatch();
@@ -53,7 +44,7 @@ const Layout = ({ children }: ILayoutProps) => {
   return (
     <>
       <Header
-        title="React Components Showcase"
+        title="React Accelerator Showcase"
         logo={<Logo />}
         menu={headerMenu}
         endElement={

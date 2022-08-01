@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { FormInputTextProps } from "./types";
+import { FormInputTextProps } from './types';
 
 export const Label = styled.label<Pick<FormInputTextProps, 'floatingLabel'>>`
   display: block;
@@ -8,20 +8,23 @@ export const Label = styled.label<Pick<FormInputTextProps, 'floatingLabel'>>`
   transition: all 0.2s ease-in-out;
 
   ${({ floatingLabel, theme }) => {
-    if (floatingLabel) return `
+    if (floatingLabel)
+      return `
       position: absolute;
       top: 15px;
       left: 17px;
     `;
-    else return `
+    else
+      return `
       color: ${theme.textExtraDark};
       margin-bottom: 10px;
-    `
+    `;
   }}
 `;
 
 export const Field = styled.input<Pick<FormInputTextProps, 'hasError'>>`
   flex: 1 0 auto;
+  width: auto;
   border: 1px solid ${({ theme }) => theme.bgDark};
   border-radius: ${({ theme }) => theme.borderRadiusMd};
   padding: 15px 16px;
@@ -39,6 +42,7 @@ export const FormInputTextContainer = styled.div<Pick<FormInputTextProps, 'float
   display: flex;
   position: relative;
   width: 100%;
+  padding: 4px;
 
   ${({ floatingLabel }) => !floatingLabel && 'flex-direction: column;'}
   ${Field}:focus + ${Label} {
