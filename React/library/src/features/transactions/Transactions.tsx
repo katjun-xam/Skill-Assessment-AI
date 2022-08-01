@@ -1,13 +1,10 @@
-import { useEffect } from "react";
+/* eslint-disable no-console */
+import { useEffect } from 'react';
 
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import Button from "../../components/Button";
-import Table from "../../components/Table";
-import {
-  getTransactions,
-  getTransactionsAsync,
-  selectTransactions,
-} from "./transactionsSlice";
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import Button from '../../components/Button/Button';
+import Table from '../../components/Table/Table';
+import { getTransactionsAsync, selectTransactions } from './transactionsSlice';
 
 type ITransactionsProps = {};
 
@@ -16,7 +13,7 @@ const Transactions = (props: ITransactionsProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    console.log("transactions", transactions);
+    console.log('transactions', transactions);
   }, [transactions]);
 
   return (
@@ -25,7 +22,7 @@ const Transactions = (props: ITransactionsProps) => {
       {transactions.value.length > 0 ? (
         <Table
           tableData={transactions.value}
-          typeOfData={["date", "amount", "amount", "date", "amount", "string"]}
+          typeOfData={['date', 'amount', 'amount', 'date', 'amount', 'string']}
           sort={true}
         />
       ) : (

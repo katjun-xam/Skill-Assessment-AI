@@ -1,20 +1,20 @@
-import React, { FormEvent, useState } from "react";
-import styled, { css } from "styled-components";
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 
-import { lightTheme } from "../theme";
-import PageTitle from "../components/PageTitle";
-import Breadcrumb from "../components/Breadcrumb";
-import ButtonGroup from "../components/ButtonGroup";
-import FormCell from "../components/FormCell";
-import FormInputText from "../components/FormInputText";
-import FormMain from "../components/FormMain";
-import FormRow from "../components/FormRow";
-import Layout from "../components/Layout";
-import Button from "./../components/Button";
-import Icon from "../components/Icon";
+import { lightTheme } from '../theme';
+import PageTitle from '../components/PageTitle/PageTitle';
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
+import ButtonGroup from '../components/ButtonGroup/ButtonGroup';
+import FormCell from '../components/FormCell/FormCell';
+import FormInputText from '../components/FormInputText/FormInputText';
+import FormMain from '../components/FormMain/FormMain';
+import { FormRow } from '../components/FormMain/styles';
+import Layout from '../components/Layout/Layout';
+import Button from './../components/Button/Button';
+import Icon from '../components/Icon/Icon';
 
-import { ReactComponent as IconSearch } from "./../assets/icons/icon-search.svg";
-import { ReactComponent as IconSuccess } from "./../assets/icons/icon-success.svg";
+import { ReactComponent as IconSearch } from './../assets/icons/icon-search.svg';
+import { ReactComponent as IconSuccess } from './../assets/icons/icon-success.svg';
 
 const RegisterForm = styled.div(
   (props) => css`
@@ -24,27 +24,27 @@ const RegisterForm = styled.div(
       min-width: 830px;
       max-width: 1000px;
     }
-  `
+  `,
 );
 
 const PageHeader = styled.p(
   (props) => css`
     padding: 32px 0 64px 0;
-  `
+  `,
 );
 
 type IRegisterProps = {};
 
 const Register = (props: IRegisterProps) => {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('');
 
   function formSubmitHandler(pEvent: React.FormEvent) {
-    console.log("submitting form...");
+    console.log('submitting form...');
   }
 
   function firstNameChangeHandler(pEvent: React.ChangeEvent<HTMLInputElement>) {
@@ -71,17 +71,16 @@ const Register = (props: IRegisterProps) => {
       <PageTitle text="Register" />
       <Breadcrumb
         links={[
-          { label: "Register", url: "/register" },
-          { label: "Breadcrumb1", url: "#" },
-          { label: "Breadcrumb2", url: "#" },
+          { label: 'Register', url: '/register' },
+          { label: 'Breadcrumb1', url: '#' },
+          { label: 'Breadcrumb2', url: '#' },
         ]}
       />
 
       <PageHeader>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
-        molestias delectus facere quaerat repudiandae totam perspiciatis rem,
-        nesciunt suscipit nobis provident accusantium animi officiis cum commodi
-        tempore perferendis quam ut?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, molestias delectus facere quaerat repudiandae
+        totam perspiciatis rem, nesciunt suscipit nobis provident accusantium animi officiis cum commodi tempore
+        perferendis quam ut?
       </PageHeader>
 
       <RegisterForm>
@@ -91,11 +90,7 @@ const Register = (props: IRegisterProps) => {
               <label htmlFor="firstname">Firstname</label>
             </FormCell>
             <FormCell>
-              <FormInputText
-                name="firstname"
-                onChange={firstNameChangeHandler}
-                value={firstname}
-              />
+              <FormInputText name="firstname" onChange={firstNameChangeHandler} value={firstname} />
             </FormCell>
           </FormRow>
           <FormRow>
@@ -103,23 +98,13 @@ const Register = (props: IRegisterProps) => {
               <label htmlFor="lastname">Lastname</label>
             </FormCell>
             <FormCell>
-              <FormInputText
-                name="lastname"
-                onChange={lastnameChangeHandler}
-                value={lastname}
-              />
+              <FormInputText name="lastname" onChange={lastnameChangeHandler} value={lastname} />
             </FormCell>
           </FormRow>
           {/* ----------------------------- FULL WIDTH ----------------------------- */}
           <FormRow>
             <FormCell cellWidth="100%">
-              <FormInputText
-                name="lastname"
-                onChange={emailChangeHandler}
-                value={email}
-                label="Email*"
-                floatingLabel
-              />
+              <FormInputText name="lastname" onChange={emailChangeHandler} value={email} label="Email*" floatingLabel />
             </FormCell>
           </FormRow>
           {/* ----------------------------- MULTIPLE ----------------------------- */}
@@ -144,42 +129,25 @@ const Register = (props: IRegisterProps) => {
                 }
                 wide
                 variant="contained"
-                onClick={() => alert("lookup")}
+                onClick={() => alert('lookup')}
               />
             </FormCell>
           </FormRow>
           <FormRow>
             <FormCell cellWidth="32%">
-              <FormInputText
-                name="street"
-                value={""}
-                onChange={(e) => console.log(e.target.value)}
-              ></FormInputText>
+              <FormInputText name="street" value={''} onChange={(e) => console.log(e.target.value)}></FormInputText>
             </FormCell>
             <FormCell cellWidth="32%">
-              <FormInputText
-                name="postcode"
-                value={""}
-                onChange={(e) => console.log(e.target.value)}
-              ></FormInputText>
+              <FormInputText name="postcode" value={''} onChange={(e) => console.log(e.target.value)}></FormInputText>
             </FormCell>
             <FormCell cellWidth="32%">
-              <FormInputText
-                name="state"
-                value={""}
-                onChange={(e) => console.log(e.target.value)}
-              ></FormInputText>
+              <FormInputText name="state" value={''} onChange={(e) => console.log(e.target.value)}></FormInputText>
             </FormCell>
           </FormRow>
           {/* ---------------------------- INCLUDE LABEL ---------------------------- */}
           <FormRow>
             <FormCell cellWidth="100%">
-              <FormInputText
-                name="city"
-                onChange={cityChangeHandler}
-                value={city}
-                label="City"
-              ></FormInputText>
+              <FormInputText name="city" onChange={cityChangeHandler} value={city} label="City"></FormInputText>
             </FormCell>
           </FormRow>
           <FormRow>
@@ -198,12 +166,7 @@ const Register = (props: IRegisterProps) => {
             <FormCell>
               <ButtonGroup gap={20} inline wide>
                 <>
-                  <Button
-                    label="Cancel"
-                    color="primary"
-                    variant="outlined"
-                    onClick={() => alert("Canceled")}
-                  ></Button>
+                  <Button label="Cancel" color="primary" variant="outlined" onClick={() => alert('Canceled')}></Button>
                   <Button
                     label="Confirm"
                     color="primary"
@@ -214,7 +177,7 @@ const Register = (props: IRegisterProps) => {
                       </Icon>
                     }
                     variant="contained"
-                    onClick={() => alert("Confirmed!")}
+                    onClick={() => alert('Confirmed!')}
                   ></Button>
                 </>
               </ButtonGroup>

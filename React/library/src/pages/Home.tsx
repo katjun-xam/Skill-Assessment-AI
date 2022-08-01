@@ -1,10 +1,10 @@
-import Layout from "../components/Layout";
+import Layout from '../components/Layout/Layout';
 
-import PageTitle from "../components/PageTitle";
+import PageTitle from '../components/PageTitle/PageTitle';
 // import { Counter } from "../features/counter/Counter";
-import Breadcrumb from "../components/Breadcrumb";
-import Transactions from "../features/transactions/Transactions";
-import Applications from "../features/applications/Applications";
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
+import Transactions from '../features/transactions/Transactions';
+import Applications from '../features/applications/Applications';
 
 type IHomeProps = {};
 
@@ -15,9 +15,9 @@ const Home = (props: IHomeProps) => {
       <Breadcrumb
         separator=">"
         links={[
-          { label: "Home", url: "/" },
-          { label: "Breadcrumb1", url: "#" },
-          { label: "Breadcrumb2", url: "#" },
+          { label: 'Home', url: '/' },
+          { label: 'Breadcrumb1', url: '#' },
+          { label: 'Breadcrumb2', url: '#' },
         ]}
       />
       <Transactions />
