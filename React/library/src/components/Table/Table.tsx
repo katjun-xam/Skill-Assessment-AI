@@ -10,7 +10,7 @@ import {
   TableRow,
 } from './styles';
 import { ITableData, ITableProps } from './types';
-import { ReactComponent as IconSort } from '../../assets/icons/icon-sort.svg';
+import { ReactComponent as IconSort } from 'assets/icons/icon-sort.svg';
 
 let sortValue: string;
 const triggerValues: string[] = [];
@@ -20,7 +20,7 @@ let sortedData: ITableData[];
 const Table = ({
   tableData,
   typeOfData,
-  width,
+  width = '100%',
   columnWidth,
   headers,
   labels,
@@ -109,9 +109,12 @@ const Table = ({
                     key={index}
                     width={columnWidth && columnWidth[index]}
                     sortType={sortData.asc ? 'asc' : sortData.desc ? 'desc' : ''}
+                    onClick={() => handleSort(item)}
                   >
-                    {item}
-                    <span onClick={() => handleSort(item)}>{sort && <IconSort />}</span>
+                    <div>
+                      <span>{item.replace(/([A-Z])/g, ' $1').trim()}</span>
+                      <span>{sort && <IconSort />}</span>
+                    </div>
                   </TableHeaderCell>
                 );
               })}

@@ -1,61 +1,26 @@
-import { useState } from 'react';
-import styled, { css } from 'styled-components';
+import React, { useState } from 'react';
 
 // Implementation
-import { useAppSelector } from '../app/hooks';
-import { selectUser } from './../features/user/userSlice';
+import { useAppSelector } from 'app/hooks';
+import { selectUser } from 'features/user/userSlice';
 
-import { lightTheme } from './../theme';
-import Layout from '../components/Layout/Layout';
-import PageTitle from '../components/PageTitle/PageTitle';
-import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
-import Table from '../components/Table/Table';
-import FormInputText from '../components/FormInputText/FormInputText';
-import ButtonGroup from '../components/ButtonGroup/ButtonGroup';
-import Button from '../components/Button/Button';
-import Icon from '../components/Icon/Icon';
-import Avatar from '../components/Avatar/Avatar';
-import Toggle from '../components/Toggle/Toggle';
+import { lightTheme } from 'theme';
+import PageTitle from 'components/PageTitle/PageTitle';
+import Breadcrumb from 'components/Breadcrumb/Breadcrumb';
+import Table from 'components/Table/Table';
+import FormInputText from 'components/FormInputText/FormInputText';
+import ButtonGroup from 'components/ButtonGroup/ButtonGroup';
+import Button from 'components/Button/Button';
+import Icon from 'components/Icon/Icon';
+import Avatar from 'components/Avatar';
+import Toggle from 'components/Toggle/Toggle';
 
-import { ReactComponent as IconPencil } from './../assets/icons/icon-pencil.svg';
-import avatar1 from '../assets/images/avatar1.png';
+import { ReactComponent as IconPencil } from 'assets/icons/icon-pencil.svg';
+import avatar1 from 'assets/images/avatar1.png';
+import { ProfileSettings } from './styles';
 
-const ProfileSettings = styled.div(
-  (props) => css`
-    margin-top: 64px;
-    & > div:first-child {
-      display: flex;
-      h2 {
-        align-self: center;
-        margin: 0px 0px 0px 20px;
-      }
-    }
-    & > div:nth-child(2) {
-      margin: 20px 0px;
-      & > div:nth-child(2) {
-        display: flex;
-        align-items: center;
-        margin-top: 2px;
-        h6 {
-          margin: 0px 5px 0px 0px;
-        }
-      }
-      & > div:nth-child(3) {
-        margin-top: 20px;
-        width: 25%;
-        @media all and (max-width: ${props.theme.breakpoints.sm}) {
-          width: 100%;
-        }
-      }
-    }
-  `,
-);
-
-type IProfileProps = {};
-
-const Profile = (props: IProfileProps) => {
+const Profile: React.FunctionComponent = (): JSX.Element => {
   const user = useAppSelector(selectUser);
-
   const [firstName, setFirstName] = useState('Ferrara');
   const [lastName, setLastName] = useState('Clifford');
   const [city, setCity] = useState('Canberra');
@@ -65,6 +30,7 @@ const Profile = (props: IProfileProps) => {
     lastname: false,
     city: false,
   });
+
   const editProfile = (type: 'firstname' | 'lastname' | 'city') => {
     if (type === 'firstname') {
       setProfile({
@@ -84,7 +50,7 @@ const Profile = (props: IProfileProps) => {
   };
 
   return (
-    <Layout>
+    <React.Fragment>
       <PageTitle text="My Profile" />
       <Breadcrumb
         links={[
@@ -93,7 +59,7 @@ const Profile = (props: IProfileProps) => {
           { label: 'Breadcrumb2', url: '#' },
         ]}
       />
-      {user.isLogged ? (
+      {user?.isLogged ? (
         <ProfileSettings>
           <div>
             <Avatar avatars={[avatar1]} variant="square" width="150px" height="150px" />
@@ -207,7 +173,7 @@ const Profile = (props: IProfileProps) => {
       ) : (
         <p>Please login</p>
       )}
-    </Layout>
+    </React.Fragment>
   );
 };
 

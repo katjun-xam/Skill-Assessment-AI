@@ -24,7 +24,9 @@ const Header = ({ title, logo, menu, endElement }: IHeaderProps) => {
     <HeaderMainContainer>
       <HeaderContainer>
         <TitleContainer>
-          <LogoContainer>{logo}</LogoContainer>
+          <Link to={'/'}>
+            <LogoContainer>{logo}</LogoContainer>
+          </Link>
           {title && <TitleText>{title}</TitleText>}
         </TitleContainer>
         <HeaderContent>

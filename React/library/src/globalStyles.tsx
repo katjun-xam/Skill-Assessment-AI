@@ -1,12 +1,13 @@
-import { createGlobalStyle, DefaultTheme } from "styled-components";
+import { createGlobalStyle, DefaultTheme } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle<{ theme: DefaultTheme }>`
     body {
-        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-family: Poppins;
         margin: 0;
+        background: ${({ theme }) => theme.bgLight};
     }
     main {
-        padding: 64px 32px;
+        padding: 0px;
     }
     a {
         color: ${({ theme }) => theme.primary};

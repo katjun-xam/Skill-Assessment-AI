@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const PageTitleContainer = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ export const Title = styled.div`
   align-items: baseline;
   font-size: 23px;
   font-weight: 300;
-  margin: 24px 0 44px 0;
+  margin-bottom: 12px;
   color: ${({ theme }) => theme.primary};
   @media all and (min-width: ${({ theme }) => theme.breakpoints.md}) {
     flex-direction: row;

@@ -1,14 +1,16 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const HeaderMainContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.bgLight};
-  padding: 8px 16px;
+  background-color: ${({ theme }) => theme.bgWhite};
+  padding: 8px 24px;
+
   @media all and (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-    padding: 16px 32px;
+    padding: 16px 24px;
   }
+
   min-height: 52px;
   border-bottom: 1px solid ${({ theme }) => theme.borderColorLight};
 `;
@@ -29,6 +31,8 @@ export const HeaderContent = styled.div`
 export const LogoContainer = styled.div`
   width: 120px;
   margin-right: 12px;
+  display: flex;
+  align-items: center;
 `;
 
 export const TitleContainer = styled.div`
@@ -62,7 +66,7 @@ export const HeaderNavigationStickyItem = styled.div<{ selected: boolean }>`
   justify-content: center;
   align-items: center;
   flex: 1 0 33%;
-  background-color: ${({ selected, theme }) => selected ? theme.primary : theme.primaryAccent };
+  background-color: ${({ selected, theme }) => (selected ? theme.primary : theme.primaryAccent)};
   &:not(:first-child):not(:last-child) {
     border-left: 2px solid ${({ theme }) => theme.bgWhite};
     border-right: 2px solid ${({ theme }) => theme.bgWhite};
