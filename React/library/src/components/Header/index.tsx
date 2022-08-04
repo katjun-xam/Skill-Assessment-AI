@@ -14,8 +14,8 @@ import {
 } from './styles';
 import { IHeaderProps } from './types';
 
-import ButtonGroup from '../ButtonGroup/ButtonGroup';
-import Button from '../Button/Button';
+import ButtonGroup from '../ButtonGroup';
+import Button from '../Button';
 
 const Header = ({ title, logo, menu, endElement }: IHeaderProps) => {
   const { pathname } = useLocation();

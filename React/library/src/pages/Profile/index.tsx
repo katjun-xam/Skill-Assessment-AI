@@ -4,17 +4,11 @@ import React, { useState } from 'react';
 import { useAppSelector } from 'app/hooks';
 import { selectUser } from 'features/user/userSlice';
 
+// Components
 import { lightTheme } from 'theme';
-import PageTitle from 'components/PageTitle/PageTitle';
-import Breadcrumb from 'components/Breadcrumb/Breadcrumb';
-import Table from 'components/Table/Table';
-import FormInputText from 'components/FormInputText/FormInputText';
-import ButtonGroup from 'components/ButtonGroup/ButtonGroup';
-import Button from 'components/Button/Button';
-import Icon from 'components/Icon/Icon';
-import Avatar from 'components/Avatar';
-import Toggle from 'components/Toggle/Toggle';
+import { Avatar, Breadcrumb, Button, ButtonGroup, FormInputText, Icon, PageTitle, Table, Toggle } from 'components';
 
+// UI
 import { ReactComponent as IconPencil } from 'assets/icons/icon-pencil.svg';
 import avatar1 from 'assets/images/avatar1.png';
 import { ProfileSettings } from './styles';
