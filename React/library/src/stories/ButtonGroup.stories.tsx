@@ -1,8 +1,6 @@
 import { Story } from '@storybook/react';
 
-import ButtonGroup from '../components/ButtonGroup';
-
-import Button from '../components/Button';
+import { Button, ButtonGroup } from 'components';
 
 export default {
   title: 'UI/ButtonGroup',

@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Table from '../components/Table';
-import { personDetails, repaymentDetails } from '../assets/data/tableData';
-import { ReactComponent as IconPencil } from './../assets/icons/icon-pencil.svg';
-import GlobalStyles from '../globalStyles';
-import Button from '../components/Button';
-import Icon from '../components/Icon';
-import { lightTheme } from '../theme';
+
+import { personDetails, repaymentDetails } from 'assets/data/tableData';
+import { ReactComponent as IconPencil } from 'assets/icons/icon-pencil.svg';
+
+import { Button, Icon, Table } from 'components';
+import GlobalStyles from 'globalStyles';
+import { lightTheme } from 'theme';
 
 export default {
   title: 'UI/Table',

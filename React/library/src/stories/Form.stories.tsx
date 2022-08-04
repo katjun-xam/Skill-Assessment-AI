@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FormMain from '../components/FormMain';
-import { FormRow } from '../components/FormMain/styles';
-import FormCell from '../components/FormCell';
-import FormInputText from '../components/FormInputText';
-import GlobalStyles from '../globalStyles';
+import { FormRow } from 'components/FormMain/styles';
+import { FormCell, FormInputText, FormMain } from 'components';
+import GlobalStyles from 'globalStyles';
 
 const MockedFormInputText = () => {
   const [sampleValue, setSampleValue] = useState('');

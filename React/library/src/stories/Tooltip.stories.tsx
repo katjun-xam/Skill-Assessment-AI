@@ -1,9 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import GlobalStyles from '../globalStyles';
-import { lightTheme } from '../theme';
-import { ReactComponent as IconProfile } from '../assets/icons/icon-profile.svg';
-import Tooltip from '../components/Tooltip';
+import { ReactComponent as IconProfile } from 'assets/icons/icon-profile.svg';
+
+import { Tooltip } from 'components';
+import GlobalStyles from 'globalStyles';
+import { lightTheme } from 'theme';
 
 const SampleComponent = ({ children }: any) => {
   return <div style={{ position: 'relative', top: '20px', left: '100px' }}>{children}</div>;
