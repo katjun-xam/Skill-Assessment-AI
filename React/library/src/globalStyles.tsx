@@ -2,7 +2,7 @@ import { createGlobalStyle, DefaultTheme } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle<{ theme: DefaultTheme }>`
     body {
-        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-family: Poppins;
         margin: 0;
     }
     main {
