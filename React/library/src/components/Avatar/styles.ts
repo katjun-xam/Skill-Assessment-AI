@@ -8,18 +8,20 @@ export const borderRadius = {
   default: "50%"
 };
 
-export const AvatarContainer = styled.div<IAvatarContainerProps>((props) => css`
-  background-color: ${props.bgColor ? props.bgColor : props.theme.primary};
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const AvatarContainer = styled.div<IAvatarContainerProps>(
+  (props) => css`
+    background-color: ${props.bgColor ? props.bgColor : props.theme.primary};
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  border-radius: ${borderRadius[props.variant ?? 'default']};
-  width: ${props.width ? props.width : '50px'};
-  height: ${props.height ? props.height : '50px'};
-  ${props.fontSize && `font-size: ${props.fontSize};`}
-  ${props.fontColor && `color: ${props.fontColor};`}
-`);
+    border-radius: ${borderRadius[props.variant ?? 'default']};
+    width: ${props.width ? props.width : '50px'};
+    height: ${props.height ? props.height : '50px'};
+    ${props.fontSize && `font-size: ${props.fontSize};`}
+    ${props.fontColor && `color: ${props.fontColor};`}
+  `
+);
 
 export const AvatarGroupContainer = styled.div`
   & > img:not(:first-of-type) {
@@ -28,8 +30,10 @@ export const AvatarGroupContainer = styled.div`
   }
 `;
 
-export const AvatarImage = styled.img<IAvatarImageProps>((props) => css`
-  width: ${props.width ? props.width : '50px'};
-  height: ${props.height ? props.height : '50px'};
-  border-radius: ${borderRadius[props.variant ?? 'default']};
-`);
+export const AvatarImage = styled.img<IAvatarImageProps>(
+  (props) => css`
+    width: ${props.width ? props.width : '50px'};
+    height: ${props.height ? props.height : '50px'};
+    border-radius: ${borderRadius[props.variant ?? 'default']};
+  `
+);

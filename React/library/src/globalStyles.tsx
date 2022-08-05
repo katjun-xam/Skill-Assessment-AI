@@ -4,7 +4,6 @@ const GlobalStyles = createGlobalStyle<{ theme: DefaultTheme }>`
     body {
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
         margin: 0;
-        background: ${({ theme }) => theme.bgLight};
     }
     main {
         padding: 0px;

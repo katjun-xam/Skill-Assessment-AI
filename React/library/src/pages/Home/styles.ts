@@ -11,11 +11,9 @@ export const RegisterForm = styled.div(
   `,
 );
 
-export const PageHeader = styled.p(
-  () => css`
-    padding: 32px 0 64px 0;
-  `,
-);
+export const PageHeader = styled.p`
+  padding: 32px 0 64px 0;
+`;
 
 export const NavLinks = styled.div(
   (props) => css`
@@ -25,8 +23,6 @@ export const NavLinks = styled.div(
   `,
 );
 
-export const HomeWrapper = styled.div(
-  () => css`
-    padding: 12px 24px;
-  `,
-);
+export const HomeWrapper = styled.div`
+  padding: 12px 24px;
+`;
