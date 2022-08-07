@@ -1,13 +1,12 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ReactComponent as IconProfile } from '../assets/icons/icon-profile.svg';
-import { ReactComponent as IconChevron } from '../assets/icons/icon-chevron.svg';
+import { ReactComponent as IconProfile } from 'assets/icons/icon-profile.svg';
+import { ReactComponent as IconChevron } from 'assets/icons/icon-chevron.svg';
 
-import Button from '../components/Button/Button';
-import Icon from '../components/Icon/Icon';
+import { Button, Icon } from 'components';
 
-import { lightTheme } from '../theme';
+import { lightTheme } from 'theme';
 
 export default {
   title: 'UI/Button',

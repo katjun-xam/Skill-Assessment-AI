@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { FormInputTextProps } from './types';
 
@@ -9,48 +9,52 @@ export const Label = styled.label<Pick<FormInputTextProps, 'floatingLabel'>>`
 
   ${({ floatingLabel, theme }) => {
     if (floatingLabel)
-      return `
+      return css`
       position: absolute;
-      top: 15px;
-      left: 17px;
+      top: 19px;
+      left: 20px;
     `;
     else
-      return `
+      return css`
       color: ${theme.textExtraDark};
       margin-bottom: 10px;
     `;
   }}
 `;
 
-export const Field = styled.input<Pick<FormInputTextProps, 'hasError'>>`
-  flex: 1 0 auto;
-  width: auto;
-  border: 1px solid ${({ theme }) => theme.bgDark};
-  border-radius: ${({ theme }) => theme.borderRadiusMd};
-  padding: 15px 16px;
-  color: ${({ theme }) => theme.textExtraDark};
-  font-size: 1rem;
-  &:focus {
-    outline: none;
-    border: 1px solid ${({ theme }) => theme.primary};
-  }
+export const Field = styled.input<Pick<FormInputTextProps, 'hasError'>>(
+  (props) => css`
+    flex: 1 0 auto;
+    width: auto;
+    border: 1px solid ${props.theme.bgDark};
+    border-radius: ${props.theme.borderRadiusMd};
+    padding: 15px 16px;
+    color: ${props.theme.textExtraDark};
+    font-size: 1rem;
+    &:focus {
+      outline: none;
+      border: 1px solid ${props.theme.primary};
+    }
 
-  ${({ hasError, theme }) => hasError && `border: 2px solid ${theme.error};`}
-`;
+    ${props.hasError && `border: 2px solid ${props.theme.error};`}
+  `
+);
 
-export const FormInputTextContainer = styled.div<Pick<FormInputTextProps, 'floatingLabel'>>`
-  display: flex;
-  position: relative;
-  width: 100%;
-  padding: 4px;
+export const FormInputTextContainer = styled.div<Pick<FormInputTextProps, 'floatingLabel'>>(
+  (props) => css`
+    display: flex;
+    position: relative;
+    width: 100%;
+    padding: 4px;
 
-  ${({ floatingLabel }) => !floatingLabel && 'flex-direction: column;'}
-  ${Field}:focus + ${Label} {
-    top: 5px;
-    font-size: 9px;
-  }
-  ${Field}:not(:placeholder-shown) + ${Label} {
-    top: 5px;
-    font-size: 9px;
-  }
-`;
+    ${!props.floatingLabel && 'flex-direction: column;'}
+    ${Field}:focus + ${Label} {
+      top: 5px;
+      font-size: 9px;
+    }
+    ${Field}:not(:placeholder-shown) + ${Label} {
+      top: 5px;
+      font-size: 9px;
+    }
+  `
+);

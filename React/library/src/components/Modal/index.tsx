@@ -1,7 +1,7 @@
 import { ModalBody, ModalContainer, ModalContent, ModalFooter, ModalHeader } from './styles';
 import { IModalProps } from './types';
-import Button from '../Button/Button';
-import ButtonGroup from '../ButtonGroup/ButtonGroup';
+import Button from '../Button';
+import ButtonGroup from '../ButtonGroup';
 import { ReactComponent as IconClose } from '../../assets/icons/icon-close.svg';
 
 const Modal = ({

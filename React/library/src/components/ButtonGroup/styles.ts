@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { IButtonGroupContainerProps } from "./types";
 
@@ -6,9 +6,9 @@ export const ButtonGroupContainer = styled.div<IButtonGroupContainerProps>`
   display: flex;
   padding: 0;
 
-  ${({ wide }) => wide && `flex: 1 0 auto;`}
+  ${({ wide }) => wide && css`flex: 1 0 auto;`}
   ${({ gap, inline, theme }) => {
-    if (inline) return `
+    if (inline) return css`
       flex-direction: column;
       & > *:not(:first-child) {
         margin-top: ${gap}px;
@@ -21,7 +21,7 @@ export const ButtonGroupContainer = styled.div<IButtonGroupContainerProps>`
         }
       }
     `;
-    else return `
+    else return css`
       flex-direction: column;
       & > *:not(:first-child) {
         margin-top: ${gap}px;

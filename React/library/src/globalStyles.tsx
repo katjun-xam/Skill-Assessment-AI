@@ -4,7 +4,6 @@ const GlobalStyles = createGlobalStyle<{ theme: DefaultTheme }>`
     body {
         font-family: Poppins;
         margin: 0;
-        background: ${({ theme }) => theme.bgLight};
     }
     main {
         padding: 0px;

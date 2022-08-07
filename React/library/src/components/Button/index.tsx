@@ -1,4 +1,4 @@
-import { ButtonContainer, EndIconContainer, HeadIconContainer, StartIconContainer } from './styles';
+import { EndIconContainer, HeadIconContainer, StartIconContainer, StyledButton } from './styles';
 import { IButtonProps } from './types';
 
 const Button = ({
@@ -15,7 +15,7 @@ const Button = ({
   onClick,
 }: IButtonProps) => {
   return (
-    <ButtonContainer
+    <StyledButton
       color={color}
       variant={variant}
       disabled={disabled}
@@ -28,7 +28,7 @@ const Button = ({
       <span>{label}</span>
       {endIcon && <EndIconContainer>{endIcon}</EndIconContainer>}
       {headIcon && <HeadIconContainer>{headIcon}</HeadIconContainer>}
-    </ButtonContainer>
+    </StyledButton>
   );
 };
 

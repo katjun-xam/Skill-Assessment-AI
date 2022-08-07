@@ -1,10 +1,8 @@
 import styled, { css } from 'styled-components';
 
-export const RegisterForm = styled.div(
-  () => css`
-    width: 100%;
-  `,
-);
+export const RegisterForm = styled.div`
+  width: 100%;
+`;
 
 export const FormWrapper = styled.div(
   (props) => css`
@@ -31,11 +29,9 @@ export const FormWrapper = styled.div(
   `,
 );
 
-export const PageHeader = styled.p(
-  () => css`
-    padding: 32px 0 64px 0;
-  `,
-);
+export const PageHeader = styled.p`
+  padding: 32px 0 64px 0;
+`;
 
 export const RegisterWrapper = styled.div(
   (props) => css`

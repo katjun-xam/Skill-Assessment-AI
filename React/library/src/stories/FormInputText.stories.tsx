@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FormInputText from '../components/FormInputText/FormInputText';
-import GlobalStyles from '../globalStyles';
+import { FormInputText } from 'components';
+import GlobalStyles from 'globalStyles';
 
 export default {
   title: 'Forms/InputText',

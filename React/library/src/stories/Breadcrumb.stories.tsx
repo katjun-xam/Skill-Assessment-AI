@@ -1,9 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
-import { ReactComponent as IconHome } from '../assets/icons/icon-home.svg';
-import { ReactComponent as IconGallery } from '../assets/icons/icon-gallery.svg';
-import { ReactComponent as IconFolder } from '../assets/icons/icon-folder.svg';
-import { ReactComponent as IconChevron } from '../assets/icons/icon-chevron.svg';
+
+import { Breadcrumb } from 'components';
+
+import { ReactComponent as IconHome } from 'assets/icons/icon-home.svg';
+import { ReactComponent as IconGallery } from 'assets/icons/icon-gallery.svg';
+import { ReactComponent as IconFolder } from 'assets/icons/icon-folder.svg';
+import { ReactComponent as IconChevron } from 'assets/icons/icon-chevron.svg';
 
 export default {
   title: 'Navigation/Breadcrumb',
