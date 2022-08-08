@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 export const ProfileSettings = styled.div(
   (props) => css`
-    margin-top: 64px;
     & > div:first-child {
       display: flex;
       h2 {
@@ -27,6 +26,19 @@ export const ProfileSettings = styled.div(
           width: 100%;
         }
       }
+    }
+  `,
+);
+
+export const ProfileWrapper = styled.div(
+  () => css`
+    padding: 12px 24px;
+    height: 100%;
+
+    .profileHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   `,
 );

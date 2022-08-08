@@ -1,11 +1,11 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import { IAvatarContainerProps, IAvatarImageProps } from "./types";
+import { IAvatarContainerProps, IAvatarImageProps } from './types';
 
 export const borderRadius = {
-  square: "0%",
-  roundedCorners: "10%",
-  default: "50%"
+  square: '0%',
+  roundedCorners: '10%',
+  default: '50%',
 };
 
 export const AvatarContainer = styled.div<IAvatarContainerProps>(
@@ -16,11 +16,11 @@ export const AvatarContainer = styled.div<IAvatarContainerProps>(
     justify-content: center;
 
     border-radius: ${borderRadius[props.variant ?? 'default']};
-    width: ${props.width ? props.width : '50px'};
-    height: ${props.height ? props.height : '50px'};
+    width: ${props.width || '50px'};
+    height: ${props.height || '50px'};
+    color: ${props.fontColor || props.theme.textWhite};
     ${props.fontSize && `font-size: ${props.fontSize};`}
-    ${props.fontColor && `color: ${props.fontColor};`}
-  `
+  `,
 );
 
 export const AvatarGroupContainer = styled.div`
@@ -35,5 +35,5 @@ export const AvatarImage = styled.img<IAvatarImageProps>(
     width: ${props.width ? props.width : '50px'};
     height: ${props.height ? props.height : '50px'};
     border-radius: ${borderRadius[props.variant ?? 'default']};
-  `
+  `,
 );

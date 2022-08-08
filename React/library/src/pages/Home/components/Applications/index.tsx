@@ -1,5 +1,5 @@
-import { useAppSelector, useAppDispatch } from 'app/hooks';
-import { getApplicationsAsync, selectApplications } from 'features/applications/applicationsSlice';
+import { useAppSelector, useAppDispatch } from 'store';
+import { getApplicationsAsync, selectApplications } from 'store/applications/slice';
 import { ApplicationsWrapper } from './styles';
 import { Spinner, Table, Button } from 'components';
 

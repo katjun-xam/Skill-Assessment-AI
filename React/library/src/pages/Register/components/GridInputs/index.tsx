@@ -1,8 +1,8 @@
-import { useAppSelector } from 'app/hooks';
+import { useAppSelector } from 'store';
 import { FormWrapper } from 'pages/Register/styles';
 import { Button, FormCell, FormInputText, Icon } from 'components';
 import { FormRow } from 'components/FormMain/styles';
-import { selectRegisterState } from 'features/register/registerSlice';
+import { selectRegisterState } from 'store/register/slice';
 import { lightTheme } from 'theme';
 import { ReactComponent as IconSearch } from 'assets/icons/icon-search.svg';
 import useHandleChangeFieldValue from '../../hooks/useHandleChangeFieldValue';

@@ -4,8 +4,8 @@ import { Button, ButtonGroup, FormCell, Icon } from 'components';
 import { FormRow } from 'components/FormMain/styles';
 import { ReactComponent as IconSuccess } from 'assets/icons/icon-success.svg';
 import { lightTheme } from 'theme';
-import { useAppDispatch } from 'app/hooks';
-import { resetRegisterFormData } from 'features/register/registerSlice';
+import { useAppDispatch } from 'store';
+import { resetRegisterFormData } from 'store/register/slice';
 
 const InputFormButtons = () => {
   const dispatch = useAppDispatch();

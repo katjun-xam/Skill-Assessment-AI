@@ -1,74 +1,74 @@
-import React, { useState } from 'react';
-
-// Implementation
-import { useAppSelector } from 'app/hooks';
-import { selectUser } from 'features/user/userSlice';
-
-// Components
+import React, { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from 'store';
+import { selectUser, updateUser } from 'store/user/slice';
 import { lightTheme } from 'theme';
-import { Avatar, Breadcrumb, Button, ButtonGroup, FormInputText, Icon, PageTitle, Table, Toggle } from 'components';
-
-// UI
+import { Avatar, Button, FormInputText, Icon, PageTitle, Table } from 'components';
 import { ReactComponent as IconPencil } from 'assets/icons/icon-pencil.svg';
+import { ProfileSettings, ProfileWrapper } from './styles';
 import avatar1 from 'assets/images/avatar1.png';
-import { ProfileSettings } from './styles';
 
 const Profile: React.FunctionComponent = (): JSX.Element => {
+  const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
-  const [firstName, setFirstName] = useState('Ferrara');
-  const [lastName, setLastName] = useState('Clifford');
-  const [city, setCity] = useState('Canberra');
-  const [theme, setTheme] = useState(false);
-  const [profile, setProfile] = useState({
-    firstname: false,
-    lastname: false,
-    city: false,
-  });
+  const [firstName, setFirstName] = useState<string>(user?.identity?.firstName || '');
+  const [lastName, setLastName] = useState<string>(user?.identity?.lastName || '');
+  const [isEditFirstName, setIsEditFirstName] = useState<boolean>(false);
+  const [isEditLastName, setIsEditLastName] = useState<boolean>(false);
+  const isDisabledSaveBtn: boolean = firstName === user.identity.firstName && lastName === user.identity.lastName;
 
-  const editProfile = (type: 'firstname' | 'lastname' | 'city') => {
-    if (type === 'firstname') {
-      setProfile({
-        lastname: false,
-        city: false,
-        firstname: !profile.firstname,
-      });
-    } else if (type === 'lastname') {
-      setProfile({
-        lastname: !profile.lastname,
-        city: false,
-        firstname: false,
-      });
-    } else {
-      setProfile({ lastname: false, city: !profile.city, firstname: false });
-    }
+  const handleClickLogoutBtn = (): void => {
+    window.location.reload();
   };
 
+  const handleClickSaveChanges = (): void => {
+    if (isEditFirstName) {
+      setIsEditFirstName(false);
+    }
+
+    if (isEditLastName) {
+      setIsEditLastName(false);
+    }
+
+    dispatch(updateUser({ firstName, lastName }));
+  };
+
+  const handleToggleFirstNameField = (): void => {
+    setIsEditFirstName(!isEditFirstName);
+  };
+
+  const handleToggleLastNameField = (): void => {
+    setIsEditLastName(!isEditLastName);
+  };
+
+  useEffect(() => {
+    setFirstName(user?.identity?.firstName);
+    setLastName(user?.identity?.lastName);
+  }, [user?.identity?.firstName, user?.identity?.lastName]);
+
   return (
-    <React.Fragment>
-      <PageTitle text="My Profile" />
-      <Breadcrumb
-        links={[
-          { label: 'Register', url: '/register' },
-          { label: 'Breadcrumb1', url: '#' },
-          { label: 'Breadcrumb2', url: '#' },
-        ]}
-      />
+    <ProfileWrapper>
+      <div className="profileHeader">
+        <PageTitle text="Profile" />
+        {user?.isLogged && (
+          <Button label="Logout" variant="contained" color="primary" centered onClick={handleClickLogoutBtn} />
+        )}
+      </div>
       {user?.isLogged ? (
         <ProfileSettings>
           <div>
             <Avatar avatars={[avatar1]} variant="square" width="150px" height="150px" />
-            <h2>Ferrara Clifford</h2>
+            <h2>{`${user.identity.firstName} ${user.identity.lastName}`}</h2>
           </div>
           <div>
             <Table
               tableData={[
                 {
                   label: 'First Name',
-                  text: profile.firstname ? (
+                  text: isEditFirstName ? (
                     <FormInputText
                       name="firstName"
                       value={firstName}
-                      onChange={(e) => {
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         setFirstName(e.target.value);
                       }}
                     />
@@ -83,17 +83,17 @@ const Profile: React.FunctionComponent = (): JSX.Element => {
                           <IconPencil />
                         </Icon>
                       }
-                      onClick={() => editProfile('firstname')}
+                      onClick={handleToggleFirstNameField}
                     />
                   ),
                 },
                 {
                   label: 'Last Name',
-                  text: profile.lastname ? (
+                  text: isEditLastName ? (
                     <FormInputText
                       name="lastName"
                       value={lastName}
-                      onChange={(e) => {
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                         setLastName(e.target.value);
                       }}
                     />
@@ -108,66 +108,29 @@ const Profile: React.FunctionComponent = (): JSX.Element => {
                           <IconPencil />
                         </Icon>
                       }
-                      onClick={() => editProfile('lastname')}
-                    />
-                  ),
-                },
-                {
-                  label: 'City',
-                  text: profile.city ? (
-                    <FormInputText
-                      name="city"
-                      value={city}
-                      onChange={(e) => {
-                        setCity(e.target.value);
-                      }}
-                    />
-                  ) : (
-                    city
-                  ),
-                  icon: (
-                    <Button
-                      color="primary"
-                      startIcon={
-                        <Icon strokeColor={lightTheme.primary}>
-                          <IconPencil />
-                        </Icon>
-                      }
-                      onClick={() => editProfile('city')}
+                      onClick={handleToggleLastNameField}
                     />
                   ),
                 },
               ]}
-              background={theme ? lightTheme.textMedium : lightTheme.bgLight}
               labels={true}
               columnWidth={['40%', '40%', '20%']}
             />
-            <div>
-              <h6>Theme Preference</h6>
-              <Toggle value={theme} color="primary" onChange={() => setTheme(!theme)} />
-            </div>
-            <ButtonGroup gap={20} inline={true}>
-              <>
-                <Button
-                  label="Save Profile"
-                  variant="contained"
-                  color="primary"
-                  wide
-                  centered
-                  onClick={() => {
-                    alert('details saved');
-                    window.location.reload();
-                  }}
-                />
-                <Button label="Cancel" variant="outlined" wide centered color="primary" />
-              </>
-            </ButtonGroup>
+            <Button
+              label="Save Changes"
+              variant="contained"
+              color="primary"
+              centered
+              wide
+              onClick={handleClickSaveChanges}
+              disabled={isDisabledSaveBtn}
+            />
           </div>
         </ProfileSettings>
       ) : (
-        <p>Please login</p>
+        <p>Please login to see this page.</p>
       )}
-    </React.Fragment>
+    </ProfileWrapper>
   );
 };
 

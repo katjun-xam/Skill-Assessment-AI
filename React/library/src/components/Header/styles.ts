@@ -14,7 +14,7 @@ export const HeaderMainContainer = styled.header(
 
     min-height: 52px;
     border-bottom: 1px solid ${props.theme.borderColorLight};
-  `
+  `,
 );
 
 export const HeaderContainer = styled.div(
@@ -23,7 +23,7 @@ export const HeaderContainer = styled.div(
     display: flex;
     max-width: ${props.theme.pageWidth};
     margin: 0 auto;
-  `
+  `,
 );
 
 export const HeaderContent = styled.div`
@@ -51,7 +51,7 @@ export const TitleText = styled.h1(
     @media all and (min-width: ${props.theme.breakpoints.md}) {
       display: block;
     }
-  `
+  `,
 );
 
 export const HeaderNavigationSticky = styled.nav(
@@ -66,7 +66,7 @@ export const HeaderNavigationSticky = styled.nav(
     @media all and (min-width: ${props.theme.breakpoints.md}) {
       display: none;
     }
-  `
+  `,
 );
 
 export const HeaderNavigationStickyItem = styled.div<{ selected: boolean }>(
@@ -84,7 +84,7 @@ export const HeaderNavigationStickyItem = styled.div<{ selected: boolean }>(
       color: ${props.theme.textExtraLight};
       text-decoration: none;
     }
-  `
+  `,
 );
 
 export const HeaderNavigation = styled.nav(
@@ -94,10 +94,10 @@ export const HeaderNavigation = styled.nav(
       display: block;
       margin-right: 36px;
     }
-  `
+  `,
 );
 
 export const HeaderEndElement = styled.div`
-  flex: 0 1 180px;
-  display: block;
+  display: flex;
+  justify-content: center;
 `;
