@@ -23,7 +23,7 @@ steps:
   displayName: 'npm install and build'
 - task: AzureStaticWebApp@0
   inputs:
-    app_location: 'React/library'
+    app_location: 'React/library/build'
     output_location: 'React/library/build'
     skip_app_build: true
-    azure_static_web_apps_api_token: '30288ccd79260ed9a8ed10b9d2aa301eed4eec7b0fd130616950ff38784f78a51'
+    azure_static_web_apps_api_token: '30288ccd79260ed9a8ed10b9d2aa301eed4eec7b0fd130616950ff38784f78a51-c74857d0-0afb-4014-b85c-a5ecccd5ba8200021925'
