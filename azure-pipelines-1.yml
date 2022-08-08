@@ -15,11 +15,9 @@ steps:
     versionSpec: '17.x'
     checkLatest: true
   displayName: 'Install Node.js'
-- task: CmdLine@2
-  inputs:
-    script: 'cd React/library'
     
 - script: |
+    cd React/library
     npm install
     npm run build
   displayName: 'npm install and build'
