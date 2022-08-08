@@ -1,8 +1,9 @@
 import React from 'react';
 import { useAppSelector, useAppDispatch } from 'store';
-import { getTransactionsAsync, selectTransactions } from 'store/transactions/slice';
+import { selectTransactions } from 'store/transactions/slice';
+import { getTransactionsAsync } from 'store/transactions/actions';
 import { TransactionsWrapper } from './styles';
-import { SkeletonLoading, Table, Button } from 'components';
+import { SkeletonLoading, Table, Button, ElseIf, If } from 'components';
 
 const Transactions: React.FunctionComponent = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -15,19 +16,21 @@ const Transactions: React.FunctionComponent = (): JSX.Element => {
 
   return (
     <TransactionsWrapper>
-      <h2 className="transactionTitle">Transactions:</h2>
+      <h2 className="transactionTitle">Fetching Mock Transactions Data</h2>
       <div className="content">
-        {!hasTransactions && status === 'idle' && (
-          <span className="guidanceText">Click the button below to fetch the transactions table.</span>
-        )}
-        {status === 'loading' && <SkeletonLoading />}
-        {hasTransactions && status === 'idle' && (
-          <Table
-            tableData={transactions}
-            typeOfData={['date', 'amount', 'amount', 'date', 'amount', 'string']}
-            sort={true}
-          />
-        )}
+        <If condition={!hasTransactions && status === 'idle'}>
+          <span className="guidanceText">Click the button below to fetch the applications table.</span>
+          <ElseIf condition={status === 'loading'}>
+            <SkeletonLoading />
+          </ElseIf>
+          <ElseIf condition={hasTransactions && status === 'idle'}>
+            <Table
+              tableData={transactions}
+              typeOfData={['date', 'amount', 'amount', 'date', 'amount', 'string']}
+              sort={true}
+            />
+          </ElseIf>
+        </If>
         <Button
           label={hasTransactions ? 'Refetch transactions' : 'Fetch transactions'}
           color="primary"

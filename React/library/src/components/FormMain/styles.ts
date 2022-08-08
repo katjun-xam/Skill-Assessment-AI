@@ -7,6 +7,7 @@ export const FormMainContainer = styled.form(
     box-sizing: border-box;
     border-radius: ${props.theme.borderRadiusMd};
     background-color: ${props.theme.bgLight};
+    padding: 12px;
   `,
 );
 

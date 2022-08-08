@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
-import { getUserAsync, selectUser } from 'store/user/slice';
+import { selectUser } from 'store/user/slice';
+import { getUserAsync } from 'store/user/actions';
 import { PageContainer } from './styles';
 import { ILayoutProps } from './types';
 import { FormRow } from 'components/FormMain/styles';
@@ -8,10 +9,13 @@ import { ReactComponent as Logo } from 'assets/logo.svg';
 import { ReactComponent as IconProfile } from 'assets/icons/icon-profile.svg';
 import { lightTheme } from 'theme';
 import { Avatar, Button, FormCell, FormInputText, FormMain, Header, Modal, Icon } from 'components';
+import { isNotEmptyString } from 'utils/helpers/strings';
+import { useNavigate } from 'react-router-dom';
 
 const Layout = ({ children }: ILayoutProps) => {
   const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
+  const navigate = useNavigate();
 
   const [isShowModal, setIsShowModal] = useState(false);
   const [userName, setUserName] = useState('');
@@ -41,6 +45,8 @@ const Layout = ({ children }: ILayoutProps) => {
   ];
 
   const renderModalContent = (): JSX.Element => {
+    const isDisabledLoginBtn = !(isNotEmptyString(userName) && isNotEmptyString(password));
+
     const handleSubmitModal = (e: React.ChangeEvent<HTMLFormElement>): void => {
       e.preventDefault();
     };
@@ -56,6 +62,7 @@ const Layout = ({ children }: ILayoutProps) => {
     const handleClickLoginBtn = (): void => {
       dispatch(getUserAsync());
       setIsShowModal(false);
+      navigate('/profile');
     };
 
     return (
@@ -71,7 +78,15 @@ const Layout = ({ children }: ILayoutProps) => {
           </FormCell>
         </FormRow>
         <FormRow>
-          <Button color="primary" variant="contained" label="Login" wide centered onClick={handleClickLoginBtn} />
+          <Button
+            color="primary"
+            variant="contained"
+            label="Login"
+            wide
+            centered
+            onClick={handleClickLoginBtn}
+            disabled={isDisabledLoginBtn}
+          />
         </FormRow>
       </FormMain>
     );

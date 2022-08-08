@@ -16,6 +16,7 @@ import Spinner from './Spinner';
 import Table from './Table';
 import Toggle from './Toggle';
 import Tooltip from './Tooltip';
+import { If, Else, ElseIf } from './If';
 
 export {
   Avatar,
@@ -23,11 +24,14 @@ export {
   Button,
   ButtonGroup,
   CallOut,
+  Else,
+  ElseIf,
   FormCell,
   FormInputText,
   FormMain,
   Header,
   Icon,
+  If,
   Layout,
   Modal,
   PageTitle,
