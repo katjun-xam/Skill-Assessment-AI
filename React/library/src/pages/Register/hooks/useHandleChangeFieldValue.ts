@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from 'app/hooks';
-import { selectRegisterState, setRegisterFormData } from 'features/register/registerSlice';
+import { useAppDispatch, useAppSelector } from 'store';
+import { selectRegisterState, setRegisterFormData } from 'store/register/slice';
 
 const useHandleChangeFieldValue = (): ((e: React.ChangeEvent<HTMLInputElement>) => void) => {
   const dispatch = useAppDispatch();

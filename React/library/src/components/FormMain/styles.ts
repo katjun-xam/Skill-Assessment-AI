@@ -7,7 +7,7 @@ export const FormMainContainer = styled.form(
     box-sizing: border-box;
     border-radius: ${props.theme.borderRadiusMd};
     background-color: ${props.theme.bgLight};
-  `
+  `,
 );
 
 export const FormRow = styled.div(
@@ -29,5 +29,5 @@ export const FormRow = styled.div(
         margin-bottom: 0;
       }
     }
-  `
+  `,
 );

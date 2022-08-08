@@ -1,13 +1,9 @@
 import styled, { css } from 'styled-components';
 
 export const RegisterForm = styled.div(
-  (props) => css`
+  () => css`
     width: 100%;
-    @media all and (min-width: ${props.theme.breakpoints.md}) {
-      width: 80%;
-      min-width: 830px;
-      max-width: 1000px;
-    }
+    background: red;
   `,
 );
 

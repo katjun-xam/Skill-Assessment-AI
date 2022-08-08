@@ -1,6 +1,6 @@
 import React from 'react';
-import { useAppSelector, useAppDispatch } from 'app/hooks';
-import { getTransactionsAsync, selectTransactions } from 'features/transactions/transactionsSlice';
+import { useAppSelector, useAppDispatch } from 'store';
+import { getTransactionsAsync, selectTransactions } from 'store/transactions/slice';
 import { TransactionsWrapper } from './styles';
 import { SkeletonLoading, Table, Button } from 'components';
 

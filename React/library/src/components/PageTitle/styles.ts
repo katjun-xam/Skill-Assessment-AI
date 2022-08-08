@@ -14,13 +14,12 @@ export const Title = styled.div(
     align-items: baseline;
     font-size: 23px;
     font-weight: 300;
-    margin-bottom: 12px;
     color: ${props.theme.primary};
     @media all and (min-width: ${props.theme.breakpoints.md}) {
       flex-direction: row;
       font-size: 39px;
     }
-  `
+  `,
 );
 
 export const EndElement = styled.div(
@@ -31,7 +30,7 @@ export const EndElement = styled.div(
       font-size: 20px;
       margin-top: 0;
     }
-  `
+  `,
 );
 
 export const Icon = styled.div(
@@ -44,5 +43,5 @@ export const Icon = styled.div(
     height: 75px;
     line-height: 75px;
     font-size: 29px;
-  `
+  `,
 );

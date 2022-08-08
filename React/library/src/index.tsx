@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { store } from "./app/store";
-import { Provider } from "react-redux";
-import { ThemeProvider } from "styled-components";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { store } from 'store';
+import { Provider } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
 
-import App from "./App";
-import GlobalStyles from "./globalStyles";
-import { lightTheme } from "./theme";
+import App from './App';
+import GlobalStyles from './globalStyles';
+import { lightTheme } from './theme';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,5 +17,5 @@ ReactDOM.render(
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );

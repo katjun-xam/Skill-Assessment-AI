@@ -8,7 +8,7 @@ import GridInputs from './components/GridInputs';
 import InputFormButtons from './components/InputFormButtons';
 
 const Register: React.FunctionComponent = (): JSX.Element => {
-  const formSubmitHandler = (e: React.FormEvent) => {
+  const formSubmitHandler = (e: React.FormEvent): void => {
     e.preventDefault();
     alert('Form Submitted!');
   };
