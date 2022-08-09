@@ -3,6 +3,7 @@ import { HomeWrapper } from './styles';
 import { PageTitle, CallOut } from 'components';
 import Applications from './components/Applications';
 import Transactions from './components/Transactions';
+import PokemonSearch from './components/PokemonSearch';
 
 const Home: React.FunctionComponent = (): JSX.Element => {
   return (
@@ -14,6 +15,7 @@ const Home: React.FunctionComponent = (): JSX.Element => {
         With this accelerator, we can start a new React project in a short period of time. <br />
         Feel free to navigate to pages to check out re-usable components created using ReactJS.
       </CallOut>
+      <PokemonSearch />
       <Transactions />
       <Applications />
     </HomeWrapper>

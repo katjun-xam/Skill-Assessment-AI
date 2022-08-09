@@ -1,30 +1,12 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from 'store';
-import { fetchTransactions } from './api';
+import { actions, getTransactionsAsync } from './actions';
 import { initialState } from './initialState';
-
-export const getTransactionsAsync = createAsyncThunk('transactions/fetchTransactions', async (amount: number) => {
-  const response = await fetchTransactions(amount);
-  return response.data;
-});
 
 export const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
-  reducers: {
-    getTransactions: (state) => {
-      state.value = [
-        {
-          repaymentDate: '',
-          repaymentAmount: 1,
-          fees: 1,
-          directDebitDate: '',
-          directDebitAmount: 1,
-          Status: '',
-        },
-      ];
-    },
-  },
+  reducers: actions,
   extraReducers: (builder) => {
     builder
       .addCase(getTransactionsAsync.pending, (state) => {

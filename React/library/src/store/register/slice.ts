@@ -1,19 +1,12 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from 'store';
-import { defaultRegisterFormData, initialState } from './initialState';
-import { IRegisterFormData } from './types';
+import { actions } from './actions';
+import { initialState } from './initialState';
 
 export const registerSlice = createSlice({
   name: 'register',
   initialState,
-  reducers: {
-    setRegisterFormData: (state, action: PayloadAction<IRegisterFormData>) => {
-      state.registerFormData = action.payload;
-    },
-    resetRegisterFormData: (state) => {
-      state.registerFormData = defaultRegisterFormData;
-    },
-  },
+  reducers: actions,
 });
 
 export const selectRegisterState = (state: RootState) => state.register;
