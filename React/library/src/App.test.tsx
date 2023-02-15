@@ -3,13 +3,16 @@ import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from 'store';
 import App from './App';
+import TestThemeProvider from 'utils/test-utils/TestThemeProvider';
 
-test('renders learn react link', () => {
+it('renders correctly', () => {
   const { getByText } = render(
     <Provider store={store}>
-      <App />
+      <TestThemeProvider>
+        <App />
+      </TestThemeProvider>
     </Provider>,
   );
 
-  expect(getByText(/learn/i)).toBeInTheDocument();
+  expect(getByText(/React Accelerator Showcase/i)).toBeInTheDocument();
 });
