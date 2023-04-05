@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { selectUser } from 'store/user/slice';
 import { getUserAsync } from 'store/user/actions';
-import { PageContainer } from './styles';
+import { PageContainer, StyledButton, StyledOutlinedButton } from './styles';
 import { ILayoutProps } from './types';
 import { FormRow } from 'components/FormMain/styles';
 import { ReactComponent as Logo } from 'assets/logo.svg';
-import { ReactComponent as IconProfile } from 'assets/icons/icon-profile.svg';
-import { lightTheme } from 'theme';
-import { Avatar, Button, FormCell, FormInputText, FormMain, Header, Modal, Icon } from 'components';
+import { theme } from 'theme';
+import { FormCell, FormInputText, FormMain, Header, Modal } from 'components';
 import { isNotEmptyString } from 'utils/helpers/strings';
 import { useNavigate } from 'react-router-dom';
+
+import { Avatar } from '@mui/material';
+import { Person } from '@mui/icons-material';
 
 const Layout = ({ children }: ILayoutProps) => {
   const dispatch = useAppDispatch();
@@ -67,26 +69,33 @@ const Layout = ({ children }: ILayoutProps) => {
 
     return (
       <FormMain onSubmit={handleSubmitModal}>
+        <div style={{ marginBottom: '12px' }}>
+          <span>Username</span>
+        </div>
         <FormRow>
           <FormCell>
-            <FormInputText name="username" label="Username" onChange={handleChangeUserName} value={userName} />
+            <FormInputText id="username" onChange={handleChangeUserName} value={userName} />
+          </FormCell>
+        </FormRow>
+        <div style={{ marginTop: '12px', marginBottom: '12px' }}>
+          <span>Password</span>
+        </div>
+        <FormRow>
+          <FormCell>
+            <FormInputText id="password" onChange={handleChangePassword} value={password} />
           </FormCell>
         </FormRow>
         <FormRow>
-          <FormCell>
-            <FormInputText name="password" label="Password" onChange={handleChangePassword} value={password} />
-          </FormCell>
-        </FormRow>
-        <FormRow>
-          <Button
-            color="primary"
+          <StyledButton
             variant="contained"
-            label="Login"
-            wide
-            centered
             onClick={handleClickLoginBtn}
             disabled={isDisabledLoginBtn}
-          />
+            fullWidth
+            disableElevation
+            sx={{ marginTop: '8px' }}
+          >
+            Login
+          </StyledButton>
         </FormRow>
       </FormMain>
     );
@@ -111,20 +120,17 @@ const Layout = ({ children }: ILayoutProps) => {
         menu={headerMenu}
         endElement={
           user.isLogged ? (
-            <Avatar initials={getUserInitials()} />
+            <Avatar sx={{ bgcolor: theme.colors.primary }}>{getUserInitials()}</Avatar>
           ) : (
-            <Button
-              label="Login"
-              color="primary"
+            <StyledOutlinedButton
               variant="outlined"
-              wide
               onClick={handleClickLoginBtn}
-              startIcon={
-                <Icon fillColor={lightTheme.primary}>
-                  <IconProfile />
-                </Icon>
-              }
-            />
+              size="large"
+              startIcon={<Person sx={{ color: theme.colors.primary }} />}
+              disableElevation
+            >
+              Login
+            </StyledOutlinedButton>
           )
         }
       />

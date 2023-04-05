@@ -14,14 +14,20 @@ const StandardInputs = () => {
     <FormWrapper>
       <h2 className="title">Inputs - Standard</h2>
       <div className="content">
+        <div style={{ marginBottom: '12px' }}>
+          <span>City</span>
+        </div>
         <FormRow>
           <FormCell cellWidth="100%">
-            <FormInputText name="city" onChange={handleChangeFieldValue} value={city} label="City" />
+            <FormInputText id="city" onChange={handleChangeFieldValue} value={city} />
           </FormCell>
         </FormRow>
+        <div style={{ marginTop: '12px', marginBottom: '12px' }}>
+          <span>Country</span>
+        </div>
         <FormRow>
           <FormCell cellWidth="100%">
-            <FormInputText name="country" onChange={handleChangeFieldValue} value={country} label="Country" />
+            <FormInputText id="country" onChange={handleChangeFieldValue} value={country} />
           </FormCell>
         </FormRow>
       </div>

@@ -1,11 +1,12 @@
 import { useAppSelector } from 'store';
-import { FormWrapper } from 'pages/Register/styles';
-import { Button, FormCell, FormInputText, Icon } from 'components';
+import { FormWrapper, StyledButton } from 'pages/Register/styles';
+import { FormCell, FormInputText } from 'components';
 import { FormRow } from 'components/FormMain/styles';
 import { selectRegisterState } from 'store/register/slice';
-import { lightTheme } from 'theme';
-import { ReactComponent as IconSearch } from 'assets/icons/icon-search.svg';
+import { theme } from 'theme';
 import useHandleChangeFieldValue from '../../hooks/useHandleChangeFieldValue';
+
+import { Search } from '@mui/icons-material';
 
 const GridInputs = () => {
   const { registerFormData } = useAppSelector(selectRegisterState);
@@ -26,21 +27,21 @@ const GridInputs = () => {
             <label htmlFor="firstName">First name</label>
           </FormCell>
           <FormCell cellWidth="85%">
-            <FormInputText name="firstName" onChange={handleChangeFieldValue} value={firstName} />
+            <FormInputText id="firstName" onChange={handleChangeFieldValue} value={firstName} />
           </FormCell>
         </FormRow>
         <FormRow>
           <FormCell cellWidth="10%">
-            <label htmlFor="firstName">Last name</label>
+            <label htmlFor="lastName">Last name</label>
           </FormCell>
           <FormCell cellWidth="30%">
-            <FormInputText name="firstName" onChange={handleChangeFieldValue} value={firstName} />
+            <FormInputText id="firstName" onChange={handleChangeFieldValue} value={firstName} />
           </FormCell>
           <FormCell cellWidth="10%">
             <label htmlFor="lastName">Last name</label>
           </FormCell>
           <FormCell cellWidth="35%">
-            <FormInputText name="lastName" onChange={handleChangeFieldValue} value={lastName} />
+            <FormInputText id="lastName" onChange={handleChangeFieldValue} value={lastName} />
           </FormCell>
         </FormRow>
         <FormRow>
@@ -48,123 +49,119 @@ const GridInputs = () => {
             <label htmlFor="firstName">First name</label>
           </FormCell>
           <FormCell cellWidth="auto">
-            <FormInputText name="firstName" onChange={handleChangeFieldValue} value={lastName} />
+            <FormInputText id="firstName" onChange={handleChangeFieldValue} value={lastName} />
           </FormCell>
           <FormCell cellWidth="auto">
-            <label htmlFor="lastName">Middle name</label>
+            <label htmlFor="middleName" style={{ marginLeft: '8px' }}>
+              Middle name
+            </label>
           </FormCell>
           <FormCell cellWidth="auto">
-            <FormInputText name="middleName" onChange={handleChangeFieldValue} value={middleName} />
+            <FormInputText id="middleName" onChange={handleChangeFieldValue} value={middleName} />
           </FormCell>
           <FormCell cellWidth="auto">
-            <label htmlFor="lastName">Last name</label>
+            <label htmlFor="lastName" style={{ marginLeft: '8px' }}>
+              Last name
+            </label>
           </FormCell>
           <FormCell cellWidth="auto">
-            <FormInputText name="lastName" onChange={handleChangeFieldValue} value={lastName} />
+            <FormInputText id="lastName" onChange={handleChangeFieldValue} value={lastName} />
+          </FormCell>
+        </FormRow>
+        <div style={{ marginBottom: '12px' }}>
+          <span>First name</span>
+        </div>
+        <FormRow>
+          <FormCell cellWidth="auto">
+            <FormInputText id="firstName" value={firstName} onChange={handleChangeFieldValue} />
           </FormCell>
         </FormRow>
         <FormRow>
-          <FormCell cellWidth="auto">
-            <FormInputText name="firstName" value={firstName} onChange={handleChangeFieldValue} label="First name" />
-          </FormCell>
+          <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+            <div style={{ marginBottom: '12px' }}>
+              <span>First name</span>
+            </div>
+            <FormCell cellWidth="auto">
+              <FormInputText id="firstName" value={firstName} onChange={handleChangeFieldValue} />
+            </FormCell>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', width: '100%', marginLeft: '8px' }}>
+            <div style={{ marginBottom: '12px' }}>
+              <span>Last name</span>
+            </div>
+            <FormCell cellWidth="auto">
+              <FormInputText id="lastName" value={lastName} onChange={handleChangeFieldValue} />
+            </FormCell>
+          </div>
         </FormRow>
         <FormRow>
-          <FormCell cellWidth="auto">
-            <FormInputText name="firstName" value={firstName} onChange={handleChangeFieldValue} label="First name" />
-          </FormCell>
-          <FormCell cellWidth="auto">
-            <FormInputText name="lastName" value={lastName} onChange={handleChangeFieldValue} label="Last name" />
-          </FormCell>
+          <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+            <div style={{ marginBottom: '12px' }}>
+              <span>First name</span>
+            </div>
+            <FormCell cellWidth="auto">
+              <FormInputText id="firstName" value={firstName} onChange={handleChangeFieldValue} />
+            </FormCell>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', width: '100%', marginLeft: '8px' }}>
+            <div style={{ marginBottom: '12px' }}>
+              <span>Middle name</span>
+            </div>
+            <FormCell cellWidth="auto">
+              <FormInputText id="middleName" value={middleName} onChange={handleChangeFieldValue} />
+            </FormCell>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', width: '100%', marginLeft: '8px' }}>
+            <div style={{ marginBottom: '12px' }}>
+              <span>Last name</span>
+            </div>
+            <FormCell cellWidth="auto">
+              <FormInputText id="lastName" value={lastName} onChange={handleChangeFieldValue} />
+            </FormCell>
+          </div>
         </FormRow>
         <FormRow>
-          <FormCell cellWidth="auto">
-            <FormInputText name="firstName" value={firstName} onChange={handleChangeFieldValue} label="First name" />
-          </FormCell>
-          <FormCell cellWidth="auto">
-            <FormInputText name="middleName" value={middleName} onChange={handleChangeFieldValue} label="Middle name" />
-          </FormCell>
-          <FormCell cellWidth="auto">
-            <FormInputText name="lastName" value={lastName} onChange={handleChangeFieldValue} label="Last name" />
+          <FormCell cellWidth="100%">
+            <FormInputText id="firstName" onChange={handleChangeFieldValue} value={firstName} label="First name" />
           </FormCell>
         </FormRow>
         <FormRow>
           <FormCell cellWidth="100%">
-            <FormInputText
-              name="firstName"
-              onChange={handleChangeFieldValue}
-              value={firstName}
-              label="First name"
-              floatingLabel
-            />
+            <FormInputText id="firstName" onChange={handleChangeFieldValue} value={firstName} label="First name" />
+            <div style={{ marginLeft: '8px', width: '100%' }}>
+              <FormInputText id="lastName" onChange={handleChangeFieldValue} value={lastName} label="Last name" />
+            </div>
           </FormCell>
         </FormRow>
         <FormRow>
           <FormCell cellWidth="100%">
-            <FormInputText
-              name="firstName"
-              onChange={handleChangeFieldValue}
-              value={firstName}
-              label="First name"
-              floatingLabel
-            />
-            <FormInputText
-              name="lastName"
-              onChange={handleChangeFieldValue}
-              value={lastName}
-              label="Last name"
-              floatingLabel
-            />
-          </FormCell>
-        </FormRow>
-        <FormRow>
-          <FormCell cellWidth="100%">
-            <FormInputText
-              name="firstName"
-              onChange={handleChangeFieldValue}
-              value={firstName}
-              label="First name"
-              floatingLabel
-            />
-            <FormInputText
-              name="middleName"
-              onChange={handleChangeFieldValue}
-              value={middleName}
-              label="Middle name"
-              floatingLabel
-            />
-            <FormInputText
-              name="lastName"
-              onChange={handleChangeFieldValue}
-              value={lastName}
-              label="Last name"
-              floatingLabel
-            />
+            <FormInputText id="firstName" onChange={handleChangeFieldValue} value={firstName} label="First name" />
+            <div style={{ marginLeft: '8px', width: '100%' }}>
+              <FormInputText id="middleName" onChange={handleChangeFieldValue} value={middleName} label="Middle name" />
+            </div>
+            <div style={{ marginLeft: '8px', width: '100%' }}>
+              <FormInputText id="lastName" onChange={handleChangeFieldValue} value={lastName} label="Last name" />
+            </div>
           </FormCell>
         </FormRow>
         <FormRow>
           <FormCell cellWidth="70%">
-            <FormInputText
-              name="address"
-              onChange={handleChangeFieldValue}
-              value={address}
-              label="Residential address"
-              floatingLabel
-            />
+            <FormInputText id="address" onChange={handleChangeFieldValue} value={address} label="Residential address" />
           </FormCell>
           <FormCell cellWidth="30%">
-            <Button
-              label="Search"
-              color="primary"
-              startIcon={
-                <Icon fillColor={lightTheme.textWhite}>
-                  <IconSearch />
-                </Icon>
-              }
-              wide
-              variant="contained"
-              disabled={!address}
-              onClick={handleClickSearchAddress}
-            />
+            <div style={{ height: '100%', width: '100%', marginLeft: '8px' }}>
+              <StyledButton
+                startIcon={<Search sx={{ color: theme.bg.bgWhite }} />}
+                variant="contained"
+                disabled={!address}
+                onClick={handleClickSearchAddress}
+                fullWidth
+                disableElevation
+                sx={{ height: '47px' }}
+              >
+                Search
+              </StyledButton>
+            </div>
           </FormCell>
         </FormRow>
       </div>

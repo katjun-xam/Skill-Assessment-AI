@@ -1,18 +1,18 @@
-import styled, { css } from 'styled-components';
+import { styled } from '@mui/material/styles';
 
 import { ITableContainer, ITableCell, ITableHeaderCell } from './types';
 
-export const ScrollContainer = styled.div`
+export const ScrollContainer = styled('div')`
   overflow-x: auto;
   margin-bottom: 12px;
 `;
 
-export const TableContainer = styled.table<ITableContainer>`
+export const TableContainer = styled('table')<ITableContainer>`
   border-spacing: 0;
   border-collapse: separate;
-  ${({ width }) => width && css`width: ${width};`}
+  ${({ width }) => width && `width: ${width};`}
   ${({ alignment }) =>
-    alignment && css`
+    alignment && `
       th,
       td {
         text-align: ${alignment};
@@ -21,29 +21,30 @@ export const TableContainer = styled.table<ITableContainer>`
   }
 `;
 
-export const TableHeader = styled.thead(
-  (props) => css`
+export const TableHeader = styled('thead')(
+  ({ theme }) => `
     font-size: 13px;
-    background: ${props.theme.primary};
-    color: ${props.theme.textWhite};
+    background: ${theme.colors.primary};
+    color: ${theme.text.textWhite};
   `
 );
 
-export const TableRow = styled.tr<{ withLabels?: boolean }>(
-  (props) => css`
-    border-bottom: 1px solid ${props.theme.borderColorLight};
-    & *:not(:first-child) {
+export const TableRow = styled('tr')<{ withLabels?: boolean }>(
+  ({ withLabels, theme }) => `
+    border-bottom: 1px solid ${theme.border.borderColorLight};
+    height: 80px;
+    & *:not(:first-of-type) {
       padding-left: 10px;
       padding-right: 10px;
     }
     & th,
-    td:first-child {
+    td:first-of-type {
       padding-left: 20px;
       padding-right: 20px;
     }
-    ${props.withLabels &&
+    ${withLabels &&
       `
-      td:first-child {
+      td:first-of-type {
         padding-left: 40px;
         padding-right: 40px;
       }
@@ -56,15 +57,15 @@ export const TableRow = styled.tr<{ withLabels?: boolean }>(
   `
 );
 
-export const TableHeaderCell = styled.th<ITableHeaderCell>(
-  (props) => css`
-    border-bottom: 2px solid ${props.theme.borderColorLight};
+export const TableHeaderCell = styled('th')<ITableHeaderCell>(
+  ({ width, theme }) => `
+    border-bottom: 2px solid ${theme.border.borderColorLight};
     text-transform: uppercase;
     text-align: left;
     padding: 9px 0px;
     white-space: nowrap;
 
-    ${props.width && `width: ${props.width};`}
+    ${width && `width: ${width};`}
 
     div {
       display: flex;
@@ -86,27 +87,8 @@ export const TableHeaderCell = styled.th<ITableHeaderCell>(
     &:hover {
       svg {
         visibility: visible;
-        fill: ${props.theme.textWhite};
+        fill: ${theme.text.textWhite};
       }
-    }
-
-    span {
-      ${() => {
-        if (props.sortType === 'asc')
-          return `
-          svg {
-            transition: transform 0.3s;
-            transform: rotate(180deg);
-          }
-        `;
-        else if (props.sortType === 'desc')
-          return `
-          svg {
-            transition: transform 0.5s;
-            transform: rotate(0deg);
-          }
-        `;
-      }}
     }
 
     svg {
@@ -119,35 +101,35 @@ export const TableHeaderCell = styled.th<ITableHeaderCell>(
   `
 );
 
-export const TableBody = styled.tbody<{ bgColor?: string }>(
-  (props) => css`
-    background: ${props.bgColor ? props.bgColor : props.theme.bgLight};
+export const TableBody = styled('tbody')<{ bgColor?: string }>(
+  ({ bgColor, theme }) => `
+    background: ${bgColor ? bgColor : theme.bg.bgLight};
   `
 );
 
-export const TableCell = styled.td<ITableCell>(
-  (props) => css`
+export const TableCell = styled('td')<ITableCell>(
+  ({ icon, labelIndicator, theme, width }) => `
     padding: 10px 0;
-    border-bottom: 1px solid ${props.theme.borderColorLight};
-    color: ${props.theme.textExtraDark};
-    width: ${props.width};
+    border-bottom: 1px solid ${theme.border.borderColorLight};
+    color: ${theme.text.textExtraDark};
+    width: ${width};
 
-    ${props.icon &&
+    ${icon &&
       `
       text-align: right;
       svg {
         width: 12px;
         height: 12px;
         cursor: pointer;
-        stroke: ${props.theme.primary};
+        stroke: ${theme.colors.primary};
       }
     `}
 
-    ${props.labelIndicator &&
+    ${labelIndicator &&
       `
       font-weight: bold;
       font-size: 16px;
-      color: ${props.theme.primary};
+      color: ${theme.colors.primary};
     `}
   `
 );

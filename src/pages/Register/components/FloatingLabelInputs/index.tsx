@@ -16,18 +16,12 @@ const FloatingLabelInputs = () => {
       <div className="content">
         <FormRow>
           <FormCell cellWidth="100%">
-            <FormInputText name="email" onChange={handleChangeFieldValue} value={email} label="E-mail" floatingLabel />
+            <FormInputText id="email" onChange={handleChangeFieldValue} value={email} label="E-mail" />
           </FormCell>
         </FormRow>
         <FormRow>
           <FormCell cellWidth="100%">
-            <FormInputText
-              name="address"
-              onChange={handleChangeFieldValue}
-              value={address}
-              label="Residential address"
-              floatingLabel
-            />
+            <FormInputText id="address" onChange={handleChangeFieldValue} value={address} label="Residential address" />
           </FormCell>
         </FormRow>
       </div>

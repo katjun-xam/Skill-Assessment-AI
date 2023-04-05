@@ -4,7 +4,9 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import { NavLinks } from 'pages/Home/styles';
-import { Layout, Breadcrumb } from 'components';
+import { Layout } from 'components';
+
+import { Breadcrumbs, Link, Typography } from '@mui/material';
 
 function App() {
   return (
@@ -12,14 +14,13 @@ function App() {
       <div>
         <Layout>
           <NavLinks>
-            <Breadcrumb
-              separator="/"
-              links={[
-                { label: 'Link 1', url: '/' },
-                { label: 'Link 2', url: '#' },
-                { label: 'Link 3', url: '#' },
-              ]}
-            />
+            <Breadcrumbs>
+              <Typography>Link 1</Typography>
+              <Typography>Link 2</Typography>
+              <Link underline="hover" href="/">
+                Link 3
+              </Link>
+            </Breadcrumbs>
           </NavLinks>
           <Routes>
             <Route path="/" element={<Home />} />

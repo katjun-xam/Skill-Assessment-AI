@@ -1,7 +1,9 @@
-import styled, { css } from 'styled-components';
+import { styled } from '@mui/material/styles';
 
-export const ProfileSettings = styled.div(
-  (props) => css`
+import { Button } from '@mui/material';
+
+export const ProfileSettings = styled('div')(
+  ({ theme }) => `
     & > div:first-child {
       display: flex;
       h2 {
@@ -22,7 +24,7 @@ export const ProfileSettings = styled.div(
       & > div:nth-child(3) {
         margin-top: 20px;
         width: 25%;
-        @media all and (max-width: ${props.theme.breakpoints.sm}) {
+        @media all and (max-width: ${theme.breakpoints.sm}) {
           width: 100%;
         }
       }
@@ -30,8 +32,8 @@ export const ProfileSettings = styled.div(
   `,
 );
 
-export const ProfileWrapper = styled.div(
-  () => css`
+export const ProfileWrapper = styled('div')(
+  () => `
     padding: 12px 24px;
     height: 100%;
 
@@ -39,6 +41,18 @@ export const ProfileWrapper = styled.div(
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+  `,
+);
+
+export const StyledButton = styled(Button)(
+  ({ theme }) => `
+    background-color: ${theme.colors.primary};
+    text-transform: none;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: ${theme.colors.primaryAccent};
     }
   `,
 );

@@ -1,18 +1,18 @@
-import styled, { css } from 'styled-components';
+import { styled } from '@mui/material/styles';
 
-export const FormMainContainer = styled.form(
-  (props) => css`
+export const FormMainContainer = styled('form')(
+  ({ theme }) => `
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    border-radius: ${props.theme.borderRadiusMd};
-    background-color: ${props.theme.bgLight};
+    border-radius: ${theme.border.borderRadiusMd};
+    background-color: ${theme.bg.bgLight};
     padding: 12px;
   `,
 );
 
-export const FormRow = styled.div(
-  (props) => css`
+export const FormRow = styled('div')(
+  ({ theme }) => `
     display: flex;
     flex-direction: column;
     margin-bottom: 8px;
@@ -21,7 +21,7 @@ export const FormRow = styled.div(
       margin-bottom: 8px;
     }
 
-    @media all and (min-width: ${props.theme.breakpoints.md}) {
+    @media all and (min-width: ${theme.breakpoints.md}) {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;

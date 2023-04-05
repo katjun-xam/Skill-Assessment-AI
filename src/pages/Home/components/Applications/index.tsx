@@ -1,7 +1,11 @@
 import { useAppSelector, useAppDispatch } from 'store';
 import { getApplicationsAsync, selectApplications } from 'store/applications/slice';
-import { ApplicationsWrapper } from './styles';
-import { Spinner, Table, Button, ElseIf, If } from 'components';
+import { applicationsColumns } from './constants';
+import { ApplicationsWrapper, StyledButton } from './styles';
+import { ElseIf, If } from 'components';
+
+import { CircularProgress } from '@mui/material';
+import { DataGrid } from '@mui/x-data-grid';
 
 const Applications = () => {
   const dispatch = useAppDispatch();
@@ -19,23 +23,27 @@ const Applications = () => {
         <If condition={!hasApplications && status === 'idle'}>
           <span className="guidanceText">Click the button below to fetch the applications table.</span>
           <ElseIf condition={status === 'loading'}>
-            <Spinner />
+            <CircularProgress sx={{ display: 'block', width: '100%', marginBottom: '20px' }} />
           </ElseIf>
           <ElseIf condition={hasApplications && status === 'idle'}>
-            <Table
-              tableData={applications}
-              typeOfData={['number', 'string', 'string', 'string', 'string', 'string', 'date']}
-              sort={true}
+            <DataGrid
+              rows={applications}
+              columns={applicationsColumns}
+              rowCount={applications.length}
+              autoHeight
+              sx={{ marginBottom: '20px' }}
             />
           </ElseIf>
         </If>
-        <Button
-          label={hasApplications ? 'Refetch applications' : 'Fetch applications'}
-          color="primary"
+        <StyledButton
+          size="large"
           variant="contained"
           onClick={handleFetchApplications}
           disabled={status === 'loading'}
-        />
+          disableElevation
+        >
+          {hasApplications ? 'Refetch applications' : 'Fetch applications'}
+        </StyledButton>
       </div>
     </ApplicationsWrapper>
   );

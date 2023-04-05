@@ -9,13 +9,11 @@ import {
   HeaderNavigationSticky,
   HeaderNavigationStickyItem,
   LogoContainer,
+  StyledTextButton,
   TitleContainer,
   TitleText,
 } from './styles';
 import { IHeaderProps } from './types';
-
-import ButtonGroup from '../ButtonGroup';
-import Button from '../Button';
 
 const Header = ({ title, logo, menu, endElement }: IHeaderProps) => {
   const { pathname } = useLocation();
@@ -45,15 +43,11 @@ const Header = ({ title, logo, menu, endElement }: IHeaderProps) => {
           </HeaderNavigationSticky>
           {/* NAVIGATION WIDE SCREENS */}
           <HeaderNavigation>
-            <ButtonGroup gap={0} inline>
-              <>
-                {menu.map((item) => (
-                  <Link to={item.path} key={item.path}>
-                    <Button label={item.label} color="primary"></Button>
-                  </Link>
-                ))}
-              </>
-            </ButtonGroup>
+            {menu.map((item, index) => (
+              <Link to={item.path} key={index}>
+                <StyledTextButton variant="text">{item.label}</StyledTextButton>
+              </Link>
+            ))}
           </HeaderNavigation>
           {/* HEADER END ELEMENT */}
           {endElement && <HeaderEndElement>{endElement}</HeaderEndElement>}

@@ -1,11 +1,12 @@
 import React from 'react';
-import { FormWrapper } from 'pages/Register/styles';
-import { Button, ButtonGroup, FormCell, Icon } from 'components';
+import { FormWrapper, StyledButton, StyledOutlinedButton } from 'pages/Register/styles';
+import { FormCell } from 'components';
 import { FormRow } from 'components/FormMain/styles';
-import { ReactComponent as IconSuccess } from 'assets/icons/icon-success.svg';
-import { lightTheme } from 'theme';
+import { theme } from 'theme';
 import { useAppDispatch } from 'store';
 import { resetRegisterFormData } from 'store/register/slice';
+
+import { CheckCircleOutline } from '@mui/icons-material';
 
 const InputFormButtons = () => {
   const dispatch = useAppDispatch();
@@ -26,22 +27,24 @@ const InputFormButtons = () => {
       <div className="content">
         <FormRow>
           <FormCell>
-            <ButtonGroup gap={20} inline wide>
-              <React.Fragment>
-                <Button label="Reset Fields" color="primary" variant="outlined" onClick={handleClickReset} />
-                <Button
-                  label="Confirm"
-                  color="primary"
-                  headIcon={
-                    <Icon fillColor={lightTheme.textWhite}>
-                      <IconSuccess />
-                    </Icon>
-                  }
-                  variant="contained"
-                  onClick={handleClickConfirm}
-                />
-              </React.Fragment>
-            </ButtonGroup>
+            <StyledOutlinedButton
+              size="large"
+              variant="outlined"
+              onClick={handleClickReset}
+              sx={{ marginRight: '20px' }}
+            >
+              Reset Fields
+            </StyledOutlinedButton>
+            <StyledButton
+              size="large"
+              variant="contained"
+              onClick={handleClickConfirm}
+              disableElevation
+              endIcon={<CheckCircleOutline sx={{ color: theme.bg.bgWhite }} />}
+              sx={{ width: '160px' }}
+            >
+              Confirm
+            </StyledButton>
           </FormCell>
         </FormRow>
       </div>

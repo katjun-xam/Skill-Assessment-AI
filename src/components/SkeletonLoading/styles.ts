@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import { keyframes, styled, css } from '@mui/material/styles';
 
 export const skeletonKeyframes = keyframes`
   0% {
@@ -9,7 +9,7 @@ export const skeletonKeyframes = keyframes`
   }
 `;
 
-export const SkeletonLoadingWrapper = styled.div`
+export const SkeletonLoadingWrapper = styled('div')`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ export const SkeletonLoadingWrapper = styled.div`
   position: relative;
 `;
 
-export const SkeletonBar = styled.div(
+export const SkeletonBar = styled('div')(
   () => css`
     display: inline-block;
     height: 18px;

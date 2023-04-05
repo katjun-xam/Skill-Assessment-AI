@@ -19,7 +19,7 @@ const SideLabelInputs = () => {
             <label htmlFor="firstname">First name</label>
           </FormCell>
           <FormCell cellWidth="85%">
-            <FormInputText name="firstName" onChange={handleChangeFieldValue} value={firstName} />
+            <FormInputText id="firstName" onChange={handleChangeFieldValue} value={firstName} />
           </FormCell>
         </FormRow>
         <FormRow>
@@ -27,7 +27,7 @@ const SideLabelInputs = () => {
             <label htmlFor="lastName">Last name</label>
           </FormCell>
           <FormCell cellWidth="85%">
-            <FormInputText name="lastName" onChange={handleChangeFieldValue} value={lastName} />
+            <FormInputText id="lastName" onChange={handleChangeFieldValue} value={lastName} />
           </FormCell>
         </FormRow>
       </div>

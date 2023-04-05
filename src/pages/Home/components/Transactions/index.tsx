@@ -2,8 +2,11 @@ import React from 'react';
 import { useAppSelector, useAppDispatch } from 'store';
 import { selectTransactions } from 'store/transactions/slice';
 import { getTransactionsAsync } from 'store/transactions/actions';
-import { TransactionsWrapper } from './styles';
-import { SkeletonLoading, Table, Button, ElseIf, If } from 'components';
+import { transactionsColumns } from './constants';
+import { StyledButton, TransactionsWrapper } from './styles';
+import { SkeletonLoading, ElseIf, If } from 'components';
+
+import { DataGrid } from '@mui/x-data-grid';
 
 const Transactions: React.FunctionComponent = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -24,20 +27,24 @@ const Transactions: React.FunctionComponent = (): JSX.Element => {
             <SkeletonLoading />
           </ElseIf>
           <ElseIf condition={hasTransactions && status === 'idle'}>
-            <Table
-              tableData={transactions}
-              typeOfData={['date', 'amount', 'amount', 'date', 'amount', 'string']}
-              sort={true}
+            <DataGrid
+              rows={transactions}
+              columns={transactionsColumns}
+              rowCount={transactions.length}
+              autoHeight
+              sx={{ marginBottom: '20px' }}
             />
           </ElseIf>
         </If>
-        <Button
-          label={hasTransactions ? 'Refetch transactions' : 'Fetch transactions'}
-          color="primary"
+        <StyledButton
+          size="large"
           variant="contained"
           onClick={handleFetchTransactions}
           disabled={status === 'loading'}
-        />
+          disableElevation
+        >
+          {hasTransactions ? 'Refetch transactions' : 'Fetch transactions'}
+        </StyledButton>
       </div>
     </TransactionsWrapper>
   );

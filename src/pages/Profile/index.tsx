@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { selectUser, updateUser } from 'store/user/slice';
-import { lightTheme } from 'theme';
-import { Avatar, Button, FormInputText, Icon, PageTitle, Table, Else, If } from 'components';
-import { ReactComponent as IconPencil } from 'assets/icons/icon-pencil.svg';
-import { ProfileSettings, ProfileWrapper } from './styles';
+import { theme } from 'theme';
+import { FormInputText, PageTitle, Table, Else, If } from 'components';
+import { ProfileSettings, ProfileWrapper, StyledButton } from './styles';
 import avatar1 from 'assets/images/avatar1.png';
+
+import { Avatar, IconButton } from '@mui/material';
+import { EditOutlined } from '@mui/icons-material';
 
 const Profile: React.FunctionComponent = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -50,14 +52,22 @@ const Profile: React.FunctionComponent = (): JSX.Element => {
       <div className="profileHeader">
         <PageTitle text="Profile" />
         <If condition={user?.isLogged}>
-          <Button label="Logout" variant="contained" color="primary" centered onClick={handleClickLogoutBtn} />
+          <StyledButton
+            variant="contained"
+            size="large"
+            onClick={handleClickLogoutBtn}
+            disableElevation
+            sx={{ width: '120px' }}
+          >
+            Logout
+          </StyledButton>
         </If>
       </div>
       <If condition={user?.status === 'idle'}>
         <If condition={user?.isLogged}>
           <ProfileSettings>
             <div>
-              <Avatar avatars={[avatar1]} variant="square" width="150px" height="150px" />
+              <Avatar src={avatar1} variant="square" sx={{ width: 150, height: 150 }} />
               <h2>{`${user.identity.firstName} ${user.identity.lastName}`}</h2>
             </div>
             <div>
@@ -68,7 +78,7 @@ const Profile: React.FunctionComponent = (): JSX.Element => {
                     text: (
                       <If condition={isEditFirstName}>
                         <FormInputText
-                          name="firstName"
+                          id="firstName"
                           value={firstName}
                           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                             setFirstName(e.target.value);
@@ -80,15 +90,9 @@ const Profile: React.FunctionComponent = (): JSX.Element => {
                       </If>
                     ),
                     icon: (
-                      <Button
-                        color="primary"
-                        startIcon={
-                          <Icon strokeColor={lightTheme.primary}>
-                            <IconPencil />
-                          </Icon>
-                        }
-                        onClick={handleToggleFirstNameField}
-                      />
+                      <IconButton onClick={handleToggleFirstNameField} sx={{ color: theme.colors.primary }}>
+                        <EditOutlined />
+                      </IconButton>
                     ),
                   },
                   {
@@ -96,7 +100,7 @@ const Profile: React.FunctionComponent = (): JSX.Element => {
                     text: (
                       <If condition={isEditLastName}>
                         <FormInputText
-                          name="lastName"
+                          id="lastName"
                           value={lastName}
                           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                             setLastName(e.target.value);
@@ -108,30 +112,25 @@ const Profile: React.FunctionComponent = (): JSX.Element => {
                       </If>
                     ),
                     icon: (
-                      <Button
-                        color="primary"
-                        startIcon={
-                          <Icon strokeColor={lightTheme.primary}>
-                            <IconPencil />
-                          </Icon>
-                        }
-                        onClick={handleToggleLastNameField}
-                      />
+                      <IconButton onClick={handleToggleLastNameField} sx={{ color: theme.colors.primary }}>
+                        <EditOutlined />
+                      </IconButton>
                     ),
                   },
                 ]}
                 labels={true}
                 columnWidth={['40%', '40%', '20%']}
               />
-              <Button
-                label="Save Changes"
+              <StyledButton
                 variant="contained"
-                color="primary"
-                centered
-                wide
+                size="large"
                 onClick={handleClickSaveChanges}
                 disabled={isDisabledSaveBtn}
-              />
+                fullWidth
+                disableElevation
+              >
+                Save changes
+              </StyledButton>
             </div>
           </ProfileSettings>
           <Else>

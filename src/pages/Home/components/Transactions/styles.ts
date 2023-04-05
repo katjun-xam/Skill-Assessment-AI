@@ -1,8 +1,10 @@
-import styled, { css } from 'styled-components';
+import { styled } from '@mui/material/styles';
 
-export const TransactionsWrapper = styled.div(
-  (props) => css`
-    background-color: ${props.theme.bgWhite};
+import { Button } from '@mui/material';
+
+export const TransactionsWrapper = styled('div')(
+  ({ theme }) => `
+    background-color: ${theme.bg.bgWhite};
     border: 1px solid #dfe3e6;
     border-radius: 4px;
 
@@ -18,9 +20,21 @@ export const TransactionsWrapper = styled.div(
 
       .guidanceText {
         display: block;
-        color: ${props.theme.textExtraDark};
+        color: ${theme.text.textExtraDark};
         margin-bottom: 12px;
       }
+    }
+  `,
+);
+
+export const StyledButton = styled(Button)(
+  ({ theme }) => `
+    background-color: ${theme.colors.primary};
+    text-transform: none;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: ${theme.colors.primaryAccent};
     }
   `,
 );

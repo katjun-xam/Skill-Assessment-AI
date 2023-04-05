@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { PokemonSearchWrapper, SearchResults } from './styles';
-import { CallOut, FormCell, FormInputText, Button, ElseIf, If } from 'components';
+import { PokemonSearchWrapper, SearchResults, StyledButton } from './styles';
+import { CallOut, FormCell, FormInputText, ElseIf, If } from 'components';
 import { FormRow } from 'components/FormMain/styles';
 import { isNotEmptyString } from 'utils/helpers/strings';
 import { useGetPokemonByNameQuery } from 'store/api/pokemon/api';
@@ -37,24 +37,24 @@ const PokemonSearch: React.FunctionComponent = (): JSX.Element => {
           <br />
           We can integrate existing endpoints easily by using powerful data fetching and caching tools like RTK Query
           and etc.
+          <br />
+          <br />
+          Search for a pokemon by typing it's name or dex #. (e.g: pikachu, bulbasaur, 1, 4)
         </span>
         <FormRow>
           <FormCell cellWidth="70%">
-            <FormInputText
-              name="pokemonName"
-              onChange={handlePokemonNameChange}
-              value={pokemonName}
-              label="Search for a pokemon by typing it's name or dex #. (e.g: pikachu, bulbasaur, 1, 4)"
-            />
+            <FormInputText id="pokemonName" onChange={handlePokemonNameChange} value={pokemonName} />
           </FormCell>
         </FormRow>
-        <Button
-          label={isFetching ? 'Searching pokemon...' : 'Search Pokemon'}
-          color="primary"
+        <StyledButton
+          size="large"
           variant="contained"
           onClick={handleSearchPokemon}
           disabled={!isNotEmptyString(pokemonName) || isFetching}
-        />
+          disableElevation
+        >
+          {isFetching ? 'Searching pokemon...' : 'Search Pokemon'}
+        </StyledButton>
         <If condition={!isEmptyObject(data)}>
           <SearchResults>
             <If condition={!isEmptyObject(error)}>

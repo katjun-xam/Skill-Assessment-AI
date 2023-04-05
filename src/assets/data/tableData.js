@@ -14,6 +14,7 @@ export const personDetails = [
 
 export const repaymentDetails = [
   {
+    id: 1,
     repaymentDate: '2021-12-21T00:00:00.000Z',
     repaymentAmount: 252.0,
     fees: 5.07,
@@ -22,6 +23,7 @@ export const repaymentDetails = [
     Status: 'Scheduled',
   },
   {
+    id: 2,
     repaymentDate: '2020-04-13T00:00:00.000Z',
     repaymentAmount: 252.0,
     fees: 5.07,
@@ -30,6 +32,7 @@ export const repaymentDetails = [
     Status: 'Scheduled',
   },
   {
+    id: 3,
     repaymentDate: '2021-05-21T00:00:00.000Z',
     repaymentAmount: 3152.0,
     fees: 50.2,
@@ -38,6 +41,7 @@ export const repaymentDetails = [
     Status: 'Cancelled',
   },
   {
+    id: 4,
     repaymentDate: '2021-02-13T00:00:00.000Z',
     repaymentAmount: 252.0,
     fees: 5.07,
@@ -46,6 +50,7 @@ export const repaymentDetails = [
     Status: 'Scheduled',
   },
   {
+    id: 5,
     repaymentDate: '2021-07-19T00:00:00.000Z',
     repaymentAmount: 252.0,
     fees: 15.07,
@@ -54,6 +59,7 @@ export const repaymentDetails = [
     Status: 'Cancelled',
   },
   {
+    id: 6,
     repaymentDate: '2021-05-15T00:00:00.000Z',
     repaymentAmount: 52.0,
     fees: 5.07,

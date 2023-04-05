@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import {
   ScrollContainer,
   TableBody,
@@ -9,13 +7,7 @@ import {
   TableHeaderCell,
   TableRow,
 } from './styles';
-import { ITableData, ITableProps } from './types';
-import { ReactComponent as IconSort } from 'assets/icons/icon-sort.svg';
-
-let sortValue: string;
-const triggerValues: string[] = [];
-let date: boolean;
-let sortedData: ITableData[];
+import { ITableProps } from './types';
 
 const Table = ({
   tableData,
@@ -25,78 +17,8 @@ const Table = ({
   headers,
   labels,
   alignment,
-  sort,
   background,
 }: ITableProps) => {
-  const [sortData, setSortData] = useState({
-    asc: false,
-    desc: false,
-  });
-
-  if (sort) {
-    sortedData = [...tableData];
-    sortedData.sort(function (a, b) {
-      const valA = a[sortValue];
-      const valB = b[sortValue];
-      const index = Object.keys(tableData[0]).findIndex((key) => tableData[0][key] === sortValue);
-      if (typeOfData) {
-        if (typeOfData[index] === 'date') {
-          date = true;
-        }
-      }
-      if (date) {
-        if (new Date(valA) < new Date(valB)) {
-          if ((!sortData.asc && !sortData.desc) || sortData.asc) {
-            return -1;
-          } else if (sortData.desc) {
-            return 1;
-          }
-        }
-        if (new Date(valA) > new Date(valB)) {
-          if ((!sortData.asc && !sortData.desc) || sortData.asc) {
-            return 1;
-          } else if (sortData.desc) {
-            return -1;
-          }
-        }
-        return 0;
-      } else {
-        if (valA < valB) {
-          if ((!sortData.asc && !sortData.desc) || sortData.asc) {
-            return -1;
-          } else if (sortData.desc) {
-            return 1;
-          }
-        }
-        if (valA > valB) {
-          if ((!sortData.asc && !sortData.desc) || sortData.asc) {
-            return 1;
-          } else if (sortData.desc) {
-            return -1;
-          }
-        }
-        return 0;
-      }
-    });
-  }
-
-  const handleSort = (sortOnValue: string) => {
-    if (headers) {
-      sortValue = Object.keys(tableData[0])[headers.indexOf(sortOnValue)];
-    } else {
-      sortValue = sortOnValue;
-    }
-    triggerValues.push(sortValue);
-
-    if (sortValue && !triggerValues[triggerValues.length - 2]) {
-      setSortData({ ...sortData, asc: !sortData.asc });
-    } else if (sortValue && triggerValues[triggerValues.length - 1] === triggerValues[triggerValues.length - 2]) {
-      setSortData({ ...sortData, asc: !sortData.asc, desc: !sortData.desc });
-    } else if (sortValue && triggerValues[triggerValues.length - 1] !== triggerValues[triggerValues.length - 2]) {
-      setSortData({ ...sortData, asc: true, desc: false });
-    }
-  };
-
   return (
     <ScrollContainer>
       <TableContainer width={width} alignment={alignment}>
@@ -105,15 +27,9 @@ const Table = ({
             <TableRow>
               {(headers ? headers : Object.keys(tableData[0])).map((item, index) => {
                 return (
-                  <TableHeaderCell
-                    key={index}
-                    width={columnWidth && columnWidth[index]}
-                    sortType={sortData.asc ? 'asc' : sortData.desc ? 'desc' : ''}
-                    onClick={() => handleSort(item)}
-                  >
+                  <TableHeaderCell key={index} width={columnWidth && columnWidth[index]}>
                     <div>
                       <span>{item.replace(/([A-Z])/g, ' $1').trim()}</span>
-                      <span>{sort && <IconSort />}</span>
                     </div>
                   </TableHeaderCell>
                 );
@@ -122,7 +38,7 @@ const Table = ({
           </TableHeader>
         )}
         <TableBody bgColor={background}>
-          {(sort ? sortedData : tableData).map((item, index) => {
+          {tableData.map((item, index) => {
             return (
               <TableRow key={index} withLabels={labels}>
                 {labels

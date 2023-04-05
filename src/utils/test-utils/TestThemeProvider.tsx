@@ -1,13 +1,13 @@
-import { lightTheme } from '../../theme';
+import { theme } from '../../theme';
 
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@mui/material/styles';
 
 type TestThemeProviderProps = {
   children: JSX.Element;
 };
 
 const TestThemeProvider = ({ children }: TestThemeProviderProps) => {
-  return <ThemeProvider theme={lightTheme}>{children}</ThemeProvider>;
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
 export default TestThemeProvider;

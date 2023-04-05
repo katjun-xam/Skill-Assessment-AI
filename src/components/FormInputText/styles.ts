@@ -1,60 +1,46 @@
-import styled, { css } from 'styled-components';
+import { styled, css } from '@mui/material/styles';
+import { TextField } from '@mui/material';
 
-import { FormInputTextProps } from './types';
+export const StyledTextInput = styled(TextField)<{ isFloatingLabel?: boolean }>(
+  ({ isFloatingLabel = false, theme }) => `
+  width: 100%;
+  background-color: ${theme.bg.bgWhite};
+  border-radius: 8px !important;
 
-export const Label = styled.label<Pick<FormInputTextProps, 'floatingLabel'>>`
-  display: block;
-  font-size: 1rem;
-  transition: all 0.2s ease-in-out;
+  input {
+    height: 16px;
+    line-height: 16px;
+    font-size: 16px !important;
+    color: #001f2a;
 
-  ${({ floatingLabel, theme }) => {
-    if (floatingLabel)
-      return css`
-      position: absolute;
-      top: 19px;
-      left: 20px;
-    `;
-    else
-      return css`
-      color: ${theme.textExtraDark};
-      margin-bottom: 10px;
-    `;
-  }}
-`;
+    &::placeholder {
+      color: #72787e;
+      opacity: 1;
+    }
+  }
 
-export const Field = styled.input<Pick<FormInputTextProps, 'hasError'>>(
-  (props) => css`
-    flex: 1 0 auto;
-    width: auto;
-    border: 1px solid ${props.theme.bgDark};
-    border-radius: ${props.theme.borderRadiusMd};
-    padding: 15px 16px;
-    color: ${props.theme.textExtraDark};
-    font-size: 1rem;
-    &:focus {
-      outline: none;
-      border: 1px solid ${props.theme.primary};
+  .MuiOutlinedInput-root,.MuiPaper-root-MuiDialog-paper {
+    border-radius: 8px !important;
+  }
+
+  .MuiOutlinedInput-root {
+    &.Mui-focused fieldset {
+      border-color: ${theme.colors.primary};
+    }
+  }
+
+  & label.Mui-focused {
+    color: ${theme.colors.primary};
+  }
+
+  ${!isFloatingLabel && css`
+    & legend {
+      display: none;
     }
 
-    ${props.hasError && `border: 2px solid ${props.theme.error};`}
-  `
-);
-
-export const FormInputTextContainer = styled.div<Pick<FormInputTextProps, 'floatingLabel'>>(
-  (props) => css`
-    display: flex;
-    position: relative;
-    width: 100%;
-    padding: 4px;
-
-    ${!props.floatingLabel && 'flex-direction: column;'}
-    ${Field}:focus + ${Label} {
-      top: 5px;
-      font-size: 9px;
+    & fieldset {
+      top: 0;
     }
-    ${Field}:not(:placeholder-shown) + ${Label} {
-      top: 5px;
-      font-size: 9px;
-    }
-  `
+  `}
+`
 );

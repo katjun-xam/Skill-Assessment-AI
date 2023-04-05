@@ -9,7 +9,7 @@ const useHandleChangeFieldValue = (): ((e: React.ChangeEvent<HTMLInputElement>) 
     dispatch(
       setRegisterFormData({
         ...registerFormData,
-        [e.target.name]: e.target.value,
+        [e.target.id]: e.target.value,
       }),
     );
   };
