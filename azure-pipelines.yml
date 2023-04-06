@@ -23,6 +23,6 @@ steps:
   displayName: 'Install modules and build the app'
 - task: AzureStaticWebApp@0
   inputs:
-    app_location: '.'
+    app_location: './build'
     skip_app_build: true
     azure_static_web_apps_api_token: '30288ccd79260ed9a8ed10b9d2aa301eed4eec7b0fd130616950ff38784f78a51-c74857d0-0afb-4014-b85c-a5ecccd5ba8200021925'
