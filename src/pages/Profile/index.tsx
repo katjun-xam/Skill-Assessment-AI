@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { selectUser, updateUser } from 'store/user/slice';
 import { theme } from 'theme';
-import { FormInputText, PageTitle, Table, Else, If } from 'components';
-import { ProfileSettings, ProfileWrapper, StyledButton } from './styles';
+import { FormInputText, PageTitle, Else, If } from 'components';
+import { CellDiv, ProfileSettings, ProfileWrapper, RowDiv, StyledButton } from './styles';
 import avatar1 from 'assets/images/avatar1.png';
 
 import { Avatar, IconButton } from '@mui/material';
@@ -71,56 +71,52 @@ const Profile: React.FunctionComponent = (): JSX.Element => {
               <h2>{`${user.identity.firstName} ${user.identity.lastName}`}</h2>
             </div>
             <div>
-              <Table
-                tableData={[
-                  {
-                    label: 'First Name',
-                    text: (
-                      <If condition={isEditFirstName}>
-                        <FormInputText
-                          id="firstName"
-                          value={firstName}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                            setFirstName(e.target.value);
-                          }}
-                        />
-                        <Else>
-                          <span>{firstName}</span>
-                        </Else>
-                      </If>
-                    ),
-                    icon: (
-                      <IconButton onClick={handleToggleFirstNameField} sx={{ color: theme.colors.primary }}>
-                        <EditOutlined />
-                      </IconButton>
-                    ),
-                  },
-                  {
-                    label: 'Last Name',
-                    text: (
-                      <If condition={isEditLastName}>
-                        <FormInputText
-                          id="lastName"
-                          value={lastName}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                            setLastName(e.target.value);
-                          }}
-                        />
-                        <Else>
-                          <span>{lastName}</span>
-                        </Else>
-                      </If>
-                    ),
-                    icon: (
-                      <IconButton onClick={handleToggleLastNameField} sx={{ color: theme.colors.primary }}>
-                        <EditOutlined />
-                      </IconButton>
-                    ),
-                  },
-                ]}
-                labels={true}
-                columnWidth={['40%', '40%', '20%']}
-              />
+              <div style={{ marginBottom: '12px' }}>
+                <RowDiv isFirstRow={true}>
+                  <CellDiv isHeader={true}>First Name</CellDiv>
+                  <CellDiv>
+                    <If condition={isEditFirstName}>
+                      <FormInputText
+                        id="firstName"
+                        value={firstName}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                          setFirstName(e.target.value);
+                        }}
+                      />
+                      <Else>
+                        <span>{firstName}</span>
+                      </Else>
+                    </If>
+                  </CellDiv>
+                  <CellDiv isButton={true}>
+                    <IconButton onClick={handleToggleFirstNameField} sx={{ color: theme.colors.primary }}>
+                      <EditOutlined />
+                    </IconButton>
+                  </CellDiv>
+                </RowDiv>
+                <RowDiv>
+                  <CellDiv isHeader={true}>Last Name</CellDiv>
+                  <CellDiv>
+                    <If condition={isEditLastName}>
+                      <FormInputText
+                        id="lastName"
+                        value={lastName}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                          setLastName(e.target.value);
+                        }}
+                      />
+                      <Else>
+                        <span>{lastName}</span>
+                      </Else>
+                    </If>
+                  </CellDiv>
+                  <CellDiv isButton={true}>
+                    <IconButton onClick={handleToggleLastNameField} sx={{ color: theme.colors.primary }}>
+                      <EditOutlined />
+                    </IconButton>
+                  </CellDiv>
+                </RowDiv>
+              </div>
               <StyledButton
                 variant="contained"
                 size="large"
