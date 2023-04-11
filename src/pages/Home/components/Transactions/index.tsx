@@ -4,8 +4,9 @@ import { selectTransactions } from 'store/transactions/slice';
 import { getTransactionsAsync } from 'store/transactions/actions';
 import { transactionsColumns } from './constants';
 import { StyledButton, TransactionsWrapper } from './styles';
-import { SkeletonLoading, ElseIf, If } from 'components';
+import { ElseIf, If } from 'components';
 
+import { Skeleton } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 const Transactions: React.FunctionComponent = (): JSX.Element => {
@@ -24,7 +25,10 @@ const Transactions: React.FunctionComponent = (): JSX.Element => {
         <If condition={!hasTransactions && status === 'idle'}>
           <span className="guidanceText">Click the button below to fetch the applications table.</span>
           <ElseIf condition={status === 'loading'}>
-            <SkeletonLoading />
+            <Skeleton variant="text" animation="wave" sx={{ fontSize: '20px' }} />
+            <Skeleton variant="text" animation="wave" sx={{ fontSize: '20px' }} />
+            <Skeleton variant="text" animation="wave" sx={{ fontSize: '20px' }} />
+            <Skeleton variant="text" animation="wave" sx={{ fontSize: '20px' }} />
           </ElseIf>
           <ElseIf condition={hasTransactions && status === 'idle'}>
             <DataGrid

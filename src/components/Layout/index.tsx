@@ -7,7 +7,7 @@ import { ILayoutProps } from './types';
 import { FormRow } from 'components/FormMain/styles';
 import { ReactComponent as Logo } from 'assets/logo.svg';
 import { theme } from 'theme';
-import { FormCell, FormInputText, FormMain, Header, Modal } from 'components';
+import { FormCell, FormInputText, FormMain, Header, LoginDialog } from 'components';
 import { isNotEmptyString } from 'utils/helpers/strings';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,12 +23,10 @@ const Layout = ({ children }: ILayoutProps) => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
-  const onModalSubmitHandler = (action: string) => {
-    if (action === 'confirm' || action === 'close') {
-      setIsShowModal(false);
-      setUserName('');
-      setPassword('');
-    }
+  const onModalClose = () => {
+    setIsShowModal(false);
+    setUserName('');
+    setPassword('');
   };
 
   const headerMenu = [
@@ -134,15 +132,7 @@ const Layout = ({ children }: ILayoutProps) => {
           )
         }
       />
-      {isShowModal && (
-        <Modal
-          heading="Login"
-          content={renderModalContent()}
-          animationType="grow"
-          onSubmit={onModalSubmitHandler}
-          modalFooter={false}
-        />
-      )}
+      <LoginDialog isOpen={isShowModal} title="Login" content={renderModalContent()} onClose={onModalClose} />
       <PageContainer>{children}</PageContainer>
     </React.Fragment>
   );

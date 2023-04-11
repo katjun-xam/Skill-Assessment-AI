@@ -13,7 +13,7 @@ export const Title = styled('div')(
     justify-content: space-between;
     align-items: baseline;
     font-size: 23px;
-    font-weight: 300;
+    font-weight: 400;
     color: ${theme.colors.primary};
     @media all and (min-width: ${theme.breakpoints.md}) {
       flex-direction: row;

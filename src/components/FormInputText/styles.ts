@@ -33,7 +33,7 @@ export const StyledTextInput = styled(TextField)<{ isFloatingLabel?: boolean }>(
     color: ${theme.colors.primary};
   }
 
-  ${!isFloatingLabel && css`
+  ${!isFloatingLabel ? css`
     & legend {
       display: none;
     }
@@ -41,6 +41,6 @@ export const StyledTextInput = styled(TextField)<{ isFloatingLabel?: boolean }>(
     & fieldset {
       top: 0;
     }
-  `}
+  ` : ''}
 `
 );

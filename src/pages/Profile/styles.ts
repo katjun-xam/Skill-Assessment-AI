@@ -56,3 +56,28 @@ export const StyledButton = styled(Button)(
     }
   `,
 );
+
+export const RowDiv = styled('div')<{ isFirstRow?: boolean }>(
+  ({ isFirstRow = false }) => `
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    ${isFirstRow ? `border-bottom: 1px solid #DFE3E6;` : ''}
+`
+);
+
+export const CellDiv = styled('div')<{ isButton?: boolean, isHeader?: boolean }>(
+  ({ isButton = false, isHeader = false, theme }) => `
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 10px ${isHeader ? '40px' : '10px'};
+  font-size: 16px;
+  width: ${isButton ? '20%' : '40%' };
+  ${isButton ? `justify-content: end;` : ''}
+  ${isHeader ? `
+    color: ${theme.colors.primary};
+    font-weight: bold;
+  ` : ''}
+`
+);
