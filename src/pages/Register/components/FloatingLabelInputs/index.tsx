@@ -3,11 +3,14 @@ import { FormWrapper } from 'pages/Register/styles';
 import { FormCell, FormInputText } from 'components';
 import { FormRow } from 'components/FormMain/styles';
 import { selectRegisterState } from 'store/register/slice';
+import { IUnknown } from 'components/FormInputText';
 import useHandleChangeFieldValue from '../../hooks/useHandleChangeFieldValue';
+import { useForm, UseFormRegister } from 'react-hook-form';
 
 const FloatingLabelInputs = () => {
   const { registerFormData } = useAppSelector(selectRegisterState);
   const { email, address } = registerFormData;
+  const { register } = useForm({ defaultValues: { email, address } });
   const handleChangeFieldValue = useHandleChangeFieldValue();
 
   return (
@@ -16,12 +19,24 @@ const FloatingLabelInputs = () => {
       <div className="content">
         <FormRow>
           <FormCell cellWidth="100%">
-            <FormInputText id="email" onChange={handleChangeFieldValue} value={email} label="E-mail" />
+            <FormInputText
+              id="email"
+              register={register as unknown as UseFormRegister<Partial<IUnknown>>}
+              onChange={handleChangeFieldValue}
+              value={email}
+              label="E-mail"
+            />
           </FormCell>
         </FormRow>
         <FormRow>
           <FormCell cellWidth="100%">
-            <FormInputText id="address" onChange={handleChangeFieldValue} value={address} label="Residential address" />
+            <FormInputText
+              id="address"
+              register={register as unknown as UseFormRegister<Partial<IUnknown>>}
+              onChange={handleChangeFieldValue}
+              value={address}
+              label="Residential address"
+            />
           </FormCell>
         </FormRow>
       </div>

@@ -1,7 +1,9 @@
 import { styled, css } from '@mui/material/styles';
 import { TextField } from '@mui/material';
 
-export const StyledTextInput = styled(TextField)<{ isFloatingLabel?: boolean }>(
+export const StyledTextInput = styled(TextField, {
+  shouldForwardProp: (prop) => prop !== 'register' && prop !== 'isFloatingLabel'
+})<{ isFloatingLabel?: boolean }>(
   ({ isFloatingLabel = false, theme }) => `
   width: 100%;
   background-color: ${theme.bg.bgWhite};

@@ -5,10 +5,12 @@ import { FormRow } from 'components/FormMain/styles';
 import { isNotEmptyString } from 'utils/helpers/strings';
 import { useGetPokemonByNameQuery } from 'store/api/pokemon/api';
 import { isEmptyObject } from 'utils/helpers/objects';
+import { useForm } from 'react-hook-form';
 
 const PokemonSearch: React.FunctionComponent = (): JSX.Element => {
   const [pokemonName, setPokemonName] = useState<string>('');
   const [nameParam, setNameParam] = useState<string>('');
+  const { register } = useForm();
 
   // query hook
   const { data, isFetching, error } = useGetPokemonByNameQuery(nameParam, {
@@ -43,7 +45,12 @@ const PokemonSearch: React.FunctionComponent = (): JSX.Element => {
         </span>
         <FormRow>
           <FormCell cellWidth="70%">
-            <FormInputText id="pokemonName" onChange={handlePokemonNameChange} value={pokemonName} />
+            <FormInputText
+              id="pokemonName"
+              register={register}
+              onChange={handlePokemonNameChange}
+              value={pokemonName}
+            />
           </FormCell>
         </FormRow>
         <StyledButton

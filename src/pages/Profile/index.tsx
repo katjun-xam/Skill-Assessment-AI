@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { selectUser, updateUser } from 'store/user/slice';
+import { IUnknown } from 'components/FormInputText';
 import { theme } from 'theme';
 import { FormInputText, PageTitle, Else, If } from 'components';
 import { CellDiv, ProfileSettings, ProfileWrapper, RowDiv, StyledButton } from './styles';
 import avatar1 from 'assets/images/avatar1.png';
+import { useForm, UseFormRegister } from 'react-hook-form';
 
 import { Avatar, IconButton } from '@mui/material';
 import { EditOutlined } from '@mui/icons-material';
@@ -17,6 +19,7 @@ const Profile: React.FunctionComponent = (): JSX.Element => {
   const [isEditFirstName, setIsEditFirstName] = useState<boolean>(false);
   const [isEditLastName, setIsEditLastName] = useState<boolean>(false);
   const isDisabledSaveBtn: boolean = firstName === user.identity.firstName && lastName === user.identity.lastName;
+  const { register } = useForm({ defaultValues: { firstName, lastName } });
 
   const handleClickLogoutBtn = (): void => {
     window.location.reload();
@@ -82,6 +85,7 @@ const Profile: React.FunctionComponent = (): JSX.Element => {
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                           setFirstName(e.target.value);
                         }}
+                        register={register as unknown as UseFormRegister<Partial<IUnknown>>}
                       />
                       <Else>
                         <span>{firstName}</span>
@@ -104,6 +108,7 @@ const Profile: React.FunctionComponent = (): JSX.Element => {
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                           setLastName(e.target.value);
                         }}
+                        register={register as unknown as UseFormRegister<Partial<IUnknown>>}
                       />
                       <Else>
                         <span>{lastName}</span>

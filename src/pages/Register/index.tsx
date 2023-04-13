@@ -6,10 +6,11 @@ import SideLabelInputs from './components/SideLabelInputs';
 import FloatingLabelInputs from './components/FloatingLabelInputs';
 import GridInputs from './components/GridInputs';
 import InputFormButtons from './components/InputFormButtons';
+import { useForm } from 'react-hook-form';
 
 const Register: React.FunctionComponent = (): JSX.Element => {
+  const { handleSubmit } = useForm();
   const formSubmitHandler = (e: React.FormEvent): void => {
-    e.preventDefault();
     alert('Form Submitted!');
   };
 

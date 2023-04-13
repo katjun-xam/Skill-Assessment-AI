@@ -38,10 +38,11 @@ const InputFormButtons = () => {
             <StyledButton
               size="large"
               variant="contained"
-              onClick={handleClickConfirm}
+              // onClick={handleClickConfirm}
               disableElevation
               endIcon={<CheckCircleOutline sx={{ color: theme.bg.bgWhite }} />}
               sx={{ width: '160px' }}
+              type="submit"
             >
               Confirm
             </StyledButton>
