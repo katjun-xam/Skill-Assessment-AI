@@ -3,7 +3,7 @@ import { FormWrapper, StyledButton } from 'pages/Register/styles';
 import { FormCell, FormInputText } from 'components';
 import { FormRow } from 'components/FormMain/styles';
 import { selectRegisterState } from 'store/register/slice';
-import { IUnknown } from 'components/FormInputText';
+import { IUnknown } from 'components/FormInputText/types';
 import { theme } from 'theme';
 import useHandleChangeFieldValue from '../../hooks/useHandleChangeFieldValue';
 import { useFormContext, UseFormRegister } from 'react-hook-form';

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { selectUser, updateUser } from 'store/user/slice';
-import { IUnknown } from 'components/FormInputText';
+import { IUnknown } from 'components/FormInputText/types';
 import { theme } from 'theme';
 import { FormInputText, PageTitle, Else, If } from 'components';
 import { CellDiv, ProfileSettings, ProfileWrapper, RowDiv, StyledButton } from './styles';
