@@ -10,7 +10,6 @@ import { theme } from 'theme';
 import { FormCell, FormInputText, FormMain, Header, LoginDialog } from 'components';
 import { isNotEmptyString } from 'utils/helpers/strings';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
 
 import { Avatar } from '@mui/material';
 import { Person } from '@mui/icons-material';
@@ -19,7 +18,6 @@ const Layout = ({ children }: ILayoutProps) => {
   const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
   const navigate = useNavigate();
-  const { register } = useForm();
 
   const [isShowModal, setIsShowModal] = useState(false);
   const [userName, setUserName] = useState('');
@@ -74,7 +72,7 @@ const Layout = ({ children }: ILayoutProps) => {
         </div>
         <FormRow>
           <FormCell>
-            <FormInputText id="username" register={register} onChange={handleChangeUserName} value={userName} />
+            <FormInputText id="username" onChange={handleChangeUserName} value={userName} />
           </FormCell>
         </FormRow>
         <div style={{ marginTop: '12px', marginBottom: '12px' }}>
@@ -82,7 +80,7 @@ const Layout = ({ children }: ILayoutProps) => {
         </div>
         <FormRow>
           <FormCell>
-            <FormInputText id="password" register={register} onChange={handleChangePassword} value={password} />
+            <FormInputText id="password" onChange={handleChangePassword} value={password} />
           </FormCell>
         </FormRow>
         <FormRow>

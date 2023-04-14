@@ -10,14 +10,15 @@ export interface IUnknown {
 }
 
 type IFormInputText = Partial<TextFieldProps> & {
-  register: UseFormRegister<Partial<IUnknown>>;
+  register?: UseFormRegister<Partial<IUnknown>>;
   id: string;
 };
 
 const FormInputText = (props: IFormInputText) => {
   const { id, register } = props;
+  const registerValues = register ? { ...register(id) } : {};
 
-  return <StyledTextInput {...register(id)} {...props} sx={{ color: theme.colors.primaryAccent }} />;
+  return <StyledTextInput {...registerValues} {...props} sx={{ color: theme.colors.primaryAccent }} />;
 };
 
 export default FormInputText;

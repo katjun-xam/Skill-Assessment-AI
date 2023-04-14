@@ -5,12 +5,12 @@ import { FormRow } from 'components/FormMain/styles';
 import { selectRegisterState } from 'store/register/slice';
 import { IUnknown } from 'components/FormInputText';
 import useHandleChangeFieldValue from '../../hooks/useHandleChangeFieldValue';
-import { useForm, UseFormRegister } from 'react-hook-form';
+import { useFormContext, UseFormRegister } from 'react-hook-form';
 
 const FloatingLabelInputs = () => {
   const { registerFormData } = useAppSelector(selectRegisterState);
   const { email, address } = registerFormData;
-  const { register } = useForm({ defaultValues: { email, address } });
+  const { register } = useFormContext();
   const handleChangeFieldValue = useHandleChangeFieldValue();
 
   return (

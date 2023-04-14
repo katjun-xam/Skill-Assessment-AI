@@ -6,7 +6,7 @@ import { selectRegisterState } from 'store/register/slice';
 import { IUnknown } from 'components/FormInputText';
 import { theme } from 'theme';
 import useHandleChangeFieldValue from '../../hooks/useHandleChangeFieldValue';
-import { useForm, UseFormRegister, useWatch } from 'react-hook-form';
+import { useFormContext, UseFormRegister } from 'react-hook-form';
 
 import { Search } from '@mui/icons-material';
 
@@ -33,29 +33,7 @@ const GridInputs = () => {
     lastName9,
     address,
   } = registerFormData;
-  const { control, register } = useForm({
-    defaultValues: {
-      firstName1,
-      firstName2,
-      firstName3,
-      firstName4,
-      firstName5,
-      firstName6,
-      firstName7,
-      firstName8,
-      firstName9,
-      middleName3,
-      middleName6,
-      middleName9,
-      lastName2,
-      lastName3,
-      lastName5,
-      lastName6,
-      lastName8,
-      lastName9,
-      address,
-    },
-  });
+  const { register } = useFormContext();
   const handleChangeFieldValue = useHandleChangeFieldValue();
 
   const handleClickSearchAddress = (e: React.MouseEvent<HTMLButtonElement>): void => {
