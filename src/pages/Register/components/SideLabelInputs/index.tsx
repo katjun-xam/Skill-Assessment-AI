@@ -3,11 +3,14 @@ import { FormWrapper } from 'pages/Register/styles';
 import { FormCell, FormInputText } from 'components';
 import { FormRow } from 'components/FormMain/styles';
 import { selectRegisterState } from 'store/register/slice';
+import { IUnknown } from 'components/FormInputText/types';
 import useHandleChangeFieldValue from '../../hooks/useHandleChangeFieldValue';
+import { useFormContext, UseFormRegister } from 'react-hook-form';
 
 const SideLabelInputs = () => {
   const { registerFormData } = useAppSelector(selectRegisterState);
   const { firstName, lastName } = registerFormData;
+  const { register } = useFormContext();
   const handleChangeFieldValue = useHandleChangeFieldValue();
 
   return (
@@ -19,7 +22,12 @@ const SideLabelInputs = () => {
             <label htmlFor="firstname">First name</label>
           </FormCell>
           <FormCell cellWidth="85%">
-            <FormInputText id="firstName" onChange={handleChangeFieldValue} value={firstName} />
+            <FormInputText
+              id="firstName"
+              register={register as unknown as UseFormRegister<Partial<IUnknown>>}
+              onChange={handleChangeFieldValue}
+              value={firstName}
+            />
           </FormCell>
         </FormRow>
         <FormRow>
@@ -27,7 +35,12 @@ const SideLabelInputs = () => {
             <label htmlFor="lastName">Last name</label>
           </FormCell>
           <FormCell cellWidth="85%">
-            <FormInputText id="lastName" onChange={handleChangeFieldValue} value={lastName} />
+            <FormInputText
+              id="lastName"
+              register={register as unknown as UseFormRegister<Partial<IUnknown>>}
+              onChange={handleChangeFieldValue}
+              value={lastName}
+            />
           </FormCell>
         </FormRow>
       </div>

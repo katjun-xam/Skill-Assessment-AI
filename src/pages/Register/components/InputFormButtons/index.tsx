@@ -11,11 +11,6 @@ import { CheckCircleOutline } from '@mui/icons-material';
 const InputFormButtons = () => {
   const dispatch = useAppDispatch();
 
-  const handleClickConfirm = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    e.preventDefault();
-    alert('Thank you for confirming!');
-  };
-
   const handleClickReset = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.preventDefault();
     dispatch(resetRegisterFormData());
@@ -38,10 +33,10 @@ const InputFormButtons = () => {
             <StyledButton
               size="large"
               variant="contained"
-              onClick={handleClickConfirm}
               disableElevation
               endIcon={<CheckCircleOutline sx={{ color: theme.bg.bgWhite }} />}
               sx={{ width: '160px' }}
+              type="submit"
             >
               Confirm
             </StyledButton>

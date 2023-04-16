@@ -6,10 +6,14 @@ import SideLabelInputs from './components/SideLabelInputs';
 import FloatingLabelInputs from './components/FloatingLabelInputs';
 import GridInputs from './components/GridInputs';
 import InputFormButtons from './components/InputFormButtons';
+import { FormProvider, useForm } from 'react-hook-form';
+import { useAppSelector } from 'store';
+import { selectRegisterState } from 'store/register/slice';
 
 const Register: React.FunctionComponent = (): JSX.Element => {
-  const formSubmitHandler = (e: React.FormEvent): void => {
-    e.preventDefault();
+  const { registerFormData } = useAppSelector(selectRegisterState);
+  const methods = useForm({ defaultValues: { ...registerFormData } });
+  const formSubmitHandler = (): void => {
     alert('Form Submitted!');
   };
 
@@ -17,13 +21,15 @@ const Register: React.FunctionComponent = (): JSX.Element => {
     <RegisterWrapper>
       <PageTitle text="Register" />
       <RegisterForm>
-        <FormMain onSubmit={formSubmitHandler}>
-          <StandardInputs />
-          <SideLabelInputs />
-          <FloatingLabelInputs />
-          <GridInputs />
-          <InputFormButtons />
-        </FormMain>
+        <FormProvider {...methods}>
+          <FormMain onSubmit={methods.handleSubmit(formSubmitHandler)}>
+            <StandardInputs />
+            <SideLabelInputs />
+            <FloatingLabelInputs />
+            <GridInputs />
+            <InputFormButtons />
+          </FormMain>
+        </FormProvider>
       </RegisterForm>
     </RegisterWrapper>
   );
